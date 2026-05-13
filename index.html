@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <img src="/asset/logo.png" alt="Vibe Clothing Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">VIBE</span>
+          <span class="logo-sub">CLOTHING COMPANY</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#services" class="nav-link">Products</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#" class="nav-link">Clients</a></li>
+        <li><a href="#footer" class="nav-link">Contact Us</a></li>
+        <li><a href="#" class="nav-link">Shop</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#footer" class="btn-quote">GET A QUOTE <span>→</span></a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-video-wrap">
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+        <source src="/asset/hero-section-video.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <canvas class="fabric-canvas" id="fabricCanvas"></canvas>
+
+    <button class="video-control" id="videoControl" aria-label="Toggle video">
+      <div class="vc-ring"></div>
+      <svg class="vc-icon" id="vcIcon" viewBox="0 0 24 24" fill="none">
+        <rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor" />
+        <rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor" />
+      </svg>
+      <span class="vc-label" id="vcLabel">PAUSE</span>
+    </button>
+
+    <div class="particles" id="particles"></div>
+
+    <div class="hero-content">
+      <div class="hero-text-wrap">
+        <h1 class="hero-title reveal-up delay-1">
+          Where Tradition<br>
+          <em class="hero-title-em">Meets Innovation</em>
+        </h1>
+        <div class="hero-line reveal-up delay-2"></div>
+        <p class="hero-desc reveal-up delay-3">
+          Located in the vibrant heart of South India, Vibe Clothing Company stands as a beacon of excellence in the
+          apparel manufacturing industry. With years of experience, we offer world-class manufacturing services
+          specialising in high-quality apparel and textiles.
+        </p>
+        <!-- <p class="hero-desc reveal-up delay-4">
+          At Vibe Clothing Company tradition meets innovation. We draw from the rich textile heritage of India, infusing it with modern design and cutting-edge manufacturing techniques.
+        </p> -->
+        <div class="hero-btns reveal-up delay-5">
+          <a href="#services" class="btn-primary">EXPLORE PRODUCTS <span>→</span></a>
+          <a href="#footer" class="btn-outline">GET IN TOUCH <span>→</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-bar reveal-up delay-6">
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1.5" />
+            <path d="M12 20 L17 25 L28 14" stroke="#7CB342" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="stat-info">
+          <div><span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span></div>
+          <p class="stat-label">Years Experience</p>
+        </div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1.5" />
+            <circle cx="15" cy="17" r="4" stroke="#7CB342" stroke-width="1.5" />
+            <circle cx="25" cy="17" r="4" stroke="#7CB342" stroke-width="1.5" />
+            <path d="M8 30 C8 25,12 22,15 22" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M32 30 C32 25,28 22,25 22" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="stat-info">
+          <div><span class="stat-num" data-count="500">0</span><span class="stat-plus">+</span></div>
+          <p class="stat-label">Happy Clients</p>
+        </div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1.5" />
+            <path d="M13 20 L18 25 L27 15" stroke="#7CB342" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div class="stat-info">
+          <div><span class="stat-num" data-count="100">0</span><span class="stat-plus">%</span></div>
+          <p class="stat-label">Quality Assurance</p>
+        </div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-icon">
+          <svg viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1.5" />
+            <path d="M20 12 C16 15,14 18,14 21 C14 25,16.5 28,20 29 C23.5 28,26 25,26 21 C26 18,24 15,20 12Z"
+              stroke="#7CB342" stroke-width="1.5" fill="none" />
+          </svg>
+        </div>
+        <div class="stat-info">
+          <div style="font-size:1rem;font-weight:600;color:#F5F5F5;line-height:1.2;">Sustainable &</div>
+          <p class="stat-label">Ethical Practices</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- EXPERTISE / SERVICES -->
+  <section class="expertise-section" id="services">
+
+
+
+    <div class="parallax-layer" data-speed="0.3"></div>
+    <div class="container">
+      <div class="expertise-grid">
+        <div class="expertise-left scroll-reveal">
+          <span class="section-tag">OUR EXPERTISE</span>
+          <h2 class="section-title">From Concept to<br>Creation, <em>Perfected.</em></h2>
+          <div class="accent-line"></div>
+          <p class="section-desc">From conceptualisation to the final stitch, our skilled artisans and state-of-the-art
+            facilities are equipped to bring any vision to life. We offer a comprehensive range of services including
+            but not limited to:</p>
+        </div>
+        <div class="expertise-right scroll-reveal delay-2">
+          <div class="expertise-img-wrap">
+            <div class="expertise-img-glow"></div>
+            <img src="/asset/out-expertise.png" alt="Sewing machine" class="expertise-img" />
+          </div>
+        </div>
+      </div>
+      <div class="service-cards">
+        <div class="service-card scroll-reveal delay-1">
+          <div class="sc-icon-wrap">
+            <svg viewBox="0 0 50 50" fill="none">
+              <rect x="12" y="8" width="26" height="34" rx="2" stroke="#7CB342" stroke-width="1.5" />
+              <path d="M18 18 Q25 14 32 18" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M18 24 L32 24" stroke="#7CB342" stroke-width="1" stroke-linecap="round" opacity="0.6" />
+              <path d="M18 29 L28 29" stroke="#7CB342" stroke-width="1" stroke-linecap="round" opacity="0.4" />
+            </svg>
+          </div>
+          <h3 class="sc-title">Custom Apparel Production</h3>
+          <p class="sc-desc">High-quality, customised apparel manufacturing tailored to your brand and market.</p>
+        </div>
+        <div class="service-card scroll-reveal delay-2">
+          <div class="sc-icon-wrap">
+            <svg viewBox="0 0 50 50" fill="none">
+              <circle cx="25" cy="25" r="14" stroke="#7CB342" stroke-width="1.5" />
+              <path d="M12 38 L20 30" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+              <circle cx="25" cy="25" r="6" stroke="#7CB342" stroke-width="1" opacity="0.5" />
+            </svg>
+          </div>
+          <h3 class="sc-title">Textile Manufacturing</h3>
+          <p class="sc-desc">Premium fabrics and textiles produced with precision, innovation, and sustainable
+            practices.</p>
+        </div>
+        <div class="service-card scroll-reveal delay-3">
+          <div class="sc-icon-wrap">
+            <svg viewBox="0 0 50 50" fill="none">
+              <rect x="14" y="14" width="22" height="22" rx="2" stroke="#7CB342" stroke-width="1.5" />
+              <path d="M20 22 L30 22 M20 28 L30 28" stroke="#7CB342" stroke-width="1" stroke-linecap="round"
+                opacity="0.7" />
+              <circle cx="25" cy="11" r="3" stroke="#7CB342" stroke-width="1.5" />
+            </svg>
+          </div>
+          <h3 class="sc-title">Private Label Services</h3>
+          <p class="sc-desc">End-to-end private label solutions to help you build and grow your brand seamlessly.</p>
+        </div>
+        <div class="service-card scroll-reveal delay-4">
+          <div class="sc-icon-wrap">
+            <svg viewBox="0 0 50 50" fill="none">
+              <circle cx="25" cy="22" r="8" stroke="#7CB342" stroke-width="1.5" />
+              <path
+                d="M25 14 L25 10 M33 17 L36 14 M35 23 L39 23 M33 29 L36 32 M25 30 L25 34 M17 29 L14 32 M15 23 L11 23 M17 17 L14 14"
+                stroke="#7CB342" stroke-width="1.2" stroke-linecap="round" opacity="0.6" />
+            </svg>
+          </div>
+          <h3 class="sc-title">Innovative Design Solutions</h3>
+          <p class="sc-desc">Creative design and product development that brings fresh ideas and market relevance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="why-section" id="about">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-left scroll-reveal">
+          <span class="section-tag">WHY CHOOSE US?</span>
+          <h2 class="section-title">Quality You Trust,<br>Values You Can <em>Rely On.</em></h2>
+          <div class="accent-line"></div>
+          <div class="why-items">
+            <div class="why-item scroll-reveal delay-1">
+              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
+                  <path d="M12 20 L17 25 L28 14" stroke="#7CB342" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg></div>
+              <div>
+                <h4 class="wi-title">Excellence in Every Stitch</h4>
+                <p class="wi-desc">Every garment we produce goes through rigorous quality checks to ensure it meets the
+                  highest standards.</p>
+              </div>
+            </div>
+            <div class="why-item scroll-reveal delay-2">
+              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
+                  <circle cx="20" cy="20" r="8" stroke="#7CB342" stroke-width="1.5" />
+                  <path d="M20 12 L20 20 L26 24" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+                </svg></div>
+              <div>
+                <h4 class="wi-title">Swift Results at Friendly Prices</h4>
+                <p class="wi-desc">Committed to cost-effective solutions and timely delivery, ensuring exceptional value
+                  at every step.</p>
+              </div>
+            </div>
+            <div class="why-item scroll-reveal delay-3">
+              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
+                  <circle cx="20" cy="18" r="4" stroke="#7CB342" stroke-width="1.5" />
+                  <path d="M20 22 L20 28" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+                </svg></div>
+              <div>
+                <h4 class="wi-title">Innovation</h4>
+                <p class="wi-desc">Our team is constantly exploring new techniques and trends to keep you ahead in the
+                  fashion industry.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="why-right scroll-reveal delay-2">
+          <div class="why-img-frame">
+            <div class="wif-glow"></div>
+            <img src="/asset/why-choose-us.png" alt="Fashion mannequin" class="why-img" />
+          </div>
+          <div class="why-items why-right-items">
+            <div class="why-item scroll-reveal delay-3">
+              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
+                  <path d="M14 14 L26 14 L26 28 L14 28 Z" stroke="#7CB342" stroke-width="1.5" />
+                  <path d="M17 19 L23 19 M17 23 L21 23" stroke="#7CB342" stroke-width="1" stroke-linecap="round"
+                    opacity="0.7" />
+                </svg></div>
+              <div>
+                <h4 class="wi-title">Fashion Tailored to Your Desires</h4>
+                <p class="wi-desc">Tailored services to meet your unique needs, whether you are a startup brand or
+                  established retailer.</p>
+              </div>
+            </div>
+            <div class="why-item scroll-reveal delay-4">
+              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
+                  <path d="M20 12 C16 15,14 18,14 21 C14 25,16.5 28,20 29 C23.5 28,26 25,26 21 C26 18,24 15,20 12Z"
+                    stroke="#7CB342" stroke-width="1.5" fill="none" />
+                </svg></div>
+              <div>
+                <h4 class="wi-title">Sustainably Crafted, Ethically Driven</h4>
+                <p class="wi-desc">Dedicated to reducing our environmental footprint through sustainable practices and
+                  eco-friendly materials.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN JOURNEY -->
+  <section class="join-section">
+    <div class="container">
+      <div class="join-grid">
+        <div class="join-left scroll-reveal">
+          <span class="section-tag">JOIN OUR JOURNEY</span>
+          <h2 class="section-title">Your Vision. Our Passion.<br><em>Exceptional Results.</em></h2>
+          <p class="section-desc">Vibe Clothing Company isn't just a choice — it's a statement of quality, adaptability,
+            and responsibility. Here, your textile aspirations become our mission for excellence.</p>
+          <div class="join-contact scroll-reveal delay-2">
+            <div class="jc-item">
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
+                <path d="M2 8 L12 14 L22 8" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+              <a href="mailto:enquiry@vibeclothing.com" class="jc-link">enquiry@vibeclothing.com</a>
+            </div>
+          </div>
+          <div class="join-btns scroll-reveal delay-3">
+            <a href="#footer" class="btn-primary">Get in Touch <span>→</span></a>
+          </div>
+        </div>
+        <div class="join-badges scroll-reveal delay-2">
+          <div class="badge-item">
+            <svg viewBox="0 0 50 50" fill="none" width="42" height="42">
+              <circle cx="25" cy="25" r="22" stroke="#7CB342" stroke-width="1.5" opacity="0.4" />
+              <circle cx="17" cy="22" r="5" stroke="#7CB342" stroke-width="1.5" />
+              <circle cx="33" cy="22" r="5" stroke="#7CB342" stroke-width="1.5" />
+              <path d="M8 38 C8 32,12 28,17 28" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M42 38 C42 32,38 28,33 28" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <span>Expert Team</span>
+          </div>
+          <div class="badge-item">
+            <svg viewBox="0 0 50 50" fill="none" width="42" height="42">
+              <circle cx="25" cy="25" r="22" stroke="#7CB342" stroke-width="1.5" opacity="0.4" />
+              <path d="M15 25 L22 32 L35 18" stroke="#7CB342" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Quality Assured</span>
+          </div>
+          <div class="badge-item">
+            <svg viewBox="0 0 50 50" fill="none" width="42" height="42">
+              <circle cx="25" cy="25" r="22" stroke="#7CB342" stroke-width="1.5" opacity="0.4" />
+              <rect x="10" y="20" width="30" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
+              <path d="M15 20 L15 16 C15 12,35 12,35 16 L35 20" stroke="#7CB342" stroke-width="1.5" />
+            </svg>
+            <span>On-Time Delivery</span>
+          </div>
+          <div class="badge-item">
+            <svg viewBox="0 0 50 50" fill="none" width="42" height="42">
+              <circle cx="25" cy="25" r="22" stroke="#7CB342" stroke-width="1.5" opacity="0.4" />
+              <circle cx="25" cy="25" r="10" stroke="#7CB342" stroke-width="1.5" />
+              <path d="M25 15 L25 35 M15 25 L35 25" stroke="#7CB342" stroke-width="1" stroke-linecap="round"
+                opacity="0.6" />
+            </svg>
+            <span>Global Standards</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-top-line"></div>
+    <div class="footer-container">
+      <div class="footer-brand scroll-reveal">
+        <a href="#" class="logo footer-logo">
+          <div class="logo-icon" style="width:60px;height:60px;">
+            <img src="/asset/logo.png" alt="Vibe Clothing Logo" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+          <div class="logo-text">
+            <span class="logo-name" style="font-size:1.6rem;">VIBE</span>
+            <span class="logo-sub">CLOTHING COMPANY</span>
+          </div>
+        </a>
+        <p class="footer-brand-desc">Vibe Clothing Company isn't just a choice — it's a statement of quality,
+          adaptability, and responsibility. Here, your textile aspirations become our mission for excellence.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"
+              fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><svg viewBox="0 0 24 24" width="18" height="18"
+              fill="currentColor">
+              <path
+                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+            </svg></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"
+              fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"
+              fill="currentColor">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+            </svg></a>
+        </div>
+      </div>
+      <div class="footer-links-col scroll-reveal delay-1">
+        <h4 class="footer-col-title">QUICK LINKS</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Products</a></li>
+          <li><a href="#services">Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col scroll-reveal delay-2">
+        <h4 class="footer-col-title">OTHER LINKS</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-links">
+          <li><a href="#">Client</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">FAQ's</a></li>
+          <li><a href="#">Enquiry</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact-col scroll-reveal delay-3">
+        <h4 class="footer-col-title">GET IN TOUCH</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-contact-list">
+          <li>
+            <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                <circle cx="12" cy="12" r="10" stroke="#7CB342" stroke-width="1.5" />
+                <path d="M12 2 L12 22 M2 12 L22 12" stroke="#7CB342" stroke-width="1" opacity="0.5" />
+              </svg></div>
+            <a href="https://www.vibeclothingcompany.net" class="fci-link">www.vibeclothingcompany.net</a>
+          </li>
+          <li>
+            <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
+                <path d="M2 8 L12 14 L22 8" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+              </svg></div>
+            <a href="mailto:enquiry@vibeclothingcompany.net" class="fci-link">enquiry@vibeclothingcompany.net</a>
+          </li>
+          <li>
+            <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  stroke="#7CB342" stroke-width="1.5" />
+              </svg></div>
+            <div class="fci-phones"><span>IN: +91 97919 99998</span><span>UK: +44 7404447806</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="fb-content">
+        <p class="fb-copyright">
+          © 2026 <span class="footer-brand-name">Vibe Clothing Company</span>. All Rights Reserved.
+        </p>
+        <div class="fb-links">
+          <a href="#">Privacy Policy</a>
+          <span class="fb-dot">•</span>
+          <a href="#">Terms of Service</a>
+          <span class="fb-dot">•</span>
+          <span class="fb-credit">Designed by <a href="https://futuremindstudio.in" target="_blank">Future Mind Studio</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="main.js"></script>
+</body>
+
+</html>
