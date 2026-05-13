@@ -230,21 +230,30 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ══════════════════════════════════
      9. ACTIVE NAV LINK on scroll
   ══════════════════════════════════ */
-  const sections  = document.querySelectorAll('section[id]');
+  const sections = document.querySelectorAll('section[id], footer[id]');
   const navAnchors = document.querySelectorAll('.nav-link');
 
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navAnchors.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
-        });
+  function updateActiveLink() {
+    let currentId = '';
+    const scrollY = window.scrollY;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentId = section.getAttribute('id');
       }
     });
-  }, { threshold: 0.4 });
 
-  sections.forEach(s => sectionObserver.observe(s));
+    if (currentId) {
+      navAnchors.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === `#${currentId}`);
+      });
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
 
 
   /* ══════════════════════════════════
