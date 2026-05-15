@@ -273,4 +273,66 @@ document.addEventListener('DOMContentLoaded', () => {
     else drawFabric();
   });
 
+  /* ══════════════════════════════════
+     CONCEPT TO CREATION COMPARISON SLIDER
+  ══════════════════════════════════ */
+  const c2cForeground = document.getElementById('c2cForeground');
+  const c2cSlider = document.getElementById('c2cSlider');
+  const c2cWrapper = document.querySelector('.c2c-wrapper');
+
+  if (c2cForeground && c2cSlider && c2cWrapper) {
+    let isDragging = false;
+
+    function updateSliderPosition(x) {
+      const rect = c2cWrapper.getBoundingClientRect();
+      const wrapperX = rect.left;
+      const wrapperWidth = rect.width;
+      
+      let percent = (x - wrapperX) / wrapperWidth;
+      percent = Math.max(0, Math.min(1, percent));
+
+      const clampedPercent = Math.max(0.1, Math.min(0.9, percent));
+      
+      c2cForeground.style.width = (clampedPercent * 100) + '%';
+      c2cSlider.style.left = (clampedPercent * 100) + '%';
+    }
+
+    // Mouse events
+    c2cWrapper.addEventListener('mousedown', () => {
+      isDragging = true;
+      c2cForeground.classList.add('dragging');
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+      c2cForeground.classList.remove('dragging');
+    });
+
+    c2cWrapper.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      updateSliderPosition(e.clientX);
+    });
+
+    // Touch events
+    c2cWrapper.addEventListener('touchstart', () => {
+      isDragging = true;
+      c2cForeground.classList.add('dragging');
+    });
+
+    document.addEventListener('touchend', () => {
+      isDragging = false;
+      c2cForeground.classList.remove('dragging');
+    });
+
+    c2cWrapper.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const touch = e.touches[0];
+      updateSliderPosition(touch.clientX);
+    });
+
+    // Initial position (50%)
+    c2cForeground.style.width = '50%';
+    c2cSlider.style.left = '50%';
+  }
+
 });

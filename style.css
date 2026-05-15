@@ -991,6 +991,214 @@ body {
   padding-top: 4rem;
 }
 
+.c2c-section {
+  padding: 6rem 0;
+  background: linear-gradient(180deg, #070B08 0%, #0D1511 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.c2c-header {
+  margin-bottom: 3.5rem;
+  max-width: 680px;
+}
+
+.c2c-comparison {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.c2c-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 65%;
+  background: rgba(13, 21, 17, 0.5);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  user-select: none;
+}
+
+.c2c-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c2c-background {
+  z-index: 1;
+}
+
+.c2c-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.c2c-foreground {
+  z-index: 3;
+  cursor: grab;
+}
+
+.c2c-foreground.dragging {
+  cursor: grabbing;
+}
+
+.c2c-foreground img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.c2c-label-bg,
+.c2c-label-fg {
+  position: absolute;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.c2c-label-bg {
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: rgba(7, 11, 8, 0.85);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.c2c-label-fg {
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: var(--primary);
+  color: var(--bg-main);
+  border: 1.5px solid var(--primary);
+}
+
+.c2c-slider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, var(--primary) 50%, transparent 100%);
+  z-index: 4;
+  transform: translateX(-1.5px);
+}
+
+.c2c-slider-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  box-shadow: 0 8px 32px rgba(124, 179, 66, 0.3);
+  z-index: 5;
+  cursor: grab;
+  transition: box-shadow 0.3s;
+}
+
+.c2c-slider-handle:active {
+  cursor: grabbing;
+}
+
+.c2c-slider-handle svg {
+  color: var(--bg-main);
+  flex-shrink: 0;
+}
+
+.c2c-hint {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 1.5rem;
+  letter-spacing: 0.05em;
+  animation: pulse-hint 2s ease-in-out infinite;
+}
+
+@keyframes pulse-hint {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.philosophy-section {
+  padding: 6rem 0;
+  background: linear-gradient(180deg, #0D1511 0%, #070B08 100%);
+  position: relative;
+}
+
+.philosophy-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
+.philosophy-content {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.philosophy-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  line-height: 1.3;
+}
+
+.philosophy-title em {
+  font-style: italic;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.philosophy-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.3px;
+}
+
+.philosophy-text:last-of-type {
+  margin-bottom: 2.5rem;
+}
+
+.philosophy-cta {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(124, 179, 66, 0.15);
+}
+
+.philosophy-closing {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
 .footer-top-line {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--primary), transparent);
@@ -1215,6 +1423,54 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
+
+  .c2c-section {
+    padding: 4.5rem 0;
+  }
+
+  .c2c-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .c2c-wrapper {
+    padding-bottom: 70%;
+  }
+
+  .c2c-label-bg,
+  .c2c-label-fg {
+    font-size: 0.8rem;
+    padding: 0.5rem 0.9rem;
+    bottom: 1rem;
+  }
+
+  .c2c-slider-handle {
+    width: 52px;
+    height: 52px;
+    padding: 0 10px;
+  }
+
+  .c2c-slider-handle svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .philosophy-section {
+    padding: 4.5rem 0;
+  }
+
+  .philosophy-title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 1.8rem;
+  }
+
+  .philosophy-text {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .philosophy-closing {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1353,6 +1609,59 @@ body {
     top: 5.5rem;
     right: 1rem;
   }
+
+  .c2c-wrapper {
+    padding-bottom: 75%;
+  }
+
+  .c2c-label-bg,
+  .c2c-label-fg {
+    font-size: 0.75rem;
+    padding: 0.5rem 0.8rem;
+    bottom: 0.8rem;
+  }
+
+  .c2c-label-fg {
+    left: 0.8rem;
+  }
+
+  .c2c-label-bg {
+    right: 0.8rem;
+  }
+
+  .c2c-slider-handle {
+    width: 48px;
+    height: 48px;
+    padding: 0 8px;
+  }
+
+  .c2c-slider-handle svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .philosophy-section {
+    padding: 3.5rem 0;
+  }
+
+  .philosophy-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .philosophy-text {
+    font-size: 0.9rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .philosophy-cta {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+
+  .philosophy-closing {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1416,4 +1725,421 @@ body {
   .footer-bottom {
     padding: 1.25rem 1rem;
   }
+
+  .c2c-section {
+    padding: 3.5rem 0;
+  }
+
+  .c2c-header {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .c2c-wrapper {
+    padding-bottom: 80%;
+    border-radius: 16px;
+  }
+
+  .c2c-label-bg,
+  .c2c-label-fg {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+    bottom: 0.6rem;
+  }
+
+  .c2c-label-fg {
+    left: 0.6rem;
+  }
+
+  .c2c-label-bg {
+    right: 0.6rem;
+  }
+
+  .c2c-slider-handle {
+    width: 44px;
+    height: 44px;
+    padding: 0 6px;
+    box-shadow: 0 4px 16px rgba(124, 179, 66, 0.25);
+  }
+
+  .c2c-slider-handle svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .c2c-hint {
+    font-size: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .philosophy-section {
+    padding: 3rem 1rem;
+  }
+
+  .philosophy-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .philosophy-text {
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .philosophy-cta {
+    margin-top: 1.8rem;
+    padding-top: 1.5rem;
+  }
+
+  .philosophy-closing {
+    font-size: 0.9rem;
+  }
 }
+
+.journey-section {
+  padding: 6rem 0;
+  background: linear-gradient(180deg, rgba(13, 21, 17, 0.95) 0%, #070b08 100%);
+}
+
+.journey-head {
+  max-width: 720px;
+  margin-bottom: 2.5rem;
+}
+
+.journey-cards {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.journey-card {
+  position: relative;
+  background: rgba(13, 21, 17, 0.75);
+  border: 1px solid rgba(124, 179, 66, 0.16);
+  border-radius: 24px;
+  padding: 2rem;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  min-height: 320px;
+}
+
+.journey-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(124, 179, 66, 0.35);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.25);
+}
+
+.journey-card--detail::before {
+  content: '<';
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 3rem;
+  color: rgba(124, 179, 66, 0.12);
+  font-weight: 700;
+}
+
+.journey-card--detail::after {
+  content: '>';
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  color: rgba(124, 179, 66, 0.12);
+  font-weight: 700;
+}
+
+.journey-card-mark {
+  width: 64px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(124, 179, 66, 1) 0%, rgba(124, 179, 66, 0.4) 100%);
+  margin-bottom: 1.6rem;
+}
+
+.journey-card-content {
+  position: relative;
+  z-index: 1;
+}
+
+.journey-card-content h3 {
+  font-size: 1.18rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.journey-card-content p {
+  color: var(--text-secondary);
+  line-height: 1.9;
+}
+
+.journey-card--visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100%;
+  padding: 1.5rem;
+  gap: 1.25rem;
+  border-color: rgba(124, 179, 66, 0.24);
+}
+
+.journey-card-image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.journey-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.journey-card-label {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(124, 179, 66, 0.16);
+  background: rgba(124, 179, 66, 0.05);
+  max-width: 100%;
+}
+
+.journey-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.journey-cta .btn-outline {
+  border-color: rgba(124, 179, 66, 0.5);
+  color: var(--text-primary);
+  backdrop-filter: blur(12px);
+}
+
+.journey-cta .btn-outline:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(7, 11, 8, 0.98);
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    z-index: 1100;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-actions {
+    margin-left: 0;
+    gap: 0.75rem;
+  }
+
+  .btn-quote {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 1rem 0;
+  }
+
+  .nav-links li + li {
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-content {
+    padding: 8.5rem 1.25rem 1.5rem;
+    justify-content: center;
+  }
+
+  .hero-text-wrap {
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-desc {
+    margin: 0 auto 1.25rem;
+    max-width: 100%;
+  }
+
+  .hero-btns {
+    justify-content: center;
+  }
+
+  .stats-bar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 0 1rem 1.5rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    background: rgba(13, 21, 17, 0.94);
+    border: 1px solid rgba(124, 179, 66, 0.16);
+    border-radius: 18px;
+    padding: 1rem 1.25rem;
+    width: 100%;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.15);
+  }
+
+  .stat-item:nth-child(odd) {
+    background: rgba(13, 21, 17, 0.9);
+  }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .stat-info {
+    width: 100%;
+  }
+
+  .stat-info > div {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .service-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .join-badges {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+
+  .fb-content {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .fb-links {
+    justify-content: center;
+  }
+
+  .video-control {
+    bottom: auto;
+    top: 5.5rem;
+    right: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0.75rem 0.8rem;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .logo-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .logo-name {
+    font-size: 1.1rem;
+  }
+
+  .logo-sub {
+    font-size: 0.5rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero {
+    min-height: 88vh;
+  }
+
+  .hero-content {
+    padding: 7.5rem 1rem 1.2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 9vw, 3rem);
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+  }
+
+  .service-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .why-item {
+    padding: 1rem;
+  }
+
+  .badge-item {
+    padding: 1.5rem 1rem;
+  }
+
+  .journey-section {
+    padding: 4rem 0;
+  }
+
+  .journey-card {
+    min-height: auto;
+    padding: 1.6rem;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-bottom {
+    padding: 1.25rem 1rem;
+  }
+}
+
