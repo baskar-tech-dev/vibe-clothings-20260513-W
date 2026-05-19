@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Clients - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <style>
+    .clients-section {
+      min-height: 100vh;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .clients-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .clients-header .section-tag {
+      color: #7CB342;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .clients-header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .clients-header h1 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .clients-header p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .client-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .client-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(124, 179, 66, 0.5);
+      transform: translateY(-5px);
+    }
+
+    .client-logo {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      background: rgba(124, 179, 66, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #7CB342;
+    }
+
+    .client-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #F5F5F5;
+      margin-bottom: 10px;
+    }
+
+    .client-industry {
+      color: #7CB342;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .client-desc {
+      color: rgba(245, 245, 245, 0.6);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .testimonials-section {
+      background: rgba(255, 255, 255, 0.03);
+      border-top: 1px solid rgba(124, 179, 66, 0.2);
+      border-bottom: 1px solid rgba(124, 179, 66, 0.2);
+      padding: 60px 20px;
+      margin-top: 80px;
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 50px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .testimonials-header h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .testimonials-header h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 30px;
+      backdrop-filter: blur(10px);
+    }
+
+    .testimonial-text {
+      color: rgba(245, 245, 245, 0.8);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #7CB342, #5a8a2d);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #F5F5F5;
+      font-weight: 600;
+    }
+
+    .testimonial-info h4 {
+      color: #F5F5F5;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .testimonial-info p {
+      color: #7CB342;
+      font-size: 12px;
+      margin: 5px 0 0 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- CLIENTS SECTION -->
+  <section class="clients-section">
+    <div class="container">
+      <div class="clients-header">
+        <span class="section-tag">OUR CLIENTS</span>
+        <h1>Trusted by Over <em>500+ Happy Clients</em></h1>
+        <p>We've had the privilege of partnering with brands across the globe, from emerging startups to established retailers. Our commitment to excellence has made us the preferred choice for businesses seeking premium apparel manufacturing services.</p>
+      </div>
+
+      <div class="clients-grid">
+        <div class="client-card">
+          <div class="client-logo">👕</div>
+          <div class="client-name">Fashion Forward Brands</div>
+          <div class="client-industry">Fashion Retail</div>
+          <p class="client-desc">Premium urban fashion brand specializing in contemporary apparel.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-logo">🎽</div>
+          <div class="client-name">Active Wear Solutions</div>
+          <div class="client-industry">Sports Apparel</div>
+          <p class="client-desc">Performance-focused sports and athletic wear manufacturer.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-logo">👔</div>
+          <div class="client-name">Corporate Excellence</div>
+          <div class="client-industry">Corporate Wear</div>
+          <p class="client-desc">Professional and formal wear for corporate environments.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-logo">🧥</div>
+          <div class="client-name">Lifestyle Collections</div>
+          <div class="client-industry">Casual Wear</div>
+          <p class="client-desc">Contemporary casual and lifestyle apparel brand.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-logo">👗</div>
+          <div class="client-name">Luxury Couture</div>
+          <div class="client-industry">Premium Fashion</div>
+          <p class="client-desc">High-end luxury and exclusive designer collections.</p>
+        </div>
+        <div class="client-card">
+          <div class="client-logo">👜</div>
+          <div class="client-name">Global Retail Partners</div>
+          <div class="client-industry">Multi-brand Retail</div>
+          <p class="client-desc">International retail chains and distribution networks.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIALS SECTION -->
+    <div class="testimonials-section">
+      <div class="container">
+        <div class="testimonials-header">
+          <h2>What Our <em>Clients Say</em></h2>
+          <p>Real feedback from the brands and retailers we've partnered with</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-text">"Vibe Clothing Company exceeded our expectations in every way. The quality is exceptional, and their team's dedication to our project made all the difference."</div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RK</div>
+              <div class="testimonial-info">
+                <h4>Rajesh Kumar</h4>
+                <p>Founder, Fashion Forward Brands</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-text">"The manufacturing expertise and attention to detail are unmatched. We've been able to bring our vision to life with precision and innovation."</div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SM</div>
+              <div class="testimonial-info">
+                <h4>Sarah Mitchell</h4>
+                <p>CEO, Active Wear Solutions</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-text">"Swift delivery, competitive pricing, and world-class quality. Vibe Clothing Company is our go-to manufacturing partner for all corporate apparel needs."</div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AJ</div>
+              <div class="testimonial-info">
+                <h4>Amit Joshi</h4>
+                <p>Head of Operations, Corporate Excellence</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

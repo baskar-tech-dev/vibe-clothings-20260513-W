@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <style>
+    .about-hero {
+      min-height: 60vh;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-hero .section-tag {
+      color: #7CB342;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .about-hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    .about-hero h1 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .about-hero p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .about-section {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .content-grid.reverse {
+      direction: rtl;
+    }
+
+    .content-grid.reverse > * {
+      direction: ltr;
+    }
+
+    .grid-text h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .grid-text h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .grid-text p {
+      color: rgba(245, 245, 245, 0.8);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .grid-image {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(124, 179, 66, 0.1), rgba(124, 179, 66, 0.05));
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 120px;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+
+    .value-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .value-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(124, 179, 66, 0.5);
+      transform: translateY(-5px);
+    }
+
+    .value-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .value-card h3 {
+      color: #F5F5F5;
+      font-size: 18px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .value-card p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .stats-section {
+      background: rgba(124, 179, 66, 0.1);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 60px;
+      margin: 80px 0;
+      text-align: center;
+    }
+
+    .stats-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 50px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .stat-box {
+      padding: 20px;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: #7CB342;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      color: #F5F5F5;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .philosophy-section {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 50px;
+      margin: 80px 0;
+    }
+
+    .philosophy-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 30px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .philosophy-section h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .philosophy-text {
+      color: rgba(245, 245, 245, 0.8);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(124, 179, 66, 0.3);
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .feature-card h4 {
+      color: #7CB342;
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .feature-card p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .cta-section {
+      background: rgba(124, 179, 66, 0.15);
+      border: 1px solid rgba(124, 179, 66, 0.3);
+      border-radius: 16px;
+      padding: 60px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .cta-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .cta-section p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 14px 40px;
+      background: #7CB342;
+      color: #0a0e27;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    .btn-primary:hover {
+      background: #5a8a2d;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      padding: 14px 40px;
+      border: 1px solid #7CB342;
+      background: transparent;
+      color: #7CB342;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(124, 179, 66, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-hero h1 {
+        font-size: 36px;
+      }
+
+      .grid-text h2 {
+        font-size: 28px;
+      }
+
+      .stats-section {
+        padding: 40px 20px;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- ABOUT HERO SECTION -->
+  <section class="about-hero">
+    <div class="about-hero-content">
+      <span class="section-tag">ABOUT VIBE CLOTHING COMPANY</span>
+      <h1>Where Tradition<br><em>Meets Innovation</em></h1>
+      <p>Located in the vibrant heart of South India, we stand as a beacon of excellence in apparel manufacturing. With over 10 years of experience, we transform textile aspirations into reality through precision, passion, and purpose.</p>
+    </div>
+  </section>
+
+  <!-- OUR STORY SECTION -->
+  <section class="about-section">
+    <div class="section-container">
+      <div class="content-grid">
+        <div class="grid-text">
+          <h2>Our <em>Story</em></h2>
+          <p>
+            Vibe Clothing Company was founded with a simple vision: to revolutionize the apparel manufacturing industry by combining traditional craftsmanship with cutting-edge innovation. What began as a small operation has grown into a trusted partner for hundreds of brands worldwide.
+          </p>
+          <p>
+            Over the past decade, we've built our reputation on the foundation of quality, reliability, and customer-centric service. We draw from the rich textile heritage of India, infusing it with modern design and contemporary manufacturing techniques.
+          </p>
+          <p>
+            Today, our state-of-the-art facilities and dedicated team of skilled artisans enable us to deliver world-class apparel and textiles to clients across the globe.
+          </p>
+        </div>
+        <div class="grid-image">👕</div>
+      </div>
+
+      <div class="content-grid reverse">
+        <div class="grid-text">
+          <h2>Our <em>Mission</em></h2>
+          <p>
+            At Vibe Clothing Company, our mission is to be the preferred manufacturing partner for brands seeking premium quality, innovative solutions, and ethical practices. We are committed to:
+          </p>
+          <ul style="color: rgba(245, 245, 245, 0.8); font-size: 15px; line-height: 1.8;">
+            <li>✓ Delivering exceptional quality in every garment we produce</li>
+            <li>✓ Providing cost-effective solutions without compromising excellence</li>
+            <li>✓ Fostering innovation through continuous improvement and research</li>
+            <li>✓ Maintaining ethical and sustainable manufacturing practices</li>
+            <li>✓ Building lasting partnerships based on trust and transparency</li>
+          </ul>
+        </div>
+        <div class="grid-image">🎯</div>
+      </div>
+
+      <div class="content-grid">
+        <div class="grid-text">
+          <h2>Our <em>Vision</em></h2>
+          <p>
+            We envision a future where Vibe Clothing Company is the global leader in ethical, sustainable, and innovative apparel manufacturing. We aspire to:
+          </p>
+          <ul style="color: rgba(245, 245, 245, 0.8); font-size: 15px; line-height: 1.8;">
+            <li>✓ Expand our global reach while maintaining quality standards</li>
+            <li>✓ Invest in cutting-edge technology and skilled workforce development</li>
+            <li>✓ Lead the industry in sustainable and eco-friendly practices</li>
+            <li>✓ Empower our team and communities through responsible business practices</li>
+            <li>✓ Create lasting value for all stakeholders</li>
+          </ul>
+        </div>
+        <div class="grid-image">🌍</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES SECTION -->
+  <section class="about-section">
+    <div class="section-container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <span class="section-tag" style="color: #7CB342; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">OUR VALUES</span>
+        <h2 style="font-size: 42px; font-weight: 700; color: #F5F5F5; margin-top: 15px; font-family: 'Cormorant Garamond', serif;">What We <em style="font-style: italic; color: #7CB342;">Believe In</em></h2>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <h3>Excellence</h3>
+          <p>We pursue excellence in every stitch, every process, and every interaction. Quality is not just a goal—it's our standard.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>Integrity</h3>
+          <p>We operate with honesty, transparency, and ethical practices. Our word is our bond, and we honor every commitment.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">💡</div>
+          <h3>Innovation</h3>
+          <p>We constantly explore new techniques, designs, and technologies to stay ahead in the ever-evolving fashion industry.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3>Sustainability</h3>
+          <p>We're committed to reducing our environmental footprint through eco-friendly materials and responsible manufacturing.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">👥</div>
+          <h3>People-First</h3>
+          <p>Our team and our clients are at the heart of everything we do. We invest in growth, wellness, and empowerment.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">📈</div>
+          <h3>Growth</h3>
+          <p>We believe in continuous improvement and creating opportunities for our business, team, and partners to thrive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATISTICS SECTION -->
+  <section class="about-section">
+    <div class="section-container">
+      <div class="stats-section">
+        <h2>Our <em style="font-style: italic; color: #7CB342;">Impact</em></h2>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Years of Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Happy Clients Worldwide</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Quality Assurance</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Skilled Artisans</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US SECTION -->
+  <section class="about-section">
+    <div class="section-container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <span class="section-tag" style="color: #7CB342; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;">WHY CHOOSE US</span>
+        <h2 style="font-size: 42px; font-weight: 700; color: #F5F5F5; margin-top: 15px; font-family: 'Cormorant Garamond', serif;">Quality You Trust,<br>Values You Can <em style="font-style: italic; color: #7CB342;">Rely On</em></h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h4>✓ Excellence in Every Stitch</h4>
+          <p>Every garment undergoes rigorous quality checks to ensure it meets the highest international standards.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>✓ Swift Results at Friendly Prices</h4>
+          <p>We're committed to cost-effective solutions and timely delivery, ensuring exceptional value without compromise.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>✓ Continuous Innovation</h4>
+          <p>Our team constantly explores new techniques and trends to keep your brand ahead in the fashion industry.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>✓ Tailored Services</h4>
+          <p>Customized solutions for your unique needs, whether you're a startup brand or an established retailer.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>✓ Sustainably Crafted</h4>
+          <p>Dedicated to reducing environmental footprint through sustainable practices and eco-friendly materials.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>✓ Global Reach, Local Touch</h4>
+          <p>Serving clients worldwide while maintaining the personal attention and partnerships that matter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY SECTION -->
+  <section class="about-section">
+    <div class="section-container">
+      <div class="philosophy-section">
+        <h2>Our <em>Concept to Creation Philosophy</em></h2>
+        <p class="philosophy-text">
+          At Vibe Clothing Company, our 'Concept to Creation' philosophy underpins every aspect of our textile manufacturing process, ensuring that every fabric we produce not only meets but exceeds the visionary expectations of our clients.
+        </p>
+        <p class="philosophy-text">
+          From the initial sketches to the final product, our integrated approach seamlessly transforms raw ideas into tangible, high-quality textiles. We pride ourselves on bringing your creative visions to life with precision and passion.
+        </p>
+        <p class="philosophy-text">
+          We understand that every brand has a unique story and vision. That's why we work closely with each client to understand their needs, preferences, and aspirations. Our skilled team then translates those ideas into reality, ensuring that the final product aligns perfectly with the original concept.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="about-section">
+    <div class="section-container">
+      <div class="cta-section">
+        <h2>Ready to Partner<br><em>With Us?</em></h2>
+        <p>Let's collaborate to bring your apparel vision to life with quality, innovation, and passion.</p>
+        <div class="cta-btns">
+          <a href="enquiry.html" class="btn-primary">Send Enquiry</a>
+          <a href="index.html#services" class="btn-outline">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

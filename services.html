@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <style>
+    .services-hero {
+      min-height: 60vh;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .services-hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .services-hero .section-tag {
+      color: #7CB342;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .services-hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    .services-hero h1 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .services-hero p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .services-section {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services-intro {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .services-intro h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .services-intro h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .services-intro p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 15px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .service-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 40px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+
+    .service-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(124, 179, 66, 0.5);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(124, 179, 66, 0.1);
+    }
+
+    .service-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #F5F5F5;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .service-features {
+      border-top: 1px solid rgba(124, 179, 66, 0.2);
+      padding-top: 20px;
+    }
+
+    .service-feature {
+      color: rgba(245, 245, 245, 0.6);
+      font-size: 13px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-feature:before {
+      content: "✓";
+      color: #7CB342;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .detailed-service {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 50px;
+      margin-bottom: 50px;
+      backdrop-filter: blur(10px);
+    }
+
+    .detailed-service h3 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+    }
+
+    .detailed-service h3 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .detailed-service p {
+      color: rgba(245, 245, 245, 0.8);
+      font-size: 14px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .detailed-service ul {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 14px;
+      margin: 20px 0;
+      padding-left: 25px;
+    }
+
+    .detailed-service li {
+      margin-bottom: 8px;
+      line-height: 1.7;
+    }
+
+    .process-section {
+      background: rgba(124, 179, 66, 0.1);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 60px;
+      margin: 80px 0;
+    }
+
+    .process-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 50px;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .process-section h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .process-step {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(124, 179, 66, 0.3);
+      text-align: center;
+      position: relative;
+    }
+
+    .process-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -35px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #7CB342;
+      font-size: 24px;
+    }
+
+    .process-number {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: #7CB342;
+      color: #0a0e27;
+      border-radius: 50%;
+      line-height: 40px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .process-step h4 {
+      color: #F5F5F5;
+      font-size: 15px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .process-step p {
+      color: rgba(245, 245, 245, 0.6);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .benefits-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 60px 0;
+    }
+
+    .benefit-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .benefit-card h4 {
+      color: #7CB342;
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .benefit-card p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .cta-section {
+      background: rgba(124, 179, 66, 0.15);
+      border: 1px solid rgba(124, 179, 66, 0.3);
+      border-radius: 16px;
+      padding: 60px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .cta-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .cta-section p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 14px 40px;
+      background: #7CB342;
+      color: #0a0e27;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    .btn-primary:hover {
+      background: #5a8a2d;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      padding: 14px 40px;
+      border: 1px solid #7CB342;
+      background: transparent;
+      color: #7CB342;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(124, 179, 66, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .services-hero h1 {
+        font-size: 36px;
+      }
+
+      .services-intro h2 {
+        font-size: 28px;
+      }
+
+      .detailed-service {
+        padding: 30px;
+      }
+
+      .process-step:not(:last-child)::after {
+        content: "↓";
+        right: 50%;
+        transform: translateX(50%);
+        bottom: -35px;
+        top: auto;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- SERVICES HERO SECTION -->
+  <section class="services-hero">
+    <div class="services-hero-content">
+      <span class="section-tag">OUR SERVICES</span>
+      <h1>From Concept to<br>Creation, <em>Perfected.</em></h1>
+      <p>Comprehensive apparel manufacturing and design solutions tailored to your brand. From conceptualization to final delivery, we handle every aspect of your project with precision and expertise.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW SECTION -->
+  <section class="services-section">
+    <div class="section-container">
+      <div class="services-intro">
+        <h2>Our <em>Core Services</em></h2>
+        <p>From conceptualisation to the final stitch, our skilled artisans and state-of-the-art facilities are equipped to bring any vision to life</p>
+      </div>
+
+      <div class="service-card-grid">
+        <div class="service-card">
+          <div class="service-icon">👕</div>
+          <h3>Custom Apparel Production</h3>
+          <p>High-quality, customised apparel manufacturing tailored to your brand and market. We handle everything from design to delivery.</p>
+          <div class="service-features">
+            <div class="service-feature">Small to large batch orders</div>
+            <div class="service-feature">Full customization options</div>
+            <div class="service-feature">Quality guaranteed</div>
+            <div class="service-feature">Fast turnaround times</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🧵</div>
+          <h3>Textile Manufacturing</h3>
+          <p>Premium fabrics and textiles produced with precision, innovation, and sustainable practices. We create fabrics that last.</p>
+          <div class="service-features">
+            <div class="service-feature">Multiple fabric types</div>
+            <div class="service-feature">Sustainable materials</div>
+            <div class="service-feature">Custom weaves & patterns</div>
+            <div class="service-feature">Quality testing included</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🏷️</div>
+          <h3>Private Label Services</h3>
+          <p>End-to-end private label solutions to help you build and grow your brand seamlessly. We're your manufacturing partner.</p>
+          <div class="service-features">
+            <div class="service-feature">Brand building support</div>
+            <div class="service-feature">Design consultation</div>
+            <div class="service-feature">Inventory management</div>
+            <div class="service-feature">Compliance handling</div>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3>Innovative Design Solutions</h3>
+          <p>Creative design and product development that brings fresh ideas and market relevance. Let's create something extraordinary.</p>
+          <div class="service-features">
+            <div class="service-feature">Trend analysis</div>
+            <div class="service-feature">Custom design team</div>
+            <div class="service-feature">3D prototyping</div>
+            <div class="service-feature">Market-ready concepts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILED SERVICES SECTION -->
+  <section class="services-section">
+    <div class="section-container">
+      <div class="detailed-service">
+        <h3>Custom <em>Apparel Production</em></h3>
+        <p>
+          Our custom apparel production service is designed to transform your vision into reality. Whether you need 100 units or 100,000, we have the capacity, expertise, and commitment to deliver exceptional results.
+        </p>
+        <h4 style="color: #7CB342; margin-top: 20px;">What's Included:</h4>
+        <ul>
+          <li>Design consultation and refinement</li>
+          <li>Material sourcing and procurement</li>
+          <li>Pattern making and sampling</li>
+          <li>Full production run with quality control</li>
+          <li>Packaging and labeling</li>
+          <li>Logistics coordination</li>
+        </ul>
+        <h4 style="color: #7CB342; margin-top: 20px;">Benefits:</h4>
+        <div class="benefits-section">
+          <div class="benefit-card">
+            <h4>Quality Assurance</h4>
+            <p>100% quality checks at every stage ensure perfection</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Cost Effective</h4>
+            <p>Competitive pricing without compromising on quality</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Fast Turnaround</h4>
+            <p>Efficient processes deliver your orders on time</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Flexible Minimums</h4>
+            <p>We work with startups and large retailers alike</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detailed-service">
+        <h3>Textile <em>Manufacturing</em></h3>
+        <p>
+          We produce premium fabrics and textiles using the finest materials and innovative manufacturing techniques. Our commitment to sustainability means every fabric is crafted responsibly.
+        </p>
+        <h4 style="color: #7CB342; margin-top: 20px;">Our Textile Range:</h4>
+        <ul>
+          <li>100% Organic Cotton - GOTS certified</li>
+          <li>Cotton-Synthetic Blends - enhanced durability</li>
+          <li>Technical Fabrics - moisture-wicking and performance</li>
+          <li>Luxury Textiles - silk, wool, and premium blends</li>
+          <li>Eco-Friendly Options - bamboo, hemp, and recycled materials</li>
+          <li>Specialty Weaves - custom patterns and finishes</li>
+        </ul>
+        <h4 style="color: #7CB342; margin-top: 20px;">Our Commitment:</h4>
+        <div class="benefits-section">
+          <div class="benefit-card">
+            <h4>Sustainability</h4>
+            <p>Eco-friendly production methods and materials</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Innovation</h4>
+            <p>Latest textile technology and techniques</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Customization</h4>
+            <p>Custom colors, weaves, and finishes available</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Testing</h4>
+            <p>Rigorous quality and durability testing</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detailed-service">
+        <h3>Private Label <em>Services</em></h3>
+        <p>
+          Build your brand with our comprehensive private label services. We handle manufacturing, quality control, and logistics so you can focus on marketing and growth.
+        </p>
+        <h4 style="color: #7CB342; margin-top: 20px;">Private Label Solutions Include:</h4>
+        <ul>
+          <li>Brand strategy and positioning consultation</li>
+          <li>Product design and development</li>
+          <li>Manufacturing and quality control</li>
+          <li>Inventory management and storage</li>
+          <li>Packaging and branding materials</li>
+          <li>Shipping and distribution support</li>
+          <li>Compliance and certification assistance</li>
+        </ul>
+        <h4 style="color: #7CB342; margin-top: 20px;">Why Choose Our Private Label Service:</h4>
+        <div class="benefits-section">
+          <div class="benefit-card">
+            <h4>End-to-End Solution</h4>
+            <p>One partner for all your manufacturing needs</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Brand Support</h4>
+            <p>Expert guidance in building your brand identity</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Scalability</h4>
+            <p>Grow with us from startup to established brand</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Reliability</h4>
+            <p>Consistent quality and on-time deliveries</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detailed-service">
+        <h3>Innovative Design <em>Solutions</em></h3>
+        <p>
+          Our creative design team brings fresh ideas and market relevance to your products. From concept to final design, we ensure your collection stands out.
+        </p>
+        <h4 style="color: #7CB342; margin-top: 20px;">Design Services:</h4>
+        <ul>
+          <li>Trend analysis and market research</li>
+          <li>Concept development and sketching</li>
+          <li>3D digital prototyping</li>
+          <li>Sample creation and refinement</li>
+          <li>Technical drawings and specifications</li>
+          <li>Color and material selection</li>
+          <li>Design for manufacturability consultation</li>
+        </ul>
+        <h4 style="color: #7CB342; margin-top: 20px;">Design Expertise:</h4>
+        <div class="benefits-section">
+          <div class="benefit-card">
+            <h4>Trend Forward</h4>
+            <p>Stay ahead with current fashion trends</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Technical Skills</h4>
+            <p>Expert knowledge of garment construction</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Digital Tools</h4>
+            <p>State-of-the-art design and prototyping software</p>
+          </div>
+          <div class="benefit-card">
+            <h4>Collaboration</h4>
+            <p>Work closely with your vision and goals</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS SECTION -->
+  <section class="services-section">
+    <div class="section-container">
+      <div class="process-section">
+        <h2>Our Proven <em>Process</em></h2>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="process-number">1</div>
+            <h4>Consultation</h4>
+            <p>Discuss your needs, vision, and requirements in detail</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">2</div>
+            <h4>Design & Planning</h4>
+            <p>Create designs, select materials, and finalize specifications</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">3</div>
+            <h4>Sampling</h4>
+            <p>Produce samples for approval and quality verification</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">4</div>
+            <h4>Production</h4>
+            <p>Execute full production run with continuous quality checks</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">5</div>
+            <h4>Quality Control</h4>
+            <p>Rigorous inspection and testing of final products</p>
+          </div>
+          <div class="process-step">
+            <div class="process-number">6</div>
+            <h4>Delivery</h4>
+            <p>Package and ship your products to your location</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="services-section">
+    <div class="section-container">
+      <div class="cta-section">
+        <h2>Ready to Work<br>With Us?</h2>
+        <p>Let's discuss your manufacturing needs and create something exceptional together</p>
+        <div class="cta-btns">
+          <a href="enquiry.html" class="btn-primary">Get a Quote</a>
+          <a href="about-us.html" class="btn-outline">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

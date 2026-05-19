@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQs - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <style>
+    .faq-section {
+      min-height: 100vh;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .faq-header .section-tag {
+      color: #7CB342;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .faq-header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .faq-header h1 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .faq-header p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+    }
+
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-category {
+      margin-bottom: 50px;
+    }
+
+    .faq-category-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #7CB342;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(124, 179, 66, 0.3);
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-question {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .faq-question:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(124, 179, 66, 0.4);
+    }
+
+    .faq-question.active {
+      background: rgba(124, 179, 66, 0.15);
+      border-color: #7CB342;
+    }
+
+    .faq-question-text {
+      color: #F5F5F5;
+      font-size: 15px;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .faq-toggle {
+      color: #7CB342;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .faq-question.active .faq-toggle {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 20px 20px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      color: rgba(245, 245, 245, 0.8);
+      font-size: 14px;
+      line-height: 1.8;
+      margin: -10px 0 20px 0;
+      border-radius: 0 0 12px 12px;
+      border-left: 1px solid rgba(124, 179, 66, 0.2);
+      border-right: 1px solid rgba(124, 179, 66, 0.2);
+      border-bottom: 1px solid rgba(124, 179, 66, 0.2);
+    }
+
+    .faq-answer.active {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .faq-answer ul,
+    .faq-answer ol {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+
+    .faq-answer li {
+      margin: 5px 0;
+    }
+
+    .contact-prompt {
+      background: rgba(124, 179, 66, 0.1);
+      border: 1px solid rgba(124, 179, 66, 0.3);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .contact-prompt h3 {
+      color: #F5F5F5;
+      font-size: 24px;
+      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .contact-prompt p {
+      color: rgba(245, 245, 245, 0.7);
+      margin-bottom: 25px;
+    }
+
+    .contact-btns {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 12px 35px;
+      background: #7CB342;
+      color: #0a0e27;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    .btn-primary:hover {
+      background: #5a8a2d;
+    }
+
+    .btn-outline {
+      padding: 12px 35px;
+      border: 1px solid #7CB342;
+      background: transparent;
+      color: #7CB342;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(124, 179, 66, 0.1);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="faq-header">
+      <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
+      <h1>Common Questions <em>Answered</em></h1>
+      <p>Find answers to common questions about our services, products, and manufacturing processes.</p>
+    </div>
+
+    <div class="faq-container">
+      <!-- About Services Category -->
+      <div class="faq-category">
+        <h2 class="faq-category-title">About Our Services</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">What services does Vibe Clothing Company offer?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We offer comprehensive apparel and textile manufacturing services including:</p>
+            <ul>
+              <li>Custom Apparel Production - High-quality, customised apparel manufacturing tailored to your brand</li>
+              <li>Textile Manufacturing - Premium fabrics and textiles with sustainable practices</li>
+              <li>Private Label Services - End-to-end private label solutions for your brand</li>
+              <li>Innovative Design Solutions - Creative design and product development services</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">Do you offer custom manufacturing for small orders?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we are flexible with order quantities. We cater to businesses of all sizes, from emerging startups to established retailers. However, minimum order quantities may apply depending on the specific product and customization requirements. Please contact us for specific details about your project.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">What makes Vibe Clothing Company different from competitors?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We stand out through our commitment to:</p>
+            <ul>
+              <li><strong>Excellence in Every Stitch:</strong> Rigorous quality checks ensuring highest standards</li>
+              <li><strong>Swift Results at Friendly Prices:</strong> Cost-effective solutions with timely delivery</li>
+              <li><strong>Innovation:</strong> Constantly exploring new techniques and trends</li>
+              <li><strong>Sustainability:</strong> Dedicated to reducing environmental footprint with eco-friendly practices</li>
+              <li><strong>Tailored Services:</strong> Customized solutions for unique business needs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Production & Quality Category -->
+      <div class="faq-category">
+        <h2 class="faq-category-title">Production & Quality</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">How long does the manufacturing process take?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Production timelines vary depending on the complexity of the design, order quantity, and customization requirements. Typically, lead times range from 4-8 weeks for standard orders. Rush orders may be available with additional costs. We'll provide a detailed timeline during the consultation phase.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">What quality assurance processes do you have in place?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We maintain 100% quality assurance through multiple stages:</p>
+            <ul>
+              <li>Raw material inspection and testing</li>
+              <li>In-process quality checks during manufacturing</li>
+              <li>Final inspection before packaging</li>
+              <li>Compliance with international quality standards</li>
+              <li>Dedicated quality control team</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">What materials and fabrics do you work with?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We work with a wide variety of premium materials including organic cotton, synthetic blends, performance fabrics, wool, silk, and sustainable eco-friendly materials. Our team can recommend the best fabric choices based on your product requirements, budget, and sustainability goals.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ordering & Payment Category -->
+      <div class="faq-category">
+        <h2 class="faq-category-title">Ordering & Payment</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">What is the process to place an order?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Our ordering process is straightforward:</p>
+            <ol>
+              <li>Contact us with your requirements via email or inquiry form</li>
+              <li>Schedule a consultation to discuss your project in detail</li>
+              <li>Receive a quotation with detailed pricing and timeline</li>
+              <li>Finalize specifications and place the order</li>
+              <li>Make payment and begin production</li>
+              <li>Regular updates on production status</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">What payment methods do you accept?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We accept multiple payment methods including bank transfers, wire transfers, letters of credit, and other arrangements. For detailed payment terms and conditions, please contact our team directly.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">Is there a deposit requirement?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we typically require a deposit to initiate production, with the balance due upon completion or as per agreed payment terms. The exact deposit amount will be discussed during the quotation phase and depends on the order size and requirements.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shipping & Delivery Category -->
+      <div class="faq-category">
+        <h2 class="faq-category-title">Shipping & Delivery</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">Do you handle shipping and logistics?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We can assist with shipping arrangements or you can arrange your own logistics. We provide proper packaging to ensure your products arrive in perfect condition. We're experienced in international shipping to various destinations.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">What are your shipping destinations?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>We ship to clients worldwide. Whether you're in Asia, Europe, Americas, or any other region, we have experience with international logistics and customs procedures. We'll work with you to find the most cost-effective and reliable shipping options.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sustainability Category -->
+      <div class="faq-category">
+        <h2 class="faq-category-title">Sustainability & Ethics</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">Is Vibe Clothing Company committed to sustainable practices?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely. Sustainability is core to our operations. We are dedicated to reducing our environmental footprint through eco-friendly materials, efficient manufacturing processes, and responsible waste management. We can produce items using organic, sustainable, and recycled materials based on your preferences.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span class="faq-question-text">Do you follow ethical manufacturing practices?</span>
+            <span class="faq-toggle">▼</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we maintain the highest ethical standards in our operations. We ensure fair labor practices, safe working conditions, and compliance with international labor laws. Our team is committed to operating our business responsibly and ethically.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact-prompt">
+        <h3>Didn't find your answer?</h3>
+        <p>Have a specific question that isn't answered here? Our team is ready to help. Reach out to us and we'll provide you with detailed information about your inquiry.</p>
+        <div class="contact-btns">
+          <a href="enquiry.html" class="btn-primary">Submit Inquiry</a>
+          <a href="index.html#footer" class="btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // FAQ Toggle Functionality
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', function() {
+        const answer = this.nextElementSibling;
+        const isActive = this.classList.contains('active');
+        
+        // Close all other answers
+        document.querySelectorAll('.faq-question.active').forEach(q => {
+          if (q !== this) {
+            q.classList.remove('active');
+            q.nextElementSibling.classList.remove('active');
+          }
+        });
+        
+        // Toggle current answer
+        this.classList.toggle('active');
+        answer.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

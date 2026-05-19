@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <style>
+    .products-hero {
+      min-height: 60vh;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .products-hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .products-hero .section-tag {
+      color: #7CB342;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .products-hero h1 {
+      font-size: 56px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    .products-hero h1 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .products-hero p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .products-section {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .category-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .category-header h2 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .category-header h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .category-header p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 15px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 80px;
+    }
+
+    .product-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .product-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(124, 179, 66, 0.5);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(124, 179, 66, 0.1);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, rgba(124, 179, 66, 0.1), rgba(124, 179, 66, 0.05));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      border-bottom: 1px solid rgba(124, 179, 66, 0.2);
+    }
+
+    .product-content {
+      padding: 25px;
+    }
+
+    .product-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #F5F5F5;
+      margin-bottom: 10px;
+    }
+
+    .product-desc {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .product-specs {
+      border-top: 1px solid rgba(124, 179, 66, 0.1);
+      padding-top: 15px;
+    }
+
+    .spec-item {
+      color: rgba(245, 245, 245, 0.6);
+      font-size: 13px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .spec-item:before {
+      content: "✓";
+      color: #7CB342;
+      font-weight: bold;
+    }
+
+    .category-section {
+      margin-bottom: 100px;
+    }
+
+    .category-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(124, 179, 66, 0.3), transparent);
+      margin: 100px 0;
+    }
+
+    .features-section {
+      background: rgba(124, 179, 66, 0.1);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 60px;
+      margin: 80px 0;
+    }
+
+    .features-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 40px;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .features-section h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-item {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(124, 179, 66, 0.2);
+    }
+
+    .feature-item h4 {
+      color: #7CB342;
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .feature-item p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .cta-section {
+      background: rgba(124, 179, 66, 0.15);
+      border: 1px solid rgba(124, 179, 66, 0.3);
+      border-radius: 16px;
+      padding: 60px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .cta-section h2 {
+      font-size: 36px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .cta-section p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .cta-btns {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 14px 40px;
+      background: #7CB342;
+      color: #0a0e27;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    .btn-primary:hover {
+      background: #5a8a2d;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      padding: 14px 40px;
+      border: 1px solid #7CB342;
+      background: transparent;
+      color: #7CB342;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    .btn-outline:hover {
+      background: rgba(124, 179, 66, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .products-hero h1 {
+        font-size: 36px;
+      }
+
+      .category-header h2 {
+        font-size: 28px;
+      }
+
+      .features-section {
+        padding: 40px 20px;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- PRODUCTS HERO SECTION -->
+  <section class="products-hero">
+    <div class="products-hero-content">
+      <span class="section-tag">OUR PRODUCTS</span>
+      <h1>Premium Apparel<br><em>Excellence</em></h1>
+      <p>From concept to creation, we manufacture premium quality garments and textiles designed to exceed your expectations. Every product reflects our commitment to excellence and innovation.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="products-section">
+    <div class="section-container">
+      
+      <!-- APPAREL PRODUCTS -->
+      <div class="category-section">
+        <div class="category-header">
+          <h2>Custom <em>Apparel Products</em></h2>
+          <p>Tailored garments manufactured with precision and quality, designed for every brand and market segment</p>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-item">
+            <div class="product-image">👕</div>
+            <div class="product-content">
+              <div class="product-name">T-Shirts & Tops</div>
+              <p class="product-desc">Premium quality t-shirts and casual tops in various fabrics and fits</p>
+              <div class="product-specs">
+                <div class="spec-item">100% organic cotton options</div>
+                <div class="spec-item">Custom colors & prints</div>
+                <div class="spec-item">Multiple size ranges</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">👔</div>
+            <div class="product-content">
+              <div class="product-name">Formal Wear</div>
+              <p class="product-desc">Professional business shirts and formal attire for corporate clients</p>
+              <div class="product-specs">
+                <div class="spec-item">Premium cotton blends</div>
+                <div class="spec-item">Tailored fit options</div>
+                <div class="spec-item">Custom embroidery</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">👗</div>
+            <div class="product-content">
+              <div class="product-name">Women's Wear</div>
+              <p class="product-desc">Stylish and comfortable women's clothing across all categories</p>
+              <div class="product-specs">
+                <div class="spec-item">Modern designs</div>
+                <div class="spec-item">Breathable fabrics</div>
+                <div class="spec-item">Inclusive sizing</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">👖</div>
+            <div class="product-content">
+              <div class="product-name">Denim & Bottoms</div>
+              <p class="product-desc">High-quality denim jeans and trousers with superior durability</p>
+              <div class="product-specs">
+                <div class="spec-item">Premium denim fabric</div>
+                <div class="spec-item">Fade-resistant dyes</div>
+                <div class="spec-item">Custom washes</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">🎽</div>
+            <div class="product-content">
+              <div class="product-name">Sportswear</div>
+              <p class="product-desc">High-performance sports and athletic wear with advanced fabrics</p>
+              <div class="product-specs">
+                <div class="spec-item">Moisture-wicking</div>
+                <div class="spec-item">Breathable technology</div>
+                <div class="spec-item">UV protection</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">🧥</div>
+            <div class="product-content">
+              <div class="product-name">Outerwear</div>
+              <p class="product-desc">Jackets, coats, and winter wear with premium insulation</p>
+              <div class="product-specs">
+                <div class="spec-item">Sustainable materials</div>
+                <div class="spec-item">Weather-resistant</div>
+                <div class="spec-item">Lightweight design</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="category-divider"></div>
+
+      <!-- TEXTILE PRODUCTS -->
+      <div class="category-section">
+        <div class="category-header">
+          <h2>Premium <em>Fabrics & Textiles</em></h2>
+          <p>High-quality textiles and fabrics manufactured with precision and sustainable practices</p>
+        </div>
+
+        <div class="products-grid">
+          <div class="product-item">
+            <div class="product-image">🧵</div>
+            <div class="product-content">
+              <div class="product-name">Cotton Fabrics</div>
+              <p class="product-desc">Premium and organic cotton textiles for various applications</p>
+              <div class="product-specs">
+                <div class="spec-item">100% organic cotton</div>
+                <div class="spec-item">Various weave patterns</div>
+                <div class="spec-item">GOTS certified</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">✨</div>
+            <div class="product-content">
+              <div class="product-name">Blended Fabrics</div>
+              <p class="product-desc">Cotton and synthetic blends for enhanced durability and comfort</p>
+              <div class="product-specs">
+                <div class="spec-item">Custom blends available</div>
+                <div class="spec-item">Enhanced durability</div>
+                <div class="spec-item">Easy care options</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">💎</div>
+            <div class="product-content">
+              <div class="product-name">Luxury Textiles</div>
+              <p class="product-desc">Premium silk, wool, and luxury fabric collections</p>
+              <div class="product-specs">
+                <div class="spec-item">Premium silk options</div>
+                <div class="spec-item">Fine wool fabrics</div>
+                <div class="spec-item">Luxury finishes</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">🌿</div>
+            <div class="product-content">
+              <div class="product-name">Eco-Friendly Textiles</div>
+              <p class="product-desc">Sustainable and environmentally responsible fabric options</p>
+              <div class="product-specs">
+                <div class="spec-item">Bamboo & hemp fabrics</div>
+                <div class="spec-item">Recycled materials</div>
+                <div class="spec-item">Carbon-neutral production</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">🔧</div>
+            <div class="product-content">
+              <div class="product-name">Technical Fabrics</div>
+              <p class="product-desc">Advanced performance fabrics with specialized properties</p>
+              <div class="product-specs">
+                <div class="spec-item">Moisture-wicking</div>
+                <div class="spec-item">Anti-bacterial</div>
+                <div class="spec-item">Thermal regulation</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-item">
+            <div class="product-image">🎨</div>
+            <div class="product-content">
+              <div class="product-name">Specialty Weaves</div>
+              <p class="product-desc">Custom weaves and patterns for unique aesthetic appeal</p>
+              <div class="product-specs">
+                <div class="spec-item">Jacquard patterns</div>
+                <div class="spec-item">Custom dyeing</div>
+                <div class="spec-item">Unique finishes</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="products-section">
+    <div class="section-container">
+      <div class="features-section">
+        <h2>Why Our <em>Products Stand Out</em></h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <h4>✓ Premium Quality Materials</h4>
+            <p>We source only the finest materials from trusted suppliers, ensuring superior quality in every product</p>
+          </div>
+
+          <div class="feature-item">
+            <h4>✓ Expert Craftsmanship</h4>
+            <p>Our skilled artisans employ traditional techniques combined with modern technology for perfect execution</p>
+          </div>
+
+          <div class="feature-item">
+            <h4>✓ Sustainable Production</h4>
+            <p>Eco-friendly manufacturing processes that minimize environmental impact without compromising quality</p>
+          </div>
+
+          <div class="feature-item">
+            <h4>✓ Rigorous Quality Control</h4>
+            <p>100% quality assurance through multiple inspection checkpoints in the manufacturing process</p>
+          </div>
+
+          <div class="feature-item">
+            <h4>✓ Custom Customization</h4>
+            <p>Complete customization available including colors, prints, embroidery, and unique designs</p>
+          </div>
+
+          <div class="feature-item">
+            <h4>✓ Competitive Pricing</h4>
+            <p>Premium quality at competitive prices without hidden costs or surprises</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="products-section">
+    <div class="section-container">
+      <div class="cta-section">
+        <h2>Ready to Order<br><em>Your Products?</em></h2>
+        <p>Let's discuss your requirements and create something exceptional together</p>
+        <div class="cta-btns">
+          <a href="enquiry.html" class="btn-primary">Request a Quote</a>
+          <a href="services.html" class="btn-outline">Explore Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

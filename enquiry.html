@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <style>
+    .enquiry-section {
+      min-height: 100vh;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .enquiry-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .enquiry-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .enquiry-header .section-tag {
+      color: #7CB342;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .enquiry-header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #F5F5F5;
+      margin-bottom: 20px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .enquiry-header h1 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .enquiry-header p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-wrapper {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 16px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group.inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #F5F5F5;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .form-group label .required {
+      color: #7CB342;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(124, 179, 66, 0.3);
+      border-radius: 8px;
+      color: #F5F5F5;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(245, 245, 245, 0.5);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #7CB342;
+      box-shadow: 0 0 0 2px rgba(124, 179, 66, 0.1);
+    }
+
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237CB342' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 35px;
+    }
+
+    .form-group select option {
+      background: #0a0e27;
+      color: #F5F5F5;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: auto;
+      cursor: pointer;
+      accent-color: #7CB342;
+    }
+
+    .checkbox-item label {
+      margin: 0;
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .form-info {
+      background: rgba(124, 179, 66, 0.1);
+      border-left: 3px solid #7CB342;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 25px;
+    }
+
+    .form-info p {
+      color: rgba(245, 245, 245, 0.8);
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .form-btns {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .btn-submit {
+      padding: 14px 50px;
+      background: #7CB342;
+      color: #0a0e27;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 13px;
+    }
+
+    .btn-submit:hover {
+      background: #5a8a2d;
+      transform: translateY(-2px);
+    }
+
+    .btn-reset {
+      padding: 14px 50px;
+      background: transparent;
+      color: #7CB342;
+      border: 1px solid #7CB342;
+      border-radius: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 13px;
+    }
+
+    .btn-reset:hover {
+      background: rgba(124, 179, 66, 0.1);
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .contact-icon {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .contact-card h3 {
+      color: #F5F5F5;
+      font-size: 16px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .contact-card p {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .contact-card a {
+      color: #7CB342;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .form-group.inline {
+        grid-template-columns: 1fr;
+      }
+
+      .enquiry-header h1 {
+        font-size: 36px;
+      }
+
+      .form-wrapper {
+        padding: 25px;
+      }
+
+      .form-btns {
+        flex-direction: column;
+      }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- ENQUIRY SECTION -->
+  <section class="enquiry-section">
+    <div class="enquiry-container">
+      <div class="enquiry-header">
+        <span class="section-tag">GET IN TOUCH</span>
+        <h1>Send us an <em>Enquiry</em></h1>
+        <p>Have a project in mind? Fill out the form below and our team will get back to you with a detailed proposal and timeline.</p>
+      </div>
+
+      <!-- ENQUIRY FORM -->
+      <div class="form-wrapper" id="enquiry-form">
+        <div class="form-info">
+          <p>✓ We respond to all inquiries within 24-48 hours | ✓ Free consultation available | ✓ Flexible terms for all project sizes</p>
+        </div>
+
+        <form id="enquiryForm">
+          <!-- Personal Information -->
+          <div class="form-group inline">
+            <div>
+              <label for="firstName">First Name <span class="required">*</span></label>
+              <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+            </div>
+            <div>
+              <label for="lastName">Last Name <span class="required">*</span></label>
+              <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+            </div>
+          </div>
+
+          <div class="form-group inline">
+            <div>
+              <label for="email">Email Address <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div>
+              <label for="phone">Phone Number <span class="required">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company Name <span class="required">*</span></label>
+            <input type="text" id="company" name="company" placeholder="Your company name" required>
+          </div>
+
+          <!-- Project Details -->
+          <div class="form-group">
+            <label for="projectType">Type of Service Interested In <span class="required">*</span></label>
+            <select id="projectType" name="projectType" required>
+              <option value="">-- Select an option --</option>
+              <option value="custom-apparel">Custom Apparel Production</option>
+              <option value="textile-manufacturing">Textile Manufacturing</option>
+              <option value="private-label">Private Label Services</option>
+              <option value="design-solutions">Innovative Design Solutions</option>
+              <option value="bulk-order">Bulk Order</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">Estimated Order Quantity <span class="required">*</span></label>
+            <input type="text" id="quantity" name="quantity" placeholder="e.g., 1000 units, Custom, TBD" required>
+          </div>
+
+          <div class="form-group">
+            <label for="timeline">Required Timeline <span class="required">*</span></label>
+            <select id="timeline" name="timeline" required>
+              <option value="">-- Select timeline --</option>
+              <option value="urgent">Urgent (Less than 2 weeks)</option>
+              <option value="short">Short (2-4 weeks)</option>
+              <option value="medium">Medium (1-2 months)</option>
+              <option value="flexible">Flexible (3+ months)</option>
+            </select>
+          </div>
+
+          <!-- Product Details -->
+          <div class="form-group">
+            <label for="productDetails">Product Details & Requirements <span class="required">*</span></label>
+            <textarea id="productDetails" name="productDetails" placeholder="Describe your project, materials, colors, sizes, designs, and any special requirements..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Interested Services <span class="required">*</span></label>
+            <div class="checkbox-group">
+              <div class="checkbox-item">
+                <input type="checkbox" id="service1" name="services" value="custom-production">
+                <label for="service1">Custom Apparel Production</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="service2" name="services" value="quality-assurance">
+                <label for="service2">Quality Assurance & Testing</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="service3" name="services" value="design">
+                <label for="service3">Design & Consultation</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="service4" name="services" value="sustainable">
+                <label for="service4">Sustainable/Eco-friendly Options</label>
+              </div>
+              <div class="checkbox-item">
+                <input type="checkbox" id="service5" name="services" value="logistics">
+                <label for="service5">Shipping & Logistics Support</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Information -->
+          <div class="form-group">
+            <label for="additionalInfo">Additional Information</label>
+            <textarea id="additionalInfo" name="additionalInfo" placeholder="Any additional details you'd like us to know..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <div class="checkbox-item">
+              <input type="checkbox" id="agreement" name="agreement" required>
+              <label for="agreement">I agree to the <a href="privacy-policy.html" target="_blank" style="color: #7CB342;">Privacy Policy</a> and <a href="terms-of-service.html" target="_blank" style="color: #7CB342;">Terms of Service</a></label>
+            </div>
+          </div>
+
+          <div class="form-btns">
+            <button type="submit" class="btn-submit">Submit Enquiry</button>
+            <button type="reset" class="btn-reset">Clear Form</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- CONTACT INFO -->
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <h3>Email</h3>
+          <p><a href="mailto:enquiry@vibeclothingcompany.net">enquiry@vibeclothingcompany.net</a></p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <h3>Phone</h3>
+          <p>IN: <a href="tel:+919791999998">+91 97919 99998</a><br>UK: <a href="tel:+447404447806">+44 7404447806</a></p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🕐</div>
+          <h3>Response Time</h3>
+          <p>We typically respond within 24-48 hours during business days</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    // Form submission handling
+    document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Get form data
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      
+      // Validate at least one service is checked
+      const services = document.querySelectorAll('input[name="services"]:checked');
+      if (services.length === 0) {
+        alert('Please select at least one service.');
+        return;
+      }
+      
+      // Log form data (in real implementation, send to server)
+      console.log('Form submitted with data:', data);
+      alert('Thank you for your enquiry! We will get back to you within 24-48 hours.');
+      
+      // Reset form
+      this.reset();
+    });
+  </script>
+</body>
+
+</html>

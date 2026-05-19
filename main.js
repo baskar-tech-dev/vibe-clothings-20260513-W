@@ -3,7 +3,35 @@
    Fabric Wave + Parallax + Scroll Reveal + Stats Counter + Video Control
    ═══════════════════════════════════════════════ */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+
+  try {
+    const [headerRes, footerRes] = await Promise.all([
+      fetch('header.html'),
+      fetch('footer.html')
+    ]);
+    const headerHtml = await headerRes.text();
+    const footerHtml = await footerRes.text();
+
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (headerPlaceholder) headerPlaceholder.outerHTML = headerHtml;
+
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder) footerPlaceholder.outerHTML = footerHtml;
+  } catch (e) {
+    console.error('Error loading header or footer:', e);
+  }
+
+  // Set active link based on current URL path
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const linkPath = link.getAttribute('href').split('#')[0];
+    if (linkPath === currentPath || (currentPath === '' && linkPath === 'index.html')) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
+    }
+  });
 
   /* ══════════════════════════════════
      1. NAVBAR — scroll behaviour
@@ -247,7 +275,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (currentId) {
       navAnchors.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === `#${currentId}`);
+        const href = a.getAttribute('href');
+        // If it's a hash link for the current page
+        if (href === `#${currentId}` || href === `index.html#${currentId}`) {
+           navAnchors.forEach(link => link.classList.remove('active'));
+           a.classList.add('active');
+        }
       });
     }
   }
