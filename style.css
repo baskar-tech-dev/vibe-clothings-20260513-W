@@ -2143,3 +2143,354 @@ body {
   }
 }
 
+/* ═══════════════════════════════════════════════
+   ENHANCED MOBILE RESPONSIVE — Extra Small Devices
+   ═══════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .navbar {
+    padding: 0.5rem 0.5rem;
+  }
+
+  .nav-container {
+    padding: 0 0.75rem;
+    gap: 1rem;
+  }
+
+  .logo-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .navbar.scrolled .logo-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logo-name {
+    font-size: 1rem;
+  }
+
+  .logo-sub {
+    font-size: 0.45rem;
+  }
+
+  .nav-hamburger {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-hamburger span {
+    width: 16px;
+    height: 2px;
+  }
+
+  .hero {
+    min-height: 85vh;
+  }
+
+  .hero-content {
+    padding: 6.5rem 0.75rem 1rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+    line-height: 1.3;
+  }
+
+  .hero-line {
+    width: 50px;
+    height: 2px;
+    margin: 1rem auto;
+  }
+
+  .hero-desc {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.75rem 1rem;
+    min-height: 44px;
+  }
+
+  .btn-primary span {
+    font-size: 0.75rem;
+  }
+
+  .video-control {
+    bottom: auto;
+    top: 4.5rem;
+    right: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  .vc-label {
+    font-size: 0.65rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
+  }
+
+  .service-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .service-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .stats-bar {
+    margin: 0 0.5rem 1rem;
+    padding: 0.8rem;
+  }
+
+  .stat-item {
+    padding: 0.9rem 1rem;
+  }
+
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .why-item {
+    padding: 0.9rem;
+  }
+
+  .join-grid {
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .join-badges {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .badge-item {
+    padding: 1.25rem 0.8rem;
+  }
+
+  .journey-cards {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .journey-card {
+    padding: 1.2rem;
+    min-height: auto;
+    border-radius: 16px;
+  }
+
+  .journey-card-mark {
+    width: 48px;
+    margin-bottom: 1rem;
+  }
+
+  .journey-card-content h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .journey-card-content p {
+    font-size: 0.9rem;
+  }
+
+  .footer-container {
+    padding: 0 0.75rem;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    margin-bottom: 1rem;
+  }
+
+  .logo-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .footer-col-title {
+    font-size: 0.65rem;
+  }
+
+  .footer-links li a,
+  .fci-link {
+    font-size: 0.8rem;
+  }
+
+  .footer-socials {
+    gap: 0.5rem;
+  }
+
+  .social-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .footer-brand-desc {
+    font-size: 0.8rem;
+  }
+
+  .footer-bottom {
+    padding: 1rem 0.75rem;
+  }
+
+  .fb-copyright,
+  .fb-links a {
+    font-size: 0.75rem;
+  }
+
+  .philosophy-section {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .philosophy-title {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .philosophy-text {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .philosophy-closing {
+    font-size: 0.85rem;
+  }
+
+  .c2c-section {
+    padding: 2.5rem 0.75rem;
+  }
+
+  .c2c-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .c2c-wrapper {
+    border-radius: 12px;
+  }
+
+  .video-control {
+    width: auto;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   TABLET OPTIMIZATION — Medium Devices
+   ═══════════════════════════════════════════════ */
+@media (min-width: 481px) and (max-width: 768px) {
+  .section-title {
+    font-size: clamp(2rem, 6vw, 2.5rem);
+  }
+
+  .service-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .join-grid {
+    gap: 2rem;
+  }
+
+  .journey-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .journey-card {
+    min-height: 280px;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   LARGE SCREENS — Desktop Optimization
+   ═══════════════════════════════════════════════ */
+@media (min-width: 1025px) {
+  .nav-links {
+    display: flex !important;
+    position: static !important;
+    background: none !important;
+    padding: 0 !important;
+    gap: 1.75rem !important;
+    border: none !important;
+    z-index: auto !important;
+  }
+
+  .btn-quote {
+    display: flex !important;
+  }
+
+  .service-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .journey-cards {
+    grid-template-columns: 1fr 1.5fr 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   ACCESSIBILITY — Reduced Motion Support
+   ═══════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   HIGH CONTRAST MODE Support
+   ═══════════════════════════════════════════════ */
+@media (prefers-contrast: more) {
+  :root {
+    --primary: #7CB342;
+    --border: rgba(124, 179, 66, 0.4);
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+  }
+}
+
