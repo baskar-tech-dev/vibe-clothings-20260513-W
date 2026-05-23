@@ -312,65 +312,107 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   /* ══════════════════════════════════
-     CONCEPT TO CREATION COMPARISON SLIDER
+     CONCEPT TO CREATION COMPARISON SLIDER (INDEPENDENT DOUBLE DOOR STYLE)
   ══════════════════════════════════ */
-  const c2cForeground = document.getElementById('c2cForeground');
-  const c2cSlider = document.getElementById('c2cSlider');
+  const c2cDoorLeft = document.getElementById('c2cDoorLeft');
+  const c2cDoorRight = document.getElementById('c2cDoorRight');
   const c2cWrapper = document.querySelector('.c2c-wrapper');
 
-  if (c2cForeground && c2cSlider && c2cWrapper) {
+  if (c2cDoorLeft && c2cDoorRight && c2cWrapper) {
     let isDragging = false;
+    let activeDragSide = null; // 'left' or 'right'
 
     function updateSliderPosition(x) {
-      const rect = c2cWrapper.getBoundingClientRect();
-      const wrapperX = rect.left;
-      const wrapperWidth = rect.width;
-      
-      let percent = (x - wrapperX) / wrapperWidth;
-      percent = Math.max(0, Math.min(1, percent));
+      if (!activeDragSide) return;
 
-      const clampedPercent = Math.max(0.1, Math.min(0.9, percent));
+      const rect = c2cWrapper.getBoundingClientRect();
+      const wrapperCenterX = rect.left + rect.width / 2;
+      const halfWidth = rect.width / 2;
       
-      c2cForeground.style.width = (clampedPercent * 100) + '%';
-      c2cSlider.style.left = (clampedPercent * 100) + '%';
+      // Keep handle visible at the ends (handle is 32px wide on desktop, 26px on mobile)
+      const handleWidth = rect.width > 1024 ? 32 : 26;
+      const slideRange = halfWidth - handleWidth;
+
+      if (activeDragSide === 'left') {
+        // Left door opens to the left (x moves from center towards left edge)
+        let distance = wrapperCenterX - x;
+        distance = Math.max(0, Math.min(slideRange, distance));
+        const translatePercent = (distance / halfWidth) * 100;
+        c2cDoorLeft.style.transform = `translateX(-${translatePercent}%)`;
+      } else if (activeDragSide === 'right') {
+        // Right door opens to the right (x moves from center towards right edge)
+        let distance = x - wrapperCenterX;
+        distance = Math.max(0, Math.min(slideRange, distance));
+        const translatePercent = (distance / halfWidth) * 100;
+        c2cDoorRight.style.transform = `translateX(${translatePercent}%)`;
+      }
     }
 
     // Mouse events
-    c2cWrapper.addEventListener('mousedown', () => {
+    c2cDoorLeft.addEventListener('mousedown', (e) => {
+      e.preventDefault(); // Prevent browser drag/text selection hijacking
       isDragging = true;
-      c2cForeground.classList.add('dragging');
+      activeDragSide = 'left';
+      c2cWrapper.classList.add('dragging');
+      updateSliderPosition(e.clientX);
+      e.stopPropagation();
+    });
+
+    c2cDoorRight.addEventListener('mousedown', (e) => {
+      e.preventDefault(); // Prevent browser drag/text selection hijacking
+      isDragging = true;
+      activeDragSide = 'right';
+      c2cWrapper.classList.add('dragging');
+      updateSliderPosition(e.clientX);
+      e.stopPropagation();
     });
 
     document.addEventListener('mouseup', () => {
-      isDragging = false;
-      c2cForeground.classList.remove('dragging');
+      if (isDragging) {
+        isDragging = false;
+        activeDragSide = null;
+        c2cWrapper.classList.remove('dragging');
+      }
     });
 
-    c2cWrapper.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', (e) => {
       if (!isDragging) return;
       updateSliderPosition(e.clientX);
     });
 
     // Touch events
-    c2cWrapper.addEventListener('touchstart', () => {
+    c2cDoorLeft.addEventListener('touchstart', (e) => {
       isDragging = true;
-      c2cForeground.classList.add('dragging');
+      activeDragSide = 'left';
+      c2cWrapper.classList.add('dragging');
+      updateSliderPosition(e.touches[0].clientX);
+      e.stopPropagation();
+    });
+
+    c2cDoorRight.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      activeDragSide = 'right';
+      c2cWrapper.classList.add('dragging');
+      updateSliderPosition(e.touches[0].clientX);
+      e.stopPropagation();
     });
 
     document.addEventListener('touchend', () => {
-      isDragging = false;
-      c2cForeground.classList.remove('dragging');
+      if (isDragging) {
+        isDragging = false;
+        activeDragSide = null;
+        c2cWrapper.classList.remove('dragging');
+      }
     });
 
-    c2cWrapper.addEventListener('touchmove', (e) => {
+    document.addEventListener('touchmove', (e) => {
       if (!isDragging) return;
-      const touch = e.touches[0];
-      updateSliderPosition(touch.clientX);
+      updateSliderPosition(e.touches[0].clientX);
     });
 
-    // Initial position (50%)
-    c2cForeground.style.width = '50%';
-    c2cSlider.style.left = '50%';
+    // Initial position (Closed - 0% translation)
+    c2cDoorLeft.style.transform = 'translateX(0%)';
+    c2cDoorRight.style.transform = 'translateX(0%)';
   }
 
 });

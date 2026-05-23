@@ -17,44 +17,7 @@
        ABOUT US STYLE REDESIGN (Forest Green & Charcoal Theme)
        ========================================================================== */
     .about-hero {
-      min-height: 55vh;
-      padding: clamp(140px, 18vh, 180px) 20px clamp(40px, 10vh, 80px);
-      background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-dark) 100%);
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid rgba(124, 179, 66, 0.15);
-    }
-
-    .about-hero-content {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .about-hero .section-tag {
-      color: #7CB342;
-      font-size: clamp(11px, 2vw, 13px);
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-weight: 600;
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    .about-hero h1 {
-      font-size: clamp(32px, 8vw, 64px);
-      font-weight: 700;
-      color: #F5F5F5;
-      margin-bottom: 30px;
-      font-family: 'Cormorant Garamond', serif;
-      line-height: 1.15;
-    }
-
-    .about-hero h1 em {
-      font-style: italic;
-      color: #7CB342;
+      background-image: linear-gradient(180deg, rgba(7, 11, 8, 0.7) 0%, rgba(13, 21, 17, 0.85) 100%), url('asset/hero-3-about.png');
     }
 
     .about-intro-box {
@@ -117,25 +80,27 @@
     }
 
     .slider-outer-wrap {
-      display: flex;
-      align-items: center;
-      gap: 20px;
       position: relative;
+      padding: 0;
+      margin: 0 auto;
+      display: block;
     }
 
     .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
       width: 50px;
       height: 50px;
       border-radius: 50%;
       border: 1px solid rgba(124, 179, 66, 0.3);
-      background: rgba(13, 21, 17, 0.6);
+      background: rgba(13, 21, 17, 0.85);
       color: #7CB342;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      flex-shrink: 0;
       font-size: 1.5rem;
       user-select: none;
       z-index: 10;
@@ -144,14 +109,55 @@
     .slider-arrow:hover {
       background: #7CB342;
       color: var(--bg-main);
-      box-shadow: 0 0 20px var(--primary-glow);
-      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(124, 179, 66, 0.4);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-arrow {
+      left: -70px;
+    }
+
+    .next-arrow {
+      right: -70px;
+    }
+
+    @media (max-width: 1200px) {
+      .prev-arrow {
+        left: -20px;
+      }
+      .next-arrow {
+        right: -20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slider-outer-wrap {
+        padding-bottom: 80px;
+      }
+
+      .slider-arrow {
+        top: auto;
+        bottom: 10px;
+        transform: none;
+      }
+
+      .slider-arrow:hover {
+        transform: scale(1.1);
+      }
+
+      .prev-arrow {
+        left: calc(50% - 60px);
+      }
+
+      .next-arrow {
+        right: calc(50% - 60px);
+      }
     }
 
     .reviews-viewport {
       overflow: hidden;
       width: 100%;
-      padding: 10px 5px;
+      padding: 15px 5px;
     }
 
     .reviews-track {
@@ -165,7 +171,7 @@
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(124, 179, 66, 0.15);
       border-radius: 20px;
-      padding: clamp(30px, 6vw, 50px);
+      padding: clamp(20px, 5vw, 40px);
       box-sizing: border-box;
       backdrop-filter: blur(10px);
       transition: transform 0.4s ease, border-color 0.4s ease;
@@ -416,6 +422,12 @@
       stroke: currentColor;
       stroke-width: 1.5;
     }
+
+    .team-contact-item span {
+      font-size: clamp(11px, 2.5vw, 14px);
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
   </style>
 </head>
 
@@ -426,7 +438,7 @@
   <!-- ABOUT HERO SECTION -->
   <section class="about-hero">
     <div class="about-hero-content">
-      <span class="section-tag scroll-reveal">2. About Us</span>
+     
       <h1 class="scroll-reveal">Weaving Narrative With<br><em>Dedication & Expertise</em></h1>
       
       <div class="about-intro-box scroll-reveal delay-1">

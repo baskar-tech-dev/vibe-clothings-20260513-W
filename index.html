@@ -356,34 +356,39 @@
       
       <div class="c2c-comparison scroll-reveal delay-1">
         <div class="c2c-wrapper">
-          <!-- Background: Final Product -->
+          <!-- Background: Final Product (Seamless Reality) -->
           <div class="c2c-image c2c-background">
             <img src="/asset/why-choose-us.png" alt="Final creation product" />
             <div class="c2c-label-bg">Creation</div>
           </div>
 
-          <!-- Foreground: Sketch (Draggable overlay) -->
-          <div class="c2c-image c2c-foreground" id="c2cForeground">
+          <!-- Left Door: Left Half of Sketch -->
+          <div class="c2c-door c2c-door-left" id="c2cDoorLeft">
             <img src="/asset/out-expertise.png" alt="Design concept sketch" />
             <div class="c2c-label-fg">Concept</div>
+            
+            <!-- Left Handle half -->
+            <div class="c2c-handle c2c-handle-left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </div>
           </div>
 
-          <!-- Slider Handle -->
-          <div class="c2c-slider" id="c2cSlider">
-            <div class="c2c-slider-handle">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                <polyline points="15 18 9 12 15 6"></polyline>
-                <polyline points="9 18 3 12 9 6"></polyline>
-              </svg>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+          <!-- Right Door: Right Half of Sketch -->
+          <div class="c2c-door c2c-door-right" id="c2cDoorRight">
+            <img src="/asset/out-expertise.png" alt="Design concept sketch" />
+            
+            <!-- Right Handle half -->
+            <div class="c2c-handle c2c-handle-right">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
                 <polyline points="9 18 15 12 9 6"></polyline>
-                <polyline points="15 18 21 12 15 6"></polyline>
               </svg>
             </div>
           </div>
         </div>
 
-        <div class="c2c-hint">Drag to reveal</div>
+        <div class="c2c-hint">Drag outwards from the center to open the doors</div>
       </div>
     </div>
   </section>

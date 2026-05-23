@@ -13,9 +13,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
     rel="stylesheet">
   <style>
+    .faq-hero {
+      background-image: linear-gradient(180deg, rgba(7, 11, 8, 0.7) 0%, rgba(13, 21, 17, 0.85) 100%), url('asset/hero-4.png');
+    }
+
     .faq-section {
-      min-height: 100vh;
-      padding: clamp(140px, 18vh, 180px) clamp(16px, 5vw, 20px) clamp(40px, 10vh, 80px);
+      min-height: auto;
+      padding: clamp(60px, 10vh, 100px) clamp(16px, 5vw, 20px);
       background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-dark) 100%);
       position: relative;
       overflow: hidden;
@@ -283,13 +287,17 @@
 
   <div id="header-placeholder"></div>
 
-  <!-- FAQ SECTION -->
-  <section class="faq-section">
-    <div class="faq-header">
+  <!-- FAQ HERO SECTION -->
+  <section class="faq-hero">
+    <div class="faq-hero-content">
       <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
-      <h1>Common Questions <em>Answered</em></h1>
+      <h1>Common Questions <br><em>Answered</em></h1>
       <p>Find answers to common questions about our services, products, and manufacturing processes.</p>
     </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
 
     <div class="faq-container">
       <!-- About Services Category -->

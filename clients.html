@@ -13,9 +13,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
     rel="stylesheet">
   <style>
+    .clients-hero {
+      background-image: linear-gradient(180deg, rgba(7, 11, 8, 0.7) 0%, rgba(13, 21, 17, 0.85) 100%), url('asset/why-choose-us.png');
+    }
+
     .clients-section {
-      min-height: 100vh;
-      padding: clamp(140px, 18vh, 180px) clamp(16px, 5vw, 20px) clamp(40px, 10vh, 80px);
+      min-height: auto;
+      padding: clamp(60px, 10vh, 100px) clamp(16px, 5vw, 20px);
       background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-dark) 100%);
       position: relative;
       overflow: hidden;
@@ -251,14 +255,18 @@
 
   <div id="header-placeholder"></div>
 
+  <!-- CLIENTS HERO SECTION -->
+  <section class="clients-hero">
+    <div class="clients-hero-content">
+      <span class="section-tag">OUR CLIENTS</span>
+      <h1>Trusted by Over <br><em>500+ Happy Clients</em></h1>
+      <p>We've had the privilege of partnering with brands across the globe, from emerging startups to established retailers. Our commitment to excellence has made us the preferred choice for businesses seeking premium apparel manufacturing services.</p>
+    </div>
+  </section>
+
   <!-- CLIENTS SECTION -->
   <section class="clients-section">
     <div class="container">
-      <div class="clients-header">
-        <span class="section-tag">OUR CLIENTS</span>
-        <h1>Trusted by Over <em>500+ Happy Clients</em></h1>
-        <p>We've had the privilege of partnering with brands across the globe, from emerging startups to established retailers. Our commitment to excellence has made us the preferred choice for businesses seeking premium apparel manufacturing services.</p>
-      </div>
 
       <div class="clients-grid">
         <div class="client-card">
