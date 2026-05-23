@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <style>
+    .contact-hero {
+      background-image: linear-gradient(180deg, rgba(7, 11, 8, 0.75) 0%, rgba(13, 21, 17, 0.9) 100%), url('asset/hero-2.png');
+      padding: clamp(100px, 20vh, 180px) clamp(16px, 5vw, 20px) clamp(60px, 12vh, 100px);
+      text-align: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    .contact-hero-content h1 {
+      font-size: clamp(32px, 8vw, 56px);
+      font-weight: 700;
+      color: #F5F5F5;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .contact-hero-content h1 em {
+      font-style: italic;
+      color: #7CB342;
+    }
+
+    .contact-hero-content p {
+      color: rgba(245, 245, 245, 0.75);
+      font-size: clamp(14px, 1.8vw, 16px);
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-section {
+      padding: clamp(60px, 10vh, 100px) clamp(16px, 5vw, 20px);
+      background: linear-gradient(135deg, var(--bg-main) 0%, var(--bg-dark) 100%);
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(124, 179, 66, 0.1);
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(30px, 5vw, 60px);
+      align-items: flex-start;
+      position: relative;
+      z-index: 5;
+    }
+
+    @media (max-width: 992px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-cards-col {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-card-glass {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(124, 179, 66, 0.15);
+      border-radius: 20px;
+      padding: 30px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(124, 179, 66, 0.08), transparent 40%);
+      pointer-events: none;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-card-glass:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(124, 179, 66, 0.4);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(124, 179, 66, 0.08);
+    }
+
+    .contact-card-glass:hover::before {
+      opacity: 1;
+    }
+
+    .card-header-wrap {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .card-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(124, 179, 66, 0.1);
+      border: 1px solid rgba(124, 179, 66, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7CB342;
+    }
+
+    .card-header-wrap h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #F5F5F5;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .contact-detail-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-detail-list li {
+      color: rgba(245, 245, 245, 0.7);
+      font-size: 14.5px;
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .contact-detail-list li strong {
+      color: #7CB342;
+      font-weight: 500;
+    }
+
+    .contact-detail-list li a {
+      color: rgba(245, 245, 245, 0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-detail-list li a:hover {
+      color: #7CB342;
+    }
+
+    .map-col {
+      width: 100%;
+      height: 100%;
+    }
+
+    .map-outer-frame {
+      width: 100%;
+      height: 480px;
+      border-radius: 24px;
+      border: 1px solid rgba(124, 179, 66, 0.25);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      background: #070B08;
+      position: relative;
+    }
+
+    @media (max-width: 576px) {
+      .map-outer-frame {
+        height: 380px;
+      }
+    }
+
+    .map-outer-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .contact-cta-bar {
+      margin-top: 60px;
+      background: rgba(124, 179, 66, 0.08);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      border-radius: 20px;
+      padding: 30px clamp(20px, 4vw, 40px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .cta-text-wrap h4 {
+      color: #F5F5F5;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0 0 6px 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .cta-text-wrap p {
+      color: rgba(245, 245, 245, 0.65);
+      font-size: 14px;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- HERO SECTION -->
+  <section class="contact-hero">
+    <div class="contact-hero-content scroll-reveal">
+      <span class="section-tag"
+        style="color: #7CB342; font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; display: block; margin-bottom: 15px;">GET
+        IN TOUCH</span>
+      <h1>Connect With Our <br><em>Apparel Experts</em></h1>
+      <p>Have production questions, fabric sourcing inquiries, or ready to begin a project? Let us know how we can
+        support your brand.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT CONTENT SECTION -->
+  <section class="contact-section">
+    <div class="section-container">
+      <div class="contact-container">
+
+        <!-- CARDS COLUMN -->
+        <div class="contact-cards-col scroll-reveal">
+
+          <!-- Card 1: India HQ -->
+          <div class="contact-card-glass">
+            <div class="card-header-wrap">
+              <div class="card-icon-box">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <h3>India Headquarters</h3>
+            </div>
+            <ul class="contact-detail-list">
+              <li><strong>Address:</strong> Vibe Clothing Company, Tiruppur, Tamil Nadu, India.</li>
+              <li><strong>Phone:</strong> <a href="tel:+919791999998">+91 97919 99998</a></li>
+              <li><strong>Email:</strong> <a
+                  href="mailto:enquiry@vibeclothingcompany.net">enquiry@vibeclothingcompany.net</a></li>
+            </ul>
+          </div>
+
+          <!-- Card 2: UK Liaison -->
+          <div class="contact-card-glass">
+            <div class="card-header-wrap">
+              <div class="card-icon-box">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </div>
+              <h3>United Kingdom Office</h3>
+            </div>
+            <ul class="contact-detail-list">
+              <li><strong>Address:</strong> Global Liaison Division, London, UK.</li>
+              <li><strong>Phone:</strong> <a href="tel:+447404447806">+44 74044 47806</a></li>
+              <li><strong>Email:</strong> <a
+                  href="mailto:enquiry@vibeclothingcompany.net">enquiry@vibeclothingcompany.net</a></li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Support Hours -->
+          <div class="contact-card-glass">
+            <div class="card-header-wrap">
+              <div class="card-icon-box">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <h3>Working & Support Hours</h3>
+            </div>
+            <ul class="contact-detail-list">
+              <li><strong>Operational Hours:</strong> Monday — Saturday: 9:00 AM — 6:00 PM IST</li>
+              <li><strong>Support Policy:</strong> Our team responds to all email and enquiry requests within 24 hours.
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- MAP COLUMN -->
+        <div class="map-col scroll-reveal delay-1">
+          <div class="map-outer-frame">
+            <iframe src="https://www.google.com/maps/d/embed?mid=1jux7YJamK5jBamSX3CL40_JRoKo4mmQ&ehbc=2E312F"
+              width="100%" height="100%"></iframe>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA BAR -->
+      <div class="contact-cta-bar scroll-reveal">
+        <div class="cta-text-wrap">
+          <h4>Have a custom production project in mind?</h4>
+          <p>Complete our comprehensive enquiry form to get detailed sizing, pricing, and timeline estimates.</p>
+        </div>
+        <a href="enquiry.html" class="btn-primary">Go to Enquiry Form <span>→</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+  <div class="footer-top-line"></div>
+  <div class="footer-container">
+    <div class="footer-brand scroll-reveal">
+      <a href="index.html" class="logo footer-logo">
+        <div class="logo-icon" style="width:100px;height:100px;">
+          <img src="/asset/logo.png" alt="Vibe Clothing Logo" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+      </a>
+      <p class="footer-brand-desc">Vibe Clothing Company isn't just a choice — it's a statement of quality,
+        adaptability, and responsibility. Here, your textile aspirations become our mission for excellence.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="currentColor">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+          </svg></a>
+        <a href="#" class="social-btn" aria-label="Twitter"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="currentColor">
+            <path
+              d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+          </svg></a>
+        <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+          </svg></a>
+        <a href="#" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="currentColor">
+            <path
+              d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+          </svg></a>
+      </div>
+    </div>
+    <div class="footer-links-col scroll-reveal delay-1">
+      <h4 class="footer-col-title">QUICK LINKS</h4>
+      <div class="footer-col-line"></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col scroll-reveal delay-2">
+      <h4 class="footer-col-title">OTHER LINKS</h4>
+      <div class="footer-col-line"></div>
+      <ul class="footer-links">
+        <li><a href="clients.html">Clients</a></li>
+        <!-- <li><a href="shop.html">Shop</a></li>
+        <li><a href="faq.html">FAQ's</a></li> -->
+        <li><a href="enquiry.html">Enquiry</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact-col scroll-reveal delay-3">
+      <h4 class="footer-col-title">GET IN TOUCH</h4>
+      <div class="footer-col-line"></div>
+      <ul class="footer-contact-list">
+        <li>
+          <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+              <rect x="2" y="4" width="20" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
+              <path d="M2 8 L12 14 L22 8" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+            </svg></div>
+          <a href="mailto:enquiry@vibeclothingcompany.net" class="fci-link">enquiry@vibeclothingcompany.net</a>
+        </li>
+        <li>
+          <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                stroke="#7CB342" stroke-width="1.5" />
+            </svg></div>
+          <div class="fci-phones"><span>IN: +91 97919 99998</span><span>UK: +44 7404447806</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="fb-content">
+      <p class="fb-copyright">
+        © 2026 <span class="footer-brand-name">Vibe Clothing Company</span>. All Rights Reserved.
+      </p>
+      <div class="fb-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="fb-dot">•</span>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <span class="fb-dot">•</span>
+        <span class="fb-credit">Designed by <a href="https://futuremindstudio.in" target="_blank">Future Mind Studio</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

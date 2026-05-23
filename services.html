@@ -793,55 +793,65 @@
       line-height: 1.6;
     }
 
-    /* DESKTOP COORDINATES (Based on clockwise clock coordinates) */
-    .step-node-01 {
-      left: 68%;
-      top: 19%;
+    /* DESKTOP COORDINATES (Perfect clock-spaced circular points starting at top center) */
+    .step-node-01 { left: 50%; top: 14%; }
+    .step-node-02 { left: 68%; top: 18.82%; }
+    .step-node-03 { left: 81.18%; top: 32%; }
+    .step-node-04 { left: 86%; top: 50%; }
+    .step-node-05 { left: 81.18%; top: 68%; }
+    .step-node-06 { left: 68%; top: 81.18%; }
+    .step-node-07 { left: 50%; top: 86%; }
+    .step-node-08 { left: 32%; top: 81.18%; }
+    .step-node-09 { left: 18.82%; top: 68%; }
+    .step-node-10 { left: 14%; top: 50%; }
+    .step-node-11 { left: 18.82%; top: 32%; }
+    .step-node-12 { left: 32%; top: 18.82%; }
+
+    /* PREMIUM 12-NODE STRAIGHT-COLUMN ALIGNMENT & INFOGRAPHIC CONNECTOR LINES */
+    /* Right Side Content Columns Alignment (Aligning to x = 770px in the 820px container) */
+    .step-node-01 .journey-step-content { left: 50% !important; right: auto !important; transform: translate(-50%, -135px) !important; text-align: center !important; width: 250px !important; }
+    .step-node-01 .journey-step-content::before { content: '' !important; position: absolute !important; left: 50% !important; top: 100% !important; width: 1px !important; height: 45px !important; border-left: 1.5px dashed rgba(124, 179, 66, 0.35) !important; border-top: none !important; transform: translateX(-50%) !important; }
+    .step-node-02 .journey-step-content { left: 212px; transform: translateY(-70%); }
+    .step-node-02 .journey-step-content::before { left: -167px; width: 167px; top: 70%; }
+    .step-node-03 .journey-step-content { left: 104px; transform: translateY(-50%); }
+    .step-node-03 .journey-step-content::before { left: -59px; width: 59px; top: 50%; }
+    .step-node-04 .journey-step-content { left: 65px; transform: translateY(-50%); }
+    .step-node-04 .journey-step-content::before { left: -20px; width: 20px; top: 50%; }
+    .step-node-05 .journey-step-content { left: 104px; transform: translateY(-50%); }
+    .step-node-05 .journey-step-content::before { left: -59px; width: 59px; top: 50%; }
+    .step-node-06 .journey-step-content { left: 212px; transform: translateY(-30%); }
+    .step-node-06 .journey-step-content::before { left: -167px; width: 167px; top: 30%; }
+    .step-node-07 .journey-step-content { left: 50% !important; right: auto !important; transform: translate(-50%, 65px) !important; text-align: center !important; width: 250px !important; }
+    .step-node-07 .journey-step-content::after { content: '' !important; position: absolute !important; left: 50% !important; bottom: 100% !important; width: 1px !important; height: 20px !important; border-left: 1.5px dashed rgba(124, 179, 66, 0.35) !important; border-top: none !important; transform: translateX(-50%) !important; }
+
+    /* Left Side Content Columns Alignment (Aligning to x = 50px in the 820px container) */
+    .step-node-08 .journey-step-content { right: 212px; transform: translateY(-30%); }
+    .step-node-08 .journey-step-content::after { right: -167px; width: 167px; top: 30%; }
+    .step-node-09 .journey-step-content { right: 104px; transform: translateY(-50%); }
+    .step-node-09 .journey-step-content::after { right: -59px; width: 59px; top: 50%; }
+    .step-node-10 .journey-step-content { right: 65px; transform: translateY(-50%); }
+    .step-node-10 .journey-step-content::after { right: -20px; width: 20px; top: 50%; }
+    .step-node-11 .journey-step-content { right: 104px; transform: translateY(-50%); }
+    .step-node-11 .journey-step-content::after { right: -59px; width: 59px; top: 50%; }
+    .step-node-12 .journey-step-content { right: 212px; transform: translateY(-70%); }
+    .step-node-12 .journey-step-content::after { right: -167px; width: 167px; top: 70%; }
+
+    /* Right Side Infographic Dotted Connectors Base */
+    .journey-step-node.align-right .journey-step-content::before {
+      content: '';
+      position: absolute;
+      height: 1px;
+      border-top: 1.5px dashed rgba(124, 179, 66, 0.35);
+      pointer-events: none;
     }
 
-    .step-node-02 {
-      left: 81.2%;
-      top: 32%;
-    }
-
-    .step-node-03 {
-      left: 86%;
-      top: 50%;
-    }
-
-    .step-node-04 {
-      left: 81.2%;
-      top: 68%;
-    }
-
-    .step-node-05 {
-      left: 68%;
-      top: 81.2%;
-    }
-
-    .step-node-07 {
-      left: 32%;
-      top: 81.2%;
-    }
-
-    .step-node-08 {
-      left: 18.8%;
-      top: 68%;
-    }
-
-    .step-node-10 {
-      left: 14%;
-      top: 50%;
-    }
-
-    .step-node-11 {
-      left: 18.8%;
-      top: 32%;
-    }
-
-    .step-node-12 {
-      left: 32%;
-      top: 19%;
+    /* Left Side Infographic Dotted Connectors Base */
+    .journey-step-node.align-left .journey-step-content::after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      border-top: 1.5px dashed rgba(124, 179, 66, 0.35);
+      pointer-events: none;
     }
 
     /* MOBILE TIMELINE */
@@ -1354,25 +1364,43 @@
 
           <!-- Background Dashed Rings & Arrows -->
           <svg class="journey-svg-bg" viewBox="0 0 820 820" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer connecting circle -->
-            <circle cx="410" cy="410" r="295" stroke="rgba(124, 179, 66, 0.25)" stroke-width="1.5"
-              stroke-dasharray="6 6" />
+            <defs>
+              <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 1 2.5 L 7 5 L 1 7.5 z" fill="#7CB342" />
+              </marker>
+            </defs>
+            <!-- Outer connecting circle (accent) -->
+            <circle cx="410" cy="410" r="295" stroke="rgba(124, 179, 66, 0.12)" stroke-width="1"
+              stroke-dasharray="4 4" />
             <!-- Inner accent circle -->
             <circle cx="410" cy="410" r="160" stroke="rgba(124, 179, 66, 0.15)" stroke-width="1"
               stroke-dasharray="4 4" />
 
-            <!-- Clockwise directional connecting arrows -->
-            <!-- Arrow 1: Step 12 to 01 (Top) -->
-            <path d="M 320 128 A 295 295 0 0 1 500 128" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3"
-              fill="none" />
-            <path d="M 502 128 L 493 123 M 502 128 L 493 133" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round"
-              fill="none" />
-
-            <!-- Arrow 2: Step 05 to 07 (Bottom) -->
-            <path d="M 500 692 A 295 295 0 0 1 320 692" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3"
-              fill="none" />
-            <path d="M 318 692 L 327 687 M 318 692 L 327 697" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round"
-              fill="none" />
+            <!-- Clockwise directional connecting arrows for a complete process cycle -->
+            <!-- Gap 1: Step 1 to 2 -->
+            <path d="M 456.1 118.6 A 295 295 0 0 1 515.7 134.6" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 2: Step 2 to 3 -->
+            <path d="M 595.6 180.7 A 295 295 0 0 1 639.3 224.4" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 3: Step 3 to 4 -->
+            <path d="M 685.4 304.3 A 295 295 0 0 1 701.4 363.9" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 4: Step 4 to 5 -->
+            <path d="M 701.4 456.1 A 295 295 0 0 1 685.4 515.7" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 5: Step 5 to 6 -->
+            <path d="M 639.3 595.6 A 295 295 0 0 1 595.6 639.3" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 6: Step 6 to 7 -->
+            <path d="M 515.7 685.4 A 295 295 0 0 1 456.1 701.4" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 7: Step 7 to 8 -->
+            <path d="M 363.9 701.4 A 295 295 0 0 1 304.3 685.4" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 8: Step 8 to 9 -->
+            <path d="M 224.4 639.3 A 295 295 0 0 1 180.7 595.6" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 9: Step 9 to 10 -->
+            <path d="M 134.6 515.7 A 295 295 0 0 1 118.6 456.1" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 10: Step 10 to 11 -->
+            <path d="M 118.6 363.9 A 295 295 0 0 1 134.6 304.3" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 11: Step 11 to 12 -->
+            <path d="M 180.7 224.4 A 295 295 0 0 1 224.4 180.7" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
+            <!-- Gap 12: Step 12 to 1 -->
+            <path d="M 304.3 134.6 A 295 295 0 0 1 363.9 118.6" stroke="#7CB342" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow)" fill="none" />
           </svg>
 
           <!-- Central Spotlight Hoodie Mockup -->
@@ -1395,14 +1423,14 @@
             </div>
           </div>
 
-          <!-- Step 02: Development -->
+          <!-- Step 02: Sketches to Tech Pack -->
           <div class="journey-step-node step-node-02 align-right">
             <div class="journey-step-image-wrap">
-              <img src="asset/development.png" alt="Development" />
+              <img src="asset/development.png" alt="Sketches to Tech Pack" />
             </div>
             <div class="journey-step-content">
               <div class="journey-step-number">02</div>
-              <h4 class="journey-step-title">Development - Sketches to Tech Pack</h4>
+              <h4 class="journey-step-title">Sketches to Tech Pack</h4>
               <p class="journey-step-desc">Turning ideas into detailed tech packs with precision.</p>
             </div>
           </div>
@@ -1427,7 +1455,7 @@
             <div class="journey-step-content">
               <div class="journey-step-number">04</div>
               <h4 class="journey-step-title">Pattern Making</h4>
-              <p class="journey-step-desc">Precision patterns crafted for the perfect fit.</p>
+              <p class="journey-step-desc">Precision patterns drafted for the perfect fit.</p>
             </div>
           </div>
 
@@ -1443,15 +1471,27 @@
             </div>
           </div>
 
-          <!-- Step 07: Revisions -->
-          <div class="journey-step-node step-node-07 align-left">
+          <!-- Step 06: Fitting Session -->
+          <div class="journey-step-node step-node-06 align-right">
             <div class="journey-step-image-wrap">
-              <img src="asset/step-revisions.png" alt="Revisions" />
+              <img src="asset/step-fitting.png" alt="Fitting Session" />
+            </div>
+            <div class="journey-step-content">
+              <div class="journey-step-number">06</div>
+              <h4 class="journey-step-title">Fitting Session</h4>
+              <p class="journey-step-desc">Assessing dimensions, drape, and comfort.</p>
+            </div>
+          </div>
+
+          <!-- Step 07: Revisions and Amendments -->
+          <div class="journey-step-node step-node-07 align-right">
+            <div class="journey-step-image-wrap">
+              <img src="asset/step-revisions.png" alt="Revisions and Amendments" />
             </div>
             <div class="journey-step-content">
               <div class="journey-step-number">07</div>
-              <h4 class="journey-step-title">Revisions</h4>
-              <p class="journey-step-desc">Refining every detail based on your feedback.</p>
+              <h4 class="journey-step-title">Revisions and Amendments</h4>
+              <p class="journey-step-desc">Refining technical blueprints and grading specs.</p>
             </div>
           </div>
 
@@ -1467,15 +1507,27 @@
             </div>
           </div>
 
-          <!-- Step 10: Pricing & Quantity Finalization -->
+          <!-- Step 09: Agree Price and Quantity -->
+          <div class="journey-step-node step-node-09 align-left">
+            <div class="journey-step-image-wrap">
+              <img src="asset/step-pricing.png" alt="Agree Price and Quantity" />
+            </div>
+            <div class="journey-step-content">
+              <div class="journey-step-number">09</div>
+              <h4 class="journey-step-title">Agree Price and Quantity</h4>
+              <p class="journey-step-desc">Transparent costing and batch size confirmation.</p>
+            </div>
+          </div>
+
+          <!-- Step 10: Manufacturing -->
           <div class="journey-step-node step-node-10 align-left">
             <div class="journey-step-image-wrap">
-              <img src="asset/step-pricing.png" alt="Pricing & Quantity Finalization" />
+              <img src="asset/step-production.png" alt="Manufacturing" />
             </div>
             <div class="journey-step-content">
               <div class="journey-step-number">10</div>
-              <h4 class="journey-step-title">Pricing & Quantity Finalization</h4>
-              <p class="journey-step-desc">Transparent pricing and quantity confirmation.</p>
+              <h4 class="journey-step-title">Manufacturing</h4>
+              <p class="journey-step-desc">High-volume precision assembly on our sewing floors.</p>
             </div>
           </div>
 
@@ -1487,18 +1539,18 @@
             <div class="journey-step-content">
               <div class="journey-step-number">11</div>
               <h4 class="journey-step-title">Inspection</h4>
-              <p class="journey-step-desc">Rigorous quality checks at every stage.</p>
+              <p class="journey-step-desc">Rigorous quality checks at every single stage.</p>
             </div>
           </div>
 
-          <!-- Step 12: Packaging & Delivery -->
+          <!-- Step 12: Packaging and Delivery -->
           <div class="journey-step-node step-node-12 align-left">
             <div class="journey-step-image-wrap">
-              <img src="asset/step-delivery.png" alt="Packaging & Delivery" />
+              <img src="asset/step-delivery.png" alt="Packaging and Delivery" />
             </div>
             <div class="journey-step-content">
               <div class="journey-step-number">12</div>
-              <h4 class="journey-step-title">Packaging & Delivery</h4>
+              <h4 class="journey-step-title">Packaging and Delivery</h4>
               <p class="journey-step-desc">Secure packaging and on-time global delivery.</p>
             </div>
           </div>
@@ -1528,13 +1580,13 @@
         <div class="journey-mobile-step">
           <div class="journey-mobile-visual">
             <div class="journey-mobile-img">
-              <img src="asset/development.png" alt="Development" />
+              <img src="asset/development.png" alt="Sketches to Tech Pack" />
             </div>
             <div class="journey-mobile-connector"></div>
           </div>
           <div class="journey-mobile-text">
             <div class="journey-mobile-num">02</div>
-            <h4 class="journey-mobile-title">Development - Sketches to Tech Pack</h4>
+            <h4 class="journey-mobile-title">Sketches to Tech Pack</h4>
             <p class="journey-mobile-desc">Turning ideas into detailed tech packs with precision.</p>
           </div>
         </div>
@@ -1565,7 +1617,7 @@
           <div class="journey-mobile-text">
             <div class="journey-mobile-num">04</div>
             <h4 class="journey-mobile-title">Pattern Making</h4>
-            <p class="journey-mobile-desc">Precision patterns crafted for the perfect fit.</p>
+            <p class="journey-mobile-desc">Precision patterns drafted for the perfect fit.</p>
           </div>
         </div>
 
@@ -1584,18 +1636,33 @@
           </div>
         </div>
 
+        <!-- Mobile 06 -->
+        <div class="journey-mobile-step">
+          <div class="journey-mobile-visual">
+            <div class="journey-mobile-img">
+              <img src="asset/step-fitting.png" alt="Fitting Session" />
+            </div>
+            <div class="journey-mobile-connector"></div>
+          </div>
+          <div class="journey-mobile-text">
+            <div class="journey-mobile-num">06</div>
+            <h4 class="journey-mobile-title">Fitting Session</h4>
+            <p class="journey-mobile-desc">Assessing dimensions, drape, and comfort.</p>
+          </div>
+        </div>
+
         <!-- Mobile 07 -->
         <div class="journey-mobile-step">
           <div class="journey-mobile-visual">
             <div class="journey-mobile-img">
-              <img src="asset/step-revisions.png" alt="Revisions" />
+              <img src="asset/step-revisions.png" alt="Revisions and Amendments" />
             </div>
             <div class="journey-mobile-connector"></div>
           </div>
           <div class="journey-mobile-text">
             <div class="journey-mobile-num">07</div>
-            <h4 class="journey-mobile-title">Revisions</h4>
-            <p class="journey-mobile-desc">Refining every detail based on your feedback.</p>
+            <h4 class="journey-mobile-title">Revisions and Amendments</h4>
+            <p class="journey-mobile-desc">Refining technical blueprints and grading specs.</p>
           </div>
         </div>
 
@@ -1614,18 +1681,33 @@
           </div>
         </div>
 
+        <!-- Mobile 09 -->
+        <div class="journey-mobile-step">
+          <div class="journey-mobile-visual">
+            <div class="journey-mobile-img">
+              <img src="asset/step-pricing.png" alt="Agree Price and Quantity" />
+            </div>
+            <div class="journey-mobile-connector"></div>
+          </div>
+          <div class="journey-mobile-text">
+            <div class="journey-mobile-num">09</div>
+            <h4 class="journey-mobile-title">Agree Price and Quantity</h4>
+            <p class="journey-mobile-desc">Transparent costing and batch size confirmation.</p>
+          </div>
+        </div>
+
         <!-- Mobile 10 -->
         <div class="journey-mobile-step">
           <div class="journey-mobile-visual">
             <div class="journey-mobile-img">
-              <img src="asset/step-pricing.png" alt="Pricing & Quantity Finalization" />
+              <img src="asset/step-production.png" alt="Manufacturing" />
             </div>
             <div class="journey-mobile-connector"></div>
           </div>
           <div class="journey-mobile-text">
             <div class="journey-mobile-num">10</div>
-            <h4 class="journey-mobile-title">Pricing & Quantity Finalization</h4>
-            <p class="journey-mobile-desc">Transparent pricing and quantity confirmation.</p>
+            <h4 class="journey-mobile-title">Manufacturing</h4>
+            <p class="journey-mobile-desc">High-volume precision assembly on our sewing floors.</p>
           </div>
         </div>
 
@@ -1640,7 +1722,7 @@
           <div class="journey-mobile-text">
             <div class="journey-mobile-num">11</div>
             <h4 class="journey-mobile-title">Inspection</h4>
-            <p class="journey-mobile-desc">Rigorous quality checks at every stage.</p>
+            <p class="journey-mobile-desc">Rigorous quality checks at every single stage.</p>
           </div>
         </div>
 
@@ -1648,13 +1730,13 @@
         <div class="journey-mobile-step">
           <div class="journey-mobile-visual">
             <div class="journey-mobile-img">
-              <img src="asset/step-delivery.png" alt="Packaging & Delivery" />
+              <img src="asset/step-delivery.png" alt="Packaging and Delivery" />
             </div>
             <div class="journey-mobile-connector"></div>
           </div>
           <div class="journey-mobile-text">
             <div class="journey-mobile-num">12</div>
-            <h4 class="journey-mobile-title">Packaging & Delivery</h4>
+            <h4 class="journey-mobile-title">Packaging and Delivery</h4>
             <p class="journey-mobile-desc">Secure packaging and on-time global delivery.</p>
           </div>
         </div>
@@ -1737,7 +1819,7 @@
 
       <div class="process-detailed-header">
         <span class="section-tag">STEP-BY-STEP EXPLANATION</span>
-        <h2>Deep Dive: <em>Our 11 Manufacturing Steps</em></h2>
+        <h2>Deep Dive: <em>Our 12 Manufacturing Steps</em></h2>
         <p>Explore the granular details of our world-class, premium apparel manufacturing lifecycle, ensuring absolute
           transparency and quality at every single touchpoint.</p>
       </div>
@@ -1752,7 +1834,7 @@
               <img src="asset/consultant.png" alt="Initial Consultation" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 01 — Discovery & Alignment (1-2 Days)</span>
+              <span class="step-time">Phase 01 — Discovery & Alignment</span>
               <h3>Initial <em>Consultation</em></h3>
               <p>
                 We begin with an interactive, free discovery session to map out your product line vision. Our team
@@ -1776,7 +1858,7 @@
               <img src="asset/development.png" alt="Sketches & Tech Pack Development" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 02 — Blueprints & Technical Design (3-5 Days)</span>
+              <span class="step-time">Phase 02 — Blueprints & Technical Design</span>
               <h3>Sketches & <em>Tech Pack Development</em></h3>
               <p>
                 Turning creative mood boards into manufacturing blueprints. We detail everything from sizing guides,
@@ -1800,7 +1882,7 @@
               <img src="asset/fabric-sourcing.png" alt="Premium Fabric & Trim Sourcing" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 03 — Materials Procurement & Certification (5-7 Days)</span>
+              <span class="step-time">Phase 03 — Materials Procurement & Certification</span>
               <h3>Premium Fabric & <em>Trim Sourcing</em></h3>
               <p>
                 We tap into our extensive network of certified mill partners to source top-tier, high-durability fabrics
@@ -1824,7 +1906,7 @@
               <img src="asset/pattern-making.png" alt="Master Pattern Making & Grading" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 04 — Dimensioning & Fit Mechanics (2-4 Days)</span>
+              <span class="step-time">Phase 04 — Dimensioning & Fit Mechanics</span>
               <h3>Master Pattern <em>Making & Grading</em></h3>
               <p>
                 Our master pattern makers translate 2D flat sketches into 3D structural patterns using advanced CAD
@@ -1848,7 +1930,7 @@
               <img src="asset/sample-making.png" alt="Sample & Prototype Creation" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 05 — Prototyping & First Physical Draft (4-6 Days)</span>
+              <span class="step-time">Phase 05 — Prototyping & First Physical Draft</span>
               <h3>Sample & <em>Prototype Creation</em></h3>
               <p>
                 Our dedicated sampling lab tailors the very first physical prototype of your garment. This prototype
@@ -1869,20 +1951,19 @@
           <div class="step-badge">06</div>
           <div class="step-grid">
             <div class="step-image-container">
-              <img src="asset/step-revisions.png" alt="Feedback & Revisions" />
+              <img src="asset/step-fitting.png" alt="Fitting Session" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 06 — Perfection & Refinement (2-3 Days)</span>
-              <h3>Feedback & <em>Revisions</em></h3>
+              <span class="step-time">Phase 06 — Fit Assessment & Live Refinements</span>
+              <h3>Fitting <em>Session</em></h3>
               <p>
-                We work in close partnership with you to critique the first sample. Whether adjusting hem lengths,
-                pocket placements, or neck drops, we refine patterns until the garment matches your standard of
-                perfection down to the millimeter.
+                We coordinate live fitting sessions with models to critique the prototype's dimensions, drape, and comfort. 
+                Whether analyzing neck drops, hem lengths, or pocket placements, we carefully evaluate the drape to ensure real-world comfort and functional wear.
               </p>
               <ul class="step-highlights">
-                <li>Live fit-evaluation and measurement reviews</li>
-                <li>Detailed adjustment feedback loop and tech pack updates</li>
-                <li>Final green-light sample approval (Pre-Production Sample)</li>
+                <li>Live fit-evaluation on professional fit models</li>
+                <li>Detailed assessment of ease, movement, and drape comfort</li>
+                <li>Precise measurement feedback loop and tech pack adjustments</li>
               </ul>
             </div>
           </div>
@@ -1893,10 +1974,33 @@
           <div class="step-badge">07</div>
           <div class="step-grid">
             <div class="step-image-container">
+              <img src="asset/step-revisions.png" alt="Revisions and Amendments" />
+            </div>
+            <div class="step-info">
+              <span class="step-time">Phase 07 — Perfection & Refinement</span>
+              <h3>Revisions & <em>Amendments</em></h3>
+              <p>
+                After live fit critiques, we revise pattern dimensions and refine construction specifications. This stage
+                ensures all grading ratios are perfectly calibrated and approved before scheduling mass bulk production queues.
+              </p>
+              <ul class="step-highlights">
+                <li>Nesting & CAD blueprint updates</li>
+                <li>Sizing ratio re-verification</li>
+                <li>Final pre-production tech pack lock</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 8 -->
+        <div class="detailed-step-item">
+          <div class="step-badge">08</div>
+          <div class="step-grid">
+            <div class="step-image-container">
               <img src="asset/step-planning.png" alt="Production Planning" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 07 — Timeline & Resource Setup (2-3 Days)</span>
+              <span class="step-time">Phase 08 — Timeline & Resource Setup</span>
               <h3>Production <em>Planning</em></h3>
               <p>
                 Before machines start, our factory managers schedule active machinery queues, assign sewing operators,
@@ -1912,16 +2016,16 @@
           </div>
         </div>
 
-        <!-- Step 8 -->
+        <!-- Step 9 -->
         <div class="detailed-step-item">
-          <div class="step-badge">08</div>
+          <div class="step-badge">09</div>
           <div class="step-grid">
             <div class="step-image-container">
-              <img src="asset/step-pricing.png" alt="Price & Quantity Finalization" />
+              <img src="asset/step-pricing.png" alt="Agree Price and Quantity" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 08 — Commercial Agreement & Costing (1-2 Days)</span>
-              <h3>Price & <em>Quantity Finalization</em></h3>
+              <span class="step-time">Phase 09 — Commercial Agreement & Costing</span>
+              <h3>Agree Price & <em>Quantity</em></h3>
               <p>
                 With patterns, fabrics, and production plans locked in, we deliver a completely transparent, line-item
                 commercial quote. We confirm bulk order quantities (MOQs), unit costs, payment terms, and absolute
@@ -1936,16 +2040,16 @@
           </div>
         </div>
 
-        <!-- Step 9 -->
+        <!-- Step 10 -->
         <div class="detailed-step-item">
-          <div class="step-badge">09</div>
+          <div class="step-badge">10</div>
           <div class="step-grid">
             <div class="step-image-container">
-              <img src="asset/step-production.png" alt="Bulk Garment Manufacturing" />
+              <img src="asset/step-production.png" alt="Manufacturing" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 09 — High-Volume Production & Assembly (15-25 Days)</span>
-              <h3>Bulk Garment <em>Manufacturing</em></h3>
+              <span class="step-time">Phase 10 — High-Volume Production & Assembly</span>
+              <h3>Manufacturing</h3>
               <p>
                 Your collection hits the main assembly floors. Using high-speed computerized cutting and industrial
                 stitching machinery, our expert seamsters assemble your garments with remarkable precision, speed, and
@@ -1960,16 +2064,16 @@
           </div>
         </div>
 
-        <!-- Step 10 -->
+        <!-- Step 11 -->
         <div class="detailed-step-item">
-          <div class="step-badge">10</div>
+          <div class="step-badge">11</div>
           <div class="step-grid">
             <div class="step-image-container">
-              <img src="asset/step-inspection.png" alt="Strict Quality Control & Inspection" />
+              <img src="asset/step-inspection.png" alt="Inspection" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 10 — Validation & Standard Compliance (3-5 Days)</span>
-              <h3>Strict Quality <em>Control & Inspection</em></h3>
+              <span class="step-time">Phase 11 — Validation & Standard Compliance</span>
+              <h3>Inspection</h3>
               <p>
                 We enforce a multi-stage Quality Assurance (QA) protocol. Every single garment is hand-inspected for
                 stitching errors, loose threads, dimensional accuracy, button strength, and overall construction
@@ -1984,16 +2088,16 @@
           </div>
         </div>
 
-        <!-- Step 11 -->
+        <!-- Step 12 -->
         <div class="detailed-step-item">
-          <div class="step-badge">11</div>
+          <div class="step-badge">12</div>
           <div class="step-grid">
             <div class="step-image-container">
-              <img src="asset/step-delivery.png" alt="Premium Packaging & Global Logistics" />
+              <img src="asset/step-delivery.png" alt="Packaging and Delivery" />
             </div>
             <div class="step-info">
-              <span class="step-time">Phase 11 — Dispatch & Global Logistics (5-10 Days)</span>
-              <h3>Premium Packaging & <em>Global Logistics</em></h3>
+              <span class="step-time">Phase 12 — Dispatch & Global Logistics</span>
+              <h3>Packaging & <em>Delivery</em></h3>
               <p>
                 The final leg of your journey. Garments are ironed, tagged, wrapped in biodegradable packaging, and
                 securely boxed. We coordinate with elite courier partners to manage customs clearance and deliver
@@ -2011,7 +2115,7 @@
       </div>
 
     </div>
-  </section>
+  </section>  
 
   <!-- PREMIUM VISUAL SEPARATOR -->
   <div class="premium-divider-wrap" style="padding: 25px 0; background: linear-gradient(180deg, #070B08 0%, #0b110e 100%); display: flex; align-items: center; justify-content: center; position: relative;">
@@ -2271,97 +2375,96 @@
   </section>
 
   <footer class="footer" id="footer">
-    <div class="footer-top-line"></div>
-    <div class="footer-container">
-      <div class="footer-brand scroll-reveal">
-        <a href="index.html" class="logo footer-logo">
-          <div class="logo-icon" style="width:100px;height:100px;">
-            <img src="/asset/logo.png" alt="Vibe Clothing Logo" style="width: 100%; height: 100%; object-fit: contain;">
-          </div>
-        </a>
-        <p class="footer-brand-desc">Vibe Clothing Company isn't just a choice — it's a statement of quality,
-          adaptability, and responsibility. Here, your textile aspirations become our mission for excellence.</p>
-        <div class="footer-socials">
-          <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"
-              fill="currentColor">
-              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-            </svg></a>
-          <a href="#" class="social-btn" aria-label="Twitter"><svg viewBox="0 0 24 24" width="18" height="18"
-              fill="currentColor">
-              <path
-                d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
-            </svg></a>
-          <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"
-              fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="2" width="20" height="20" rx="5" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-            </svg></a>
-          <a href="#" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"
-              fill="currentColor">
-              <path
-                d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
-            </svg></a>
+  <div class="footer-top-line"></div>
+  <div class="footer-container">
+    <div class="footer-brand scroll-reveal">
+      <a href="index.html" class="logo footer-logo">
+        <div class="logo-icon" style="width:100px;height:100px;">
+          <img src="/asset/logo.png" alt="Vibe Clothing Logo" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
-      </div>
-      <div class="footer-links-col scroll-reveal delay-1">
-        <h4 class="footer-col-title">QUICK LINKS</h4>
-        <div class="footer-col-line"></div>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="services.html">Services</a></li>
-        </ul>
-      </div>
-      <div class="footer-links-col scroll-reveal delay-2">
-        <h4 class="footer-col-title">OTHER LINKS</h4>
-        <div class="footer-col-line"></div>
-        <ul class="footer-links">
-          <li><a href="clients.html">Clients</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="faq.html">FAQ's</a></li>
-          <li><a href="enquiry.html">Enquiry</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact-col scroll-reveal delay-3">
-        <h4 class="footer-col-title">GET IN TOUCH</h4>
-        <div class="footer-col-line"></div>
-        <ul class="footer-contact-list">
-          <li>
-            <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
-                <path d="M2 8 L12 14 L22 8" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-              </svg></div>
-            <a href="mailto:enquiry@vibeclothingcompany.net" class="fci-link">enquiry@vibeclothingcompany.net</a>
-          </li>
-          <li>
-            <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                <path
-                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-                  stroke="#7CB342" stroke-width="1.5" />
-              </svg></div>
-            <div class="fci-phones"><span>IN: +91 97919 99998</span><span>UK: +44 7404447806</span></div>
-          </li>
-        </ul>
+      </a>
+      <p class="footer-brand-desc">Vibe Clothing Company isn't just a choice — it's a statement of quality,
+        adaptability, and responsibility. Here, your textile aspirations become our mission for excellence.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="currentColor">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+          </svg></a>
+        <a href="#" class="social-btn" aria-label="Twitter"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="currentColor">
+            <path
+              d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+          </svg></a>
+        <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+          </svg></a>
+        <a href="#" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"
+            fill="currentColor">
+            <path
+              d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+          </svg></a>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="fb-content">
-        <p class="fb-copyright">
-          © 2026 <span class="footer-brand-name">Vibe Clothing Company</span>. All Rights Reserved.
-        </p>
-        <div class="fb-links">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <span class="fb-dot">•</span>
-          <a href="terms-of-service.html">Terms of Service</a>
-          <span class="fb-dot">•</span>
-          <span class="fb-credit">Designed by <a href="https://futuremindstudio.in" target="_blank">Future Mind
-              Studio</a></span>
-        </div>
+    <div class="footer-links-col scroll-reveal delay-1">
+      <h4 class="footer-col-title">QUICK LINKS</h4>
+      <div class="footer-col-line"></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="services.html">Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-links-col scroll-reveal delay-2">
+      <h4 class="footer-col-title">OTHER LINKS</h4>
+      <div class="footer-col-line"></div>
+      <ul class="footer-links">
+        <li><a href="clients.html">Clients</a></li>
+        <!-- <li><a href="shop.html">Shop</a></li>
+        <li><a href="faq.html">FAQ's</a></li> -->
+        <li><a href="enquiry.html">Enquiry</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact-col scroll-reveal delay-3">
+      <h4 class="footer-col-title">GET IN TOUCH</h4>
+      <div class="footer-col-line"></div>
+      <ul class="footer-contact-list">
+        <li>
+          <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+              <rect x="2" y="4" width="20" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
+              <path d="M2 8 L12 14 L22 8" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+            </svg></div>
+          <a href="mailto:enquiry@vibeclothingcompany.net" class="fci-link">enquiry@vibeclothingcompany.net</a>
+        </li>
+        <li>
+          <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                stroke="#7CB342" stroke-width="1.5" />
+            </svg></div>
+          <div class="fci-phones"><span>IN: +91 97919 99998</span><span>UK: +44 7404447806</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="fb-content">
+      <p class="fb-copyright">
+        © 2026 <span class="footer-brand-name">Vibe Clothing Company</span>. All Rights Reserved.
+      </p>
+      <div class="fb-links">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="fb-dot">•</span>
+        <a href="terms-of-service.html">Terms of Service</a>
+        <span class="fb-dot">•</span>
+        <span class="fb-credit">Designed by <a href="https://futuremindstudio.in" target="_blank">Future Mind Studio</a></span>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
   <!-- PREMIUM CAROUSEL INTERACTION SCRIPT -->
   <script>
@@ -2626,16 +2729,18 @@
       // AUTO-SCROLL FROM JOURNEY STEP CLICKS TO DETAILED STEPS
       // Map journey step numbers (as strings) to the index of detailed step nodes
       const journeyToDetailedMap = {
-        "01": "01", // Initial Consultation
-        "02": "02", // Sketches & Tech Pack Development
-        "03": "03", // Premium Fabric & Trim Sourcing
-        "04": "04", // Pattern Making & Grading
-        "05": "05", // Sample Making
-        "07": "06", // Revisions -> Feedback & Revisions
-        "08": "07", // Production Planning
-        "10": "08", // Pricing & Quantity -> Price & Quantity
-        "11": "10", // Inspection -> Quality Control & Inspection
-        "12": "11"  // Packaging & Delivery -> Premium Packaging & Logistics
+        "01": "01",
+        "02": "02",
+        "03": "03",
+        "04": "04",
+        "05": "05",
+        "06": "06",
+        "07": "07",
+        "08": "08",
+        "09": "09",
+        "10": "10",
+        "11": "11",
+        "12": "12"
       };
 
       // Set IDs dynamically on the detailed steps list for easy targeting
