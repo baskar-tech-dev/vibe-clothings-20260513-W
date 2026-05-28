@@ -1,509 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vibe Clothing Company</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline | Vibe Clothing Company</title>
   <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Premium Design System & Offline Styles */
+    :root {
+      --primary: #eab308; /* vibrant yellow/gold matching the mockup */
+      --primary-dark: #ca8a04;
+      --primary-glow: rgba(234, 179, 8, 0.25);
+      
+      --bg-light: #f6f4ee;
+      --bg-dark: #ebe7df;
+      
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      
+      --font-heading: 'Poppins', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-serif: 'Cormorant Garamond', serif;
+    }
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
-    rel="stylesheet">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      background: radial-gradient(circle at center, var(--bg-light) 0%, var(--bg-dark) 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 2rem;
+    }
+    
+    .offline-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 3rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    @media (min-width: 1024px) {
+      .offline-container {
+        flex-direction: row;
+        gap: 2rem;
+      }
+      .content-side {
+        width: 80%;
+        text-align: left;
+        align-items: flex-start;
+      }
+      .visual-side {
+        width: 55%;
+      }
+    }
+    
+    /* Content Column */
+    .content-side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 10;
+    }
+    
+    @media (max-width: 1023px) {
+      .content-side {
+        max-width: 600px;
+        margin-top: 1rem;
+      }
+    }
+    
+    .demo-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+    
+    .badge-text {
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+    }
+    
+    .badge-line {
+      display: inline-block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--primary);
+    }
+    
+    .main-title {
+      font-family: var(--font-body);
+      font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #111827;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .title-highlight {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 600;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+      margin-left: 2px;
+      font-size: 1.05em;
+    }
+    
+    .divider-line {
+      width: 40px;
+      height: 2px;
+      background-color: #2c2c2c;
+      margin-bottom: 2.2rem;
+    }
+    
+    .description {
+      font-family: var(--font-body);
+      font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+    
+    .btn-support {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background-color: #0c0a09; /* Dark Charcoal */
+      color: #ffffff;
+      text-decoration: none;
+      padding: 1.05rem 2rem;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255,255,255,0.05);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+      position: relative;
+    }
+    
+    .btn-support::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--primary), transparent);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .btn-support:hover {
+      transform: translateY(-3px);
+      background-color: #1c1917;
+      box-shadow: 0 15px 35px var(--primary-glow), 0 5px 15px rgba(0,0,0,0.15);
+    }
+    
+    .btn-support:hover::after {
+      opacity: 0.3;
+    }
+
+    .btn-support:active {
+      transform: translateY(-1px);
+    }
+    
+    .icon-speech {
+      width: 18px;
+      height: 18px;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-support:hover .icon-speech {
+      transform: scale(1.1);
+    }
+    
+    .icon-arrow {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-support:hover .icon-arrow {
+      transform: translate(3px, -3px);
+    }
+    
+    /* WhatsApp Button Styles & Grouping */
+    .actions-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    
+    @media (min-width: 1024px) {
+      .actions-group {
+        justify-content: flex-start;
+      }
+    }
+    
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 1.05rem 2rem;
+      border-radius: 50px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.15), 0 0 0 1px rgba(255,255,255,0.05);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      position: relative;
+    }
+    
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.3), 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .btn-whatsapp:active {
+      transform: translateY(-1px);
+    }
+    
+    .icon-whatsapp {
+      width: 18px;
+      height: 18px;
+      color: #ffffff;
+      transition: transform 0.3s ease;
+    }
+    
+    .btn-whatsapp:hover .icon-whatsapp {
+      transform: scale(1.1) rotate(6deg);
+    }
+    
+    /* Visual/Scene Column */
+    .visual-side {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: auto;
+      min-height: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .scene-container {
+      position: relative;
+      width: 480px;
+      height: 480px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* Background Circle Disk */
+    .bg-disk {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      background: linear-gradient(135deg, #f3ede2, #e3dfd3);
+      border-radius: 50%;
+      z-index: 1;
+      box-shadow: inset 0 2px 8px rgba(255,255,255,0.7), 0 8px 30px rgba(0,0,0,0.03);
+      top: 15px;
+    }
+    
+    /* Pedestal cylinders */
+    .pedestal {
+      position: absolute;
+      bottom: 25px;
+      width: 390px;
+      height: 70px;
+      z-index: 3;
+    }
+    
+    .pedestal-top {
+      width: 100%;
+      height: 45px;
+      background: #e2ddd3;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 2px 6px rgba(255,255,255,0.7), 0 3px 5px rgba(0,0,0,0.03);
+      position: relative;
+      z-index: 4;
+    }
+    
+    .pedestal-body {
+      width: 100%;
+      height: 38px;
+      background: linear-gradient(90deg, #cfc8bb, #e2ddd3 20%, #ebe7de 50%, #dcd7ca 80%, #c8c0b2);
+      margin-top: -22px;
+      border-radius: 0 0 195px 195px / 0 0 22px 22px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 3;
+    }
+    
+    /* Suspension Peg and Strings */
+    .hanger-system {
+      position: absolute;
+      top: 5px;
+      width: 320px;
+      height: 360px;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform-origin: 50% 25px;
+      animation: signSwing 6s ease-in-out infinite alternate;
+    }
+    
+    .peg {
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle at 35% 35%, #555, #111);
+      border-radius: 50%;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 10;
+    }
+    
+    .peg::after {
+      content: '';
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #777;
+      border-radius: 50%;
+      top: 5px;
+      left: 5px;
+    }
+    
+    .string {
+      position: absolute;
+      top: 9px;
+      width: 1.5px;
+      height: 125px;
+      background: linear-gradient(to bottom, #111, #444);
+      z-index: 4;
+      transform-origin: top center;
+    }
+    
+    .string-left {
+      left: 50%;
+      transform: rotate(-38.5deg);
+    }
+    
+    .string-right {
+      right: 50%;
+      transform: rotate(38.5deg);
+    }
+    
+    /* The Board itself */
+    .hanging-board {
+      margin-top: 96px;
+      width: 256px;
+      height: 184px;
+      background-color: #141414; /* Charcoal Black */
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      padding: 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      position: relative;
+    }
+    
+    /* Hanging Board Screws/Holes */
+    .hanging-board::before,
+    .hanging-board::after {
+      content: '';
+      position: absolute;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      background: #09090b;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
+    }
+    
+    .hanging-board::before { left: 45px; }
+    .hanging-board::after { right: 45px; }
+    
+    .lock-container {
+      width: 48px;
+      height: 48px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .lock-icon {
+      width: 26px;
+      height: 26px;
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    
+    .board-text {
+      font-family: var(--font-heading);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+      margin-bottom: 0.6rem;
+      color: #ffffff;
+      padding: 0 4px;
+    }
+    
+    .board-subtext {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.45);
+      letter-spacing: 0.02em;
+    }
+    
+    /* Vase & Plant (Bottom Right) */
+    .vase-container {
+      position: absolute;
+      bottom: 45px;
+      right: 30px;
+      z-index: 6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .vase {
+      width: 74px;
+      height: 74px;
+      background: radial-gradient(circle at 35% 35%, #f6f4f0, #e2ddd3 50%, #cbbfae);
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08), inset -3px -3px 8px rgba(0,0,0,0.06), inset 3px 3px 8px rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    
+    .vase-neck {
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 26px;
+      height: 10px;
+      background: linear-gradient(90deg, #d3ccc0, #e2ddd3, #cbbfae);
+      border-radius: 4px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    
+    .plant-leaves {
+      width: 110px;
+      height: 110px;
+      margin-bottom: -20px;
+      z-index: 5;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.12));
+      transform: rotate(6deg);
+    }
+    
+    /* Floating Spheres */
+    .floating-sphere {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 8;
+    }
+    
+    .sphere-large {
+      width: 36px;
+      height: 36px;
+      background: radial-gradient(circle at 30% 30%, #444, #1c1c1c 45%, #050505);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      bottom: 130px;
+      left: 70px;
+      animation: elementBob 4.5s ease-in-out infinite alternate;
+    }
+    
+    .sphere-small {
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle at 30% 30%, #3a3a3a, #1a1a1a 45%, #000);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.22);
+      bottom: 70px;
+      left: 115px;
+      animation: elementBob-reverse 3.8s ease-in-out infinite alternate;
+    }
+    
+    /* 3D Rotating Yellow Cube */
+    .cube-container {
+      position: absolute;
+      top: 150px;
+      right: 70px;
+      width: 32px;
+      height: 32px;
+      perspective: 400px;
+      z-index: 8;
+    }
+    
+    .cube {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: cubeRotate 14s linear infinite;
+    }
+    
+    .cube-face {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      box-shadow: inset 0 0 6px rgba(255,255,255,0.2);
+    }
+    
+    .cube-front  { transform: rotateY(0deg) translateZ(11px); background: #eab308; }
+    .cube-back   { transform: rotateY(180deg) translateZ(11px); background: #ca8a04; }
+    .cube-top    { transform: rotateX(90deg) translateZ(11px); background: #fef08a; }
+    .cube-bottom { transform: rotateX(-90deg) translateZ(11px); background: #854d0e; }
+    .cube-left   { transform: rotateY(-90deg) translateZ(11px); background: #ca8a04; }
+    .cube-right  { transform: rotateY(90deg) translateZ(11px); background: #eab308; }
+    
+    /* Animations */
+    @keyframes signSwing {
+      0% { transform: rotate(-2.5deg); }
+      100% { transform: rotate(2.5deg); }
+    }
+    
+    @keyframes elementBob {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-14px); }
+    }
+    
+    @keyframes elementBob-reverse {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(10px); }
+    }
+    
+    @keyframes cubeRotate {
+      0% { transform: rotateX(15deg) rotateY(0deg) translateY(0px); }
+      50% { transform: rotateX(195deg) rotateY(180deg) translateY(-6px); }
+      100% { transform: rotateX(375deg) rotateY(360deg) translateY(0px); }
+    }
+    
+    @keyframes pulseGlow {
+      0%, 100% { filter: drop-shadow(0 0 2px rgba(234, 179, 8, 0.4)); opacity: 0.95; }
+      50% { filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.7)); opacity: 1; }
+    }
+    
+    /* Responsive layout tweaks */
+    @media (max-width: 1023px) {
+      .offline-container {
+        gap: 2rem;
+      }
+      .visual-side {
+        min-height: 440px;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      body {
+        padding: 2rem 1.5rem;
+        overflow-x: hidden;
+      }
+      .offline-container {
+        gap: 1.5rem;
+      }
+      .main-title {
+        font-size: clamp(2rem, 8vw, 2.6rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .description {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+      }
+      .actions-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-support, .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.75rem;
+      }
+      .visual-side {
+        min-height: 320px;
+      }
+      .scene-container {
+        transform: scale(0.7);
+        margin: 0;
+        flex-shrink: 0;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+      .visual-side {
+        min-height: 280px;
+      }
+      .scene-container {
+        transform: scale(0.6);
+      }
+      .main-title {
+        font-size: 1.95rem;
+      }
+    }
+    
+    @media (max-width: 380px) {
+      .visual-side {
+        min-height: 230px;
+      }
+      .scene-container {
+        transform: scale(0.5);
+      }
+      .main-title {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
-  <div id="header-placeholder"></div>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-video-wrap">
-      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
-        <source src="/asset/hero-section.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-overlay"></div>
-    </div>
-
-    <canvas class="fabric-canvas" id="fabricCanvas"></canvas>
-
-    <button class="video-control" id="videoControl" aria-label="Toggle video">
-      <div class="vc-ring"></div>
-      <svg class="vc-icon" id="vcIcon" viewBox="0 0 24 24" fill="none">
-        <rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor" />
-        <rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor" />
-      </svg>
-      <span class="vc-label" id="vcLabel">PAUSE</span>
-    </button>
-
-    <div class="particles" id="particles"></div>
-
-    <div class="hero-content">
-      <div class="hero-text-wrap">
-        <h1 class="hero-title reveal-up delay-1">
-          Where Tradition<br>
-          <em class="hero-title-em">Meets Innovation</em>
-        </h1>
-        <div class="hero-line reveal-up delay-2"></div>
-        <p class="hero-desc reveal-up delay-3">
-          Located in the vibrant heart of South India, Vibe Clothing Company stands as a beacon of excellence in the
-          apparel manufacturing industry. With years of experience, we offer world-class manufacturing services
-          specialising in high-quality apparel and textiles.
-        </p>
-        <!-- <p class="hero-desc reveal-up delay-4">
-          At Vibe Clothing Company tradition meets innovation. We draw from the rich textile heritage of India, infusing it with modern design and cutting-edge manufacturing techniques.
-        </p> -->
-        <div class="hero-btns reveal-up delay-5">
-          <a href="products.html" class="btn-primary">EXPLORE PRODUCTS <span>→</span></a>
-          <a href="enquiry.html" class="btn-outline">GET IN TOUCH <span>→</span></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="stats-bar reveal-up delay-6" style="display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;align-items:stretch;width:100%;max-width:none;margin:0;padding:1.5rem 0;">
-      <div class="stat-item" style="flex:1 1 220px;min-width:220px;max-width:280px;display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:rgba(255,255,255,0.05);border-radius:24px;">
-        <div class="stat-icon" style="flex-shrink:0;min-width:48px;min-height:48px;display:flex;align-items:center;justify-content:center;">
-          <svg viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1.5" />
-            <path d="M12 20 L17 25 L28 14" stroke="#7CB342" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </div>
-        <div class="stat-info" style="min-width:0;">
-          <div><span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span></div>
-          <p class="stat-label">Years Experience</p>
-        </div>
-      </div>
-      <div class="stat-item" style="flex:1 1 220px;min-width:220px;max-width:280px;display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:rgba(255,255,255,0.05);border-radius:24px;">
-        <div class="stat-icon" style="flex-shrink:0;min-width:48px;min-height:48px;display:flex;align-items:center;justify-content:center;">
-          <svg viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1.5" />
-            <circle cx="15" cy="17" r="4" stroke="#7CB342" stroke-width="1.5" />
-            <circle cx="25" cy="17" r="4" stroke="#7CB342" stroke-width="1.5" />
-            <path d="M8 30 C8 25,12 22,15 22" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-            <path d="M32 30 C32 25,28 22,25 22" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-          </svg>
-        </div>
-        <div class="stat-info" style="min-width:0;">
-          <div><span class="stat-num" data-count="500">0</span><span class="stat-plus">+</span></div>
-          <p class="stat-label">Happy Clients</p>
-        </div>
-      </div>
-      <div class="stat-item" style="flex:1 1 220px;min-width:220px;max-width:280px;display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:rgba(255,255,255,0.05);border-radius:24px;">
-        <div class="stat-icon" style="flex-shrink:0;min-width:48px;min-height:48px;display:flex;align-items:center;justify-content:center;">
-          <svg viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1.5" />
-            <path d="M13 20 L18 25 L27 15" stroke="#7CB342" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </div>
-        <div class="stat-info" style="min-width:0;">
-          <div><span class="stat-num" data-count="100">0</span><span class="stat-plus">%</span></div>
-          <p class="stat-label">Quality Assurance</p>
-        </div>
-      </div>
-      <div class="stat-item" style="flex:1 1 220px;min-width:220px;max-width:280px;display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:rgba(255,255,255,0.05);border-radius:24px;">
-        <div class="stat-icon" style="flex-shrink:0;min-width:48px;min-height:48px;display:flex;align-items:center;justify-content:center;">
-          <svg viewBox="0 0 40 40" fill="none">
-            <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1.5" />
-            <path d="M20 12 C16 15,14 18,14 21 C14 25,16.5 28,20 29 C23.5 28,26 25,26 21 C26 18,24 15,20 12Z"
-              stroke="#7CB342" stroke-width="1.5" fill="none" />
-          </svg>
-        </div>
-        <div class="stat-info" style="min-width:0;">
-          <div style="font-size:1rem;font-weight:600;color:#F5F5F5;line-height:1.2;">Sustainable &</div>
-          <p class="stat-label">Ethical Practices</p>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- EXPERTISE / SERVICES -->
-  <section class="expertise-section" id="services">
-
-
-
-    <div class="parallax-layer" data-speed="0.3"></div>
-    <div class="container">
-      <div class="expertise-grid">
-        <div class="expertise-left scroll-reveal">
-          <span class="section-tag">OUR EXPERTISE</span>
-          <h2 class="section-title">From Concept to<br>Creation, <em>Perfected.</em></h2>
-          <div class="accent-line"></div>
-          <p class="section-desc">From conceptualisation to the final stitch, our skilled artisans and state-of-the-art
-            facilities are equipped to bring any vision to life. We offer a comprehensive range of services including
-            but not limited to:</p>
-        </div>
-        <div class="expertise-right scroll-reveal delay-2">
-          <div class="expertise-img-wrap">
-            <div class="expertise-img-glow"></div>
-            <img src="/asset/out-expertise.png" alt="Sewing machine" class="expertise-img" />
-          </div>
-        </div>
-      </div>
-      <div class="service-cards">
-        <div class="service-card scroll-reveal delay-1">
-          <div class="sc-icon-wrap">
-            <svg viewBox="0 0 50 50" fill="none">
-              <rect x="12" y="8" width="26" height="34" rx="2" stroke="#7CB342" stroke-width="1.5" />
-              <path d="M18 18 Q25 14 32 18" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-              <path d="M18 24 L32 24" stroke="#7CB342" stroke-width="1" stroke-linecap="round" opacity="0.6" />
-              <path d="M18 29 L28 29" stroke="#7CB342" stroke-width="1" stroke-linecap="round" opacity="0.4" />
-            </svg>
-          </div>
-          <h3 class="sc-title">Custom Apparel Production</h3>
-          <p class="sc-desc">High-quality, customised apparel manufacturing tailored to your brand and market.</p>
-        </div>
-        <div class="service-card scroll-reveal delay-2">
-          <div class="sc-icon-wrap">
-            <svg viewBox="0 0 50 50" fill="none">
-              <circle cx="25" cy="25" r="14" stroke="#7CB342" stroke-width="1.5" />
-              <path d="M12 38 L20 30" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-              <circle cx="25" cy="25" r="6" stroke="#7CB342" stroke-width="1" opacity="0.5" />
-            </svg>
-          </div>
-          <h3 class="sc-title">Textile Manufacturing</h3>
-          <p class="sc-desc">Premium fabrics and textiles produced with precision, innovation, and sustainable
-            practices.</p>
-        </div>
-        <div class="service-card scroll-reveal delay-3">
-          <div class="sc-icon-wrap">
-            <svg viewBox="0 0 50 50" fill="none">
-              <rect x="14" y="14" width="22" height="22" rx="2" stroke="#7CB342" stroke-width="1.5" />
-              <path d="M20 22 L30 22 M20 28 L30 28" stroke="#7CB342" stroke-width="1" stroke-linecap="round"
-                opacity="0.7" />
-              <circle cx="25" cy="11" r="3" stroke="#7CB342" stroke-width="1.5" />
-            </svg>
-          </div>
-          <h3 class="sc-title">Private Label Services</h3>
-          <p class="sc-desc">End-to-end private label solutions to help you build and grow your brand seamlessly.</p>
-        </div>
-        <div class="service-card scroll-reveal delay-4">
-          <div class="sc-icon-wrap">
-            <svg viewBox="0 0 50 50" fill="none">
-              <circle cx="25" cy="22" r="8" stroke="#7CB342" stroke-width="1.5" />
-              <path
-                d="M25 14 L25 10 M33 17 L36 14 M35 23 L39 23 M33 29 L36 32 M25 30 L25 34 M17 29 L14 32 M15 23 L11 23 M17 17 L14 14"
-                stroke="#7CB342" stroke-width="1.2" stroke-linecap="round" opacity="0.6" />
-            </svg>
-          </div>
-          <h3 class="sc-title">Innovative Design Solutions</h3>
-          <p class="sc-desc">Creative design and product development that brings fresh ideas and market relevance.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY CHOOSE US -->
-  <section class="why-section" id="about">
-    <div class="container">
-      <div class="why-grid">
-        <div class="why-left scroll-reveal">
-          <span class="section-tag">WHY CHOOSE US?</span>
-          <h2 class="section-title">Quality You Trust,<br>Values You Can <em>Rely On.</em></h2>
-          <div class="accent-line"></div>
-          <div class="why-items">
-            <div class="why-item scroll-reveal delay-1">
-              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
-                  <path d="M12 20 L17 25 L28 14" stroke="#7CB342" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg></div>
-              <div>
-                <h4 class="wi-title">Excellence in Every Stitch</h4>
-                <p class="wi-desc">Every garment we produce goes through rigorous quality checks to ensure it meets the
-                  highest standards.</p>
-              </div>
-            </div>
-            <div class="why-item scroll-reveal delay-2">
-              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
-                  <circle cx="20" cy="20" r="8" stroke="#7CB342" stroke-width="1.5" />
-                  <path d="M20 12 L20 20 L26 24" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-                </svg></div>
-              <div>
-                <h4 class="wi-title">Swift Results at Friendly Prices</h4>
-                <p class="wi-desc">Committed to cost-effective solutions and timely delivery, ensuring exceptional value
-                  at every step.</p>
-              </div>
-            </div>
-            <div class="why-item scroll-reveal delay-3">
-              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
-                  <circle cx="20" cy="18" r="4" stroke="#7CB342" stroke-width="1.5" />
-                  <path d="M20 22 L20 28" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-                </svg></div>
-              <div>
-                <h4 class="wi-title">Innovation</h4>
-                <p class="wi-desc">Our team is constantly exploring new techniques and trends to keep you ahead in the
-                  fashion industry.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="why-right scroll-reveal delay-2">
-          <div class="why-img-frame">
-            <div class="wif-glow"></div>
-            <img src="/asset/why-choose-us.png" alt="Fashion mannequin" class="why-img" />
-          </div>
-          <div class="why-items why-right-items">
-            <div class="why-item scroll-reveal delay-3">
-              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
-                  <path d="M14 14 L26 14 L26 28 L14 28 Z" stroke="#7CB342" stroke-width="1.5" />
-                  <path d="M17 19 L23 19 M17 23 L21 23" stroke="#7CB342" stroke-width="1" stroke-linecap="round"
-                    opacity="0.7" />
-                </svg></div>
-              <div>
-                <h4 class="wi-title">Fashion Tailored to Your Desires</h4>
-                <p class="wi-desc">Tailored services to meet your unique needs, whether you are a startup brand or
-                  established retailer.</p>
-              </div>
-            </div>
-            <div class="why-item scroll-reveal delay-4">
-              <div class="wi-icon"><svg viewBox="0 0 40 40" fill="none">
-                  <circle cx="20" cy="20" r="18" stroke="#7CB342" stroke-width="1" />
-                  <path d="M20 12 C16 15,14 18,14 21 C14 25,16.5 28,20 29 C23.5 28,26 25,26 21 C26 18,24 15,20 12Z"
-                    stroke="#7CB342" stroke-width="1.5" fill="none" />
-                </svg></div>
-              <div>
-                <h4 class="wi-title">Sustainably Crafted, Ethically Driven</h4>
-                <p class="wi-desc">Dedicated to reducing our environmental footprint through sustainable practices and
-                  eco-friendly materials.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- JOIN JOURNEY -->
-  <section class="join-section">
-    <div class="container">
-      <div class="join-grid">
-        <div class="join-left scroll-reveal">
-          <span class="section-tag">JOIN OUR JOURNEY</span>
-          <h2 class="section-title">Your Vision. Our Passion.<br><em>Exceptional Results.</em></h2>
-          <p class="section-desc">Vibe Clothing Company isn't just a choice — it's a statement of quality, adaptability,
-            and responsibility. Here, your textile aspirations become our mission for excellence.</p>
-          <div class="join-contact scroll-reveal delay-2">
-            <div class="jc-item">
-              <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
-                <path d="M2 8 L12 14 L22 8" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-              </svg>
-              <a href="mailto:enquiry@vibeclothingcompany.net" class="jc-link">enquiry@vibeclothingcompany.net</a>
-            </div>
-          </div>
-          <div class="join-btns scroll-reveal delay-3">
-            <a href="#footer" class="btn-primary">Get in Touch <span>→</span></a>
-          </div>
-        </div>
-        <div class="join-badges scroll-reveal delay-2">
-          <div class="badge-item">
-            <svg viewBox="0 0 50 50" fill="none" width="42" height="42">
-              <circle cx="25" cy="25" r="22" stroke="#7CB342" stroke-width="1.5" opacity="0.4" />
-              <circle cx="17" cy="22" r="5" stroke="#7CB342" stroke-width="1.5" />
-              <circle cx="33" cy="22" r="5" stroke="#7CB342" stroke-width="1.5" />
-              <path d="M8 38 C8 32,12 28,17 28" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-              <path d="M42 38 C42 32,38 28,33 28" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
-            <span>Expert Team</span>
-          </div>
-          <div class="badge-item">
-            <svg viewBox="0 0 50 50" fill="none" width="42" height="42">
-              <circle cx="25" cy="25" r="22" stroke="#7CB342" stroke-width="1.5" opacity="0.4" />
-              <path d="M15 25 L22 32 L35 18" stroke="#7CB342" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-            <span>Quality Assured</span>
-          </div>
-          <div class="badge-item">
-            <svg viewBox="0 0 50 50" fill="none" width="42" height="42">
-              <circle cx="25" cy="25" r="22" stroke="#7CB342" stroke-width="1.5" opacity="0.4" />
-              <rect x="10" y="20" width="30" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
-              <path d="M15 20 L15 16 C15 12,35 12,35 16 L35 20" stroke="#7CB342" stroke-width="1.5" />
-            </svg>
-            <span>On-Time Delivery</span>
-          </div>
-          <div class="badge-item">
-            <svg viewBox="0 0 50 50" fill="none" width="42" height="42">
-              <circle cx="25" cy="25" r="22" stroke="#7CB342" stroke-width="1.5" opacity="0.4" />
-              <circle cx="25" cy="25" r="10" stroke="#7CB342" stroke-width="1.5" />
-              <path d="M25 15 L25 35 M15 25 L35 25" stroke="#7CB342" stroke-width="1" stroke-linecap="round"
-                opacity="0.6" />
-            </svg>
-            <span>Global Standards</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONCEPT TO CREATION REVEAL -->
-  <section class="c2c-section">
-    <div class="container">
-      <div class="c2c-header scroll-reveal">
-        <span class="section-tag">CONCEPT TO CREATION</span>
-        <h2 class="section-title">From Sketch to<br><em>Seamless Reality.</em></h2>
-        <p class="section-desc">Drag to reveal the transformation—see how our design concepts evolve into market-ready creations. Watch the journey from initial sketches to the final, perfectly crafted garment.</p>
+  <div class="offline-container">
+    <!-- Left Column: Content -->
+    <div class="content-side">
+      <div class="demo-badge">
+        <span class="badge-text">DEMO PROJECT</span>
+        <span class="badge-line"></span>
       </div>
       
-      <div class="c2c-comparison scroll-reveal delay-1">
-        <div class="c2c-wrapper">
-          <!-- Background: Final Product (Seamless Reality) -->
-          <div class="c2c-image c2c-background">
-            <img src="/asset/why-choose-us.png" alt="Final creation product" />
-            <div class="c2c-label-bg">Creation</div>
-          </div>
-
-          <!-- Left Door: Left Half of Sketch -->
-          <div class="c2c-door c2c-door-left" id="c2cDoorLeft">
-            <img src="/asset/out-expertise.png" alt="Design concept sketch" />
-            <div class="c2c-label-fg">Concept</div>
-            
-            <!-- Left Handle half -->
-            <div class="c2c-handle c2c-handle-left">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
-                <polyline points="15 18 9 12 15 6"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Right Door: Right Half of Sketch -->
-          <div class="c2c-door c2c-door-right" id="c2cDoorRight">
-            <img src="/asset/out-expertise.png" alt="Design concept sketch" />
-            
-            <!-- Right Handle half -->
-            <div class="c2c-handle c2c-handle-right">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <div class="c2c-hint">Drag outwards from the center to open the doors</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- OUR PHILOSOPHY -->
-  <section class="philosophy-section">
-    <div class="container">
-      <div class="philosophy-content scroll-reveal">
-        <h2 class="philosophy-title">Our <em>Concept to Creation</em> Philosophy</h2>
-        <p class="philosophy-text">
-          At Vibe Clothing Company, our 'Concept to Creation' philosophy underpins every aspect of our textile manufacturing process, ensuring that every fabric we produce not only meets but exceeds the visionary expectations of our clients.
-        </p>
-        <p class="philosophy-text">
-          From the initial sketches to the final product, our integrated approach seamlessly transforms raw ideas into tangible, high-quality textiles. We pride ourselves on bringing your creative visions to life with precision and passion.
-        </p>
-        <div class="philosophy-cta">
-          <p class="philosophy-closing">We invite you to explore our website and discover the services we offer. Let us be your partner in fashion, turning your ideas into reality. Welcome to the family!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer" id="footer">
-  <div class="footer-top-line"></div>
-  <div class="footer-container">
-    <div class="footer-brand scroll-reveal">
-      <a href="index.html" class="logo footer-logo">
-        <div class="logo-icon" style="width:100px;height:100px;">
-          <img src="/asset/logo.png" alt="Vibe Clothing Logo" style="width: 100%; height: 100%; object-fit: contain;">
-        </div>
-      </a>
-      <p class="footer-brand-desc">Vibe Clothing Company isn't just a choice — it's a statement of quality,
-        adaptability, and responsibility. Here, your textile aspirations become our mission for excellence.</p>
-      <div class="footer-socials">
-        <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"
-            fill="currentColor">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
-          </svg></a>
-        <a href="#" class="social-btn" aria-label="X"><svg viewBox="0 0 24 24" width="18" height="18"
-            fill="currentColor">
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-          </svg></a>
-        <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"
-            fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <circle cx="12" cy="12" r="4" />
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-          </svg></a>
-        <a href="#" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"
-            fill="currentColor">
-            <path
-              d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
-          </svg></a>
-      </div>
-    </div>
-    <div class="footer-links-col scroll-reveal delay-1">
-      <h4 class="footer-col-title">QUICK LINKS</h4>
-      <div class="footer-col-line"></div>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about-us.html">About Us</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="services.html">Services</a></li>
-      </ul>
-    </div>
-    <div class="footer-links-col scroll-reveal delay-2">
-      <h4 class="footer-col-title">OTHER LINKS</h4>
-      <div class="footer-col-line"></div>
-      <ul class="footer-links">
-        <li><a href="clients.html">Clients</a></li>
-        <!-- <li><a href="shop.html">Shop</a></li>
-        <li><a href="faq.html">FAQ's</a></li> -->
-        <li><a href="enquiry.html">Enquiry</a></li>
-      </ul>
-    </div>
-    <div class="footer-contact-col scroll-reveal delay-3">
-      <h4 class="footer-col-title">GET IN TOUCH</h4>
-      <div class="footer-col-line"></div>
-      <ul class="footer-contact-list">
-        <li>
-          <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-              <rect x="2" y="4" width="20" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
-              <path d="M2 8 L12 14 L22 8" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
-            </svg></div>
-          <a href="mailto:enquiry@vibeclothingcompany.net" class="fci-link">enquiry@vibeclothingcompany.net</a>
-        </li>
-        <li>
-          <div class="fci-icon"><svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-                stroke="#7CB342" stroke-width="1.5" />
-            </svg></div>
-          <div class="fci-phones"><span>IN: +91 97919 99998</span><span>UK: +44 7404447806</span></div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="fb-content">
-      <p class="fb-copyright">
-        © 2026 <span class="footer-brand-name">Vibe Clothing Company</span>. All Rights Reserved.
+      <h1 class="main-title">
+        This Experience<br>
+        Is Currently<br>
+        <span class="title-highlight">Offline.</span>
+      </h1>
+      
+      <div class="divider-line"></div>
+      
+      <p class="description">
+        This demo project is temporarily unavailable.<br>
+        For support or project inquiries,<br>
+        please contact Future Mind Studio.
       </p>
-      <div class="fb-links">
-        <a href="privacy-policy.html">Privacy Policy</a>
-        <span class="fb-dot">•</span>
-        <a href="terms-of-service.html">Terms of Service</a>
-        <span class="fb-dot">•</span>
-        <span class="fb-credit">Designed by <a href="https://futuremindstudio.in" target="_blank">Future Mind Studio</a></span>
+      
+      <div class="actions-group">
+        <a href="mailto:hello.futuremindstudio@gmail.com" class="btn-support">
+          <svg class="icon-speech" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/>
+          </svg>
+          <span>Contact Support</span>
+          <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+        
+        <a href="https://wa.me/919894389653?text=Hi%20Future%20Mind%20Studio,%20I'm%20inquiring%20about%20the%20demo%20project." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <svg class="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.004 2C6.48 2 2 6.48 2 12.004c0 1.76.46 3.42 1.26 4.88L2 22l5.3-1.28c1.4.76 3 1.28 4.7 1.28 5.52 0 10-4.48 10-10.004C22.004 6.48 17.52 2 12.004 2zm5.72 14.1c-.24.68-1.2 1.24-1.92 1.32-.48.06-1.1.08-3.22-.8-2.72-1.12-4.48-3.88-4.62-4.06-.14-.18-1.12-1.48-1.12-2.82 0-1.34.7-2 .98-2.28.28-.28.6-.36.8-.36h.58c.18 0 .42-.02.66.52.26.58.86 2.1.94 2.26.08.16.14.36.02.58-.12.22-.18.36-.36.56-.18.2-.38.46-.54.62-.18.18-.36.38-.16.74.2.36.88 1.46 1.88 2.36 1.3 1.16 2.4 1.52 2.74 1.7.34.18.54.16.74-.06.2-.22.86-.98 1.08-1.32.22-.34.44-.28.74-.16.3.12 1.9.9 2.24 1.06.34.16.56.24.64.38.08.14.08.8-.16 1.48z"/>
+          </svg>
+          <span>WhatsApp Connect</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Right Column: Interactive 3D Visual -->
+    <div class="visual-side">
+      <div class="scene-container">
+        <!-- Background Disk -->
+        <div class="bg-disk"></div>
+        
+        <!-- Hanging Hanger and Sign Board -->
+        <div class="hanger-system">
+          <div class="peg"></div>
+          <div class="string string-left"></div>
+          <div class="string string-right"></div>
+          
+          <!-- Board -->
+          <div class="hanging-board">
+            <div class="lock-container">
+              <!-- Golden Lock Icon -->
+              <svg class="lock-icon" viewBox="0 0 24 24" fill="none">
+                <rect x="5" y="11" width="14" height="10" rx="2.5" fill="none" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M12 14v3" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 11V7.5a4 4 0 0 1 8 0V11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="12" cy="15.5" r="1.2" fill="var(--primary)"/>
+              </svg>
+            </div>
+            
+            <h2 class="board-text">ACCESS TO THIS EXPERIENCE IS CURRENTLY UNAVAILABLE</h2>
+            <p class="board-subtext">Thank you for understanding.</p>
+          </div>
+        </div>
+        
+        <!-- Pedestal Base -->
+        <div class="pedestal">
+          <div class="pedestal-top"></div>
+          <div class="pedestal-body"></div>
+        </div>
+        
+        <!-- Vase & Tropical Leaves -->
+        <div class="vase-container">
+          <svg class="plant-leaves" viewBox="0 0 120 120">
+            <!-- Sleek Dark Monstera/Tropical Leaves with high contrast -->
+            <path d="M60 110 Q25 80 15 40 Q40 25 60 110" fill="#2d372e" />
+            <path d="M60 110 Q35 65 30 48" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" />
+            <line x1="33" y1="58" x2="21" y2="52" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+            <line x1="39" y1="67" x2="26" y2="61" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+            <line x1="45" y1="78" x2="31" y2="71" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+
+            <path d="M60 110 Q50 50 42 15 Q68 20 60 110" fill="#1b221c" />
+            <path d="M60 110 Q53 60 48 30" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" />
+            
+            <path d="M60 110 Q95 80 105 45 Q80 30 60 110" fill="#222a23" />
+            <path d="M60 110 Q80 65 85 53" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none" />
+            <line x1="87" y1="62" x2="99" y2="56" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+            <line x1="81" y1="71" x2="94" y2="65" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+            <line x1="75" y1="82" x2="89" y2="75" stroke="rgba(255,255,255,0.15)" stroke-width="1" />
+          </svg>
+          <div class="vase">
+            <div class="vase-neck"></div>
+          </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-sphere sphere-large"></div>
+        <div class="floating-sphere sphere-small"></div>
+        
+        <!-- 3D Yellow Cube -->
+        <div class="cube-container">
+          <div class="cube">
+            <div class="cube-face cube-front"></div>
+            <div class="cube-face cube-back"></div>
+            <div class="cube-face cube-top"></div>
+            <div class="cube-face cube-bottom"></div>
+            <div class="cube-face cube-left"></div>
+            <div class="cube-face cube-right"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</footer>
-  
-  <script src="main.js"></script>
 </body>
-
 </html>
