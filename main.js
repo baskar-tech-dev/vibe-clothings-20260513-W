@@ -415,4 +415,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     c2cDoorRight.style.transform = 'translateX(0%)';
   }
 
+  // Interactive product features list click handler (Redirects to product-preview.html)
+  const productFeatures = document.querySelectorAll('.category-features li');
+  if (productFeatures.length > 0) {
+    productFeatures.forEach(li => {
+      li.addEventListener('click', () => {
+        const cardBody = li.closest('.category-card-body');
+        if (cardBody) {
+          const categoryTitle = cardBody.querySelector('h3').textContent.trim();
+          const productText = li.textContent.replace('→', '').replace('->', '').trim();
+          window.location.href = `product-preview.html?category=${encodeURIComponent(categoryTitle)}&product=${encodeURIComponent(productText)}`;
+        }
+      });
+    });
+  }
+
 });

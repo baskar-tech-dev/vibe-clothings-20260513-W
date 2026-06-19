@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Previews - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* PAGE SPECIFIC STYLES - DYNAMIC PRODUCT CATALOGUE */
+    .preview-hero {
+      background-image: linear-gradient(180deg, rgba(7, 11, 8, 0.75) 0%, rgba(13, 21, 17, 0.9) 100%), url('asset/hero-2.png');
+      padding: clamp(100px, 15vh, 180px) 0 clamp(60px, 10vh, 100px) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .breadcrumbs a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .breadcrumbs a:hover {
+      color: #8BC34A;
+      text-decoration: underline;
+    }
+
+    .preview-hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.2;
+    }
+
+    .preview-hero h1 em {
+      font-style: italic;
+      color: var(--primary);
+    }
+
+    .preview-hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--text-secondary);
+      font-size: clamp(14px, 1.8vw, 16px);
+      line-height: 1.6;
+    }
+
+    .catalog-section {
+      padding: 0px;
+      background: var(--bg-main);
+    }
+
+    .catalog-intro {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .catalog-intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 4vw, 36px);
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .catalog-intro h2 em {
+      color: var(--primary);
+      font-style: italic;
+    }
+
+    .catalog-intro p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 14px;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+    }
+
+    .catalog-card {
+      background: rgba(255, 255, 255, 0.01);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .catalog-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(124, 179, 66, 0.6);
+      box-shadow: 0 15px 30px rgba(124, 179, 66, 0.15);
+    }
+
+    .catalog-img-container {
+      width: 100%;
+      height: 380px; /* High visual priority for product preview images */
+      overflow: hidden;
+      position: relative;
+      background: #0D1511;
+    }
+
+    .catalog-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .catalog-card:hover .catalog-img-container img {
+      transform: scale(1.05);
+    }
+
+    .catalog-tag {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(7, 11, 8, 0.8);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      backdrop-filter: blur(5px);
+      z-index: 2;
+    }
+
+    .catalog-card-body {
+      padding: 24px;
+      background: rgba(15, 26, 20, 0.3);
+      border-top: 1px solid rgba(124, 179, 66, 0.1);
+    }
+
+    .catalog-card-body h3 {
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .catalog-card-body p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .catalog-card-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .feature-tag {
+      font-size: 11px;
+      background: rgba(124, 179, 66, 0.08);
+      border: 1px solid rgba(124, 179, 66, 0.2);
+      color: var(--text-secondary);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .action-row {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    /* LIGHTBOX MODAL WITH SLIDESHOW */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(7, 11, 8, 0.96);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      backdrop-filter: blur(15px);
+      padding: 20px;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-content {
+      background: var(--bg-overlay);
+      border: 1px solid var(--border);
+      max-width: 1000px;
+      width: 100%;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-modal.active .lightbox-content {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .lightbox-close:hover {
+      background: var(--primary);
+      color: var(--bg-main);
+    }
+
+    .lightbox-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+    }
+
+    @media (max-width: 860px) {
+      .lightbox-layout {
+        grid-template-columns: 1fr;
+      }
+      .lightbox-img-wrap {
+        height: 320px;
+      }
+    }
+
+    .lightbox-img-wrap {
+      width: 100%;
+      height: 100%;
+      min-height: 450px;
+      position: relative;
+      background: #070B08;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Contain the product clothing item fully without crop */
+    }
+
+    /* SLIDESHOW NAVIGATION ARROWS */
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(7, 11, 8, 0.7);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 5;
+    }
+
+    .lightbox-arrow:hover {
+      background: var(--primary);
+      color: var(--bg-main);
+    }
+
+    .arrow-left {
+      left: 15px;
+    }
+
+    .arrow-right {
+      right: 15px;
+    }
+
+    .lightbox-details {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .lightbox-details .style-tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--primary-soft);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .lightbox-details h3 {
+      font-size: 26px;
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text-primary);
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .lightbox-details p {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      line-height: 1.7;
+      margin-bottom: 25px;
+    }
+
+    .lightbox-specs {
+      list-style: none;
+      padding: 0;
+    }
+
+    .lightbox-specs li {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lightbox-specs li::before {
+      content: "✓";
+      color: var(--primary);
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+
+  <!-- HERO SECTION -->
+  <section class="preview-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="index.html"></a><a href="products.html"></a><span id="breadcrumb-active"></span>
+      </div>
+      <h1 id="hero-title">Product Previews: <em>T-Shirts</em></h1>
+      <p id="hero-desc">Interactive product preview catalog. Click on any garment image to open a full size slideshow detail overlay.</p>
+    </div>
+  </section>
+
+  <main class="page-content">
+
+    <!-- GALLERY CATALOG SECTION -->
+    <section class="catalog-section">
+      <div class="container">
+        <div class="catalog-intro">
+          <h2>Garment <em>Varieties & Styles</em></h2>
+          <p>Explore high-resolution product photos showing cuts, collar trims, stitching configurations, and fabric finishes.</p>
+        </div>
+
+        <div class="catalog-grid" id="catalog-grid">
+          <!-- Varieties will be generated dynamically here -->
+        </div>
+
+        <!-- OTHER PRODUCTS CAROUSEL -->
+        <div class="other-products-section">
+          <div class="carousel-header">
+            <h3>Other <em>Garment Categories</em></h3>
+            <div class="carousel-nav-arrows">
+              <button class="carousel-nav-arrow arrow-left" id="other-prev-btn" aria-label="Previous">&lsaquo;</button>
+              <button class="carousel-nav-arrow arrow-right" id="other-next-btn" aria-label="Next">&rsaquo;</button>
+            </div>
+          </div>
+          
+          <div class="carousel-container-outer">
+            <div class="carousel-track" id="other-products-track">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox">
+    <!-- Slideshow Left Arrow -->
+    <button class="lightbox-arrow arrow-left" onclick="navigateSlideshow(-1)">&lsaquo;</button>
+    
+    <div class="lightbox-content">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <div class="lightbox-layout">
+        <div class="lightbox-img-wrap">
+          <img src="" id="lightbox-img" alt="Lightbox Image" />
+        </div>
+        <div class="lightbox-details">
+          <span class="style-tag" id="lightbox-style-tag">Style 01</span>
+          <h3 id="lightbox-title">Classic Crew Neck</h3>
+          <p id="lightbox-desc">A retail staple with twin-needle hems, high-density cotton, and soft-washed shoulders.</p>
+          <ul class="lightbox-specs" id="lightbox-specs">
+            <li>180 GSM Single Jersey</li>
+            <li>Shoulder-to-shoulder taping</li>
+            <li>Ribbed spandex collar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slideshow Right Arrow -->
+    <button class="lightbox-arrow arrow-right" onclick="navigateSlideshow(1)">&rsaquo;</button>
+  </div>
+
+  <footer class="footer" id="footer">
+    <div class="footer-top-line"></div>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo">
+          <div class="logo-icon" style="width:100px;height:100px;">
+            <img src="/asset/logo.png" alt="Vibe Clothing Logo" style="width: 100%; height: 100%; object-fit: contain;">
+          </div>
+        </a>
+        <p class="footer-brand-desc">Vibe Clothing Company isn't just a choice — it's a statement of quality, adaptability, and responsibility. Here, your textile aspirations become our mission for excellence.</p>
+      </div>
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">QUICK LINKS</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">OTHER LINKS</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-links">
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact-col">
+        <h4 class="footer-col-title">GET IN TOUCH</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-contact-list">
+          <li>
+            <div class="fci-icon">✉</div>
+            <a href="mailto:enquiry@vibeclothingcompany.net" class="fci-link">enquiry@vibeclothingcompany.net</a>
+          </li>
+          <li>
+            <div class="fci-icon">📞</div>
+            <div class="fci-phones"><span>IN: +91 97919 99998</span><span>UK: +44 7404447806</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="fb-content">
+        <p class="fb-copyright">
+          © 2026 <span class="footer-brand-name">Vibe Clothing Company</span>. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // DETAILED HIGH QUALITY IMAGE CATALOG PREVIEWS DATA
+    const catalogDataset = {
+      "t-shirts": {
+        title: "T-Shirts",
+        desc: "A premium range of custom t-shirt styles engineered with high-density cotton and precise cuts.",
+        items: [
+          { name: "Classic Crew Neck Tee", desc: "Our staple cotton crewneck featuring twin-needle seam stitching and a reinforced shoulder-to-shoulder tape.", image: "asset/preview-tshirt-crew.png", tag: "Staple Knit", specs: ["180 GSM Combed Cotton", "Double-stitched hems", "Form-retaining spandex collar"] },
+          { name: "Oversized Streetwear Tee", desc: "A heavy, structured mock-neck tee with drop shoulder layouts to suit urban streetwear brands.", image: "asset/preview-tshirt-oversized.png", tag: "Heavyweight", specs: ["240 GSM Organic Cotton", "Dropped shoulder line", "Enzyme bio-polished wash"] },
+          { name: "Athletic Performance Tee", desc: "Form-fitting, lightweight sportswear shirt constructed with quick-evaporating mesh and anti-chafing active seams.", image: "asset/prod-synthetic.png", tag: "Performance", specs: ["140 GSM Polyester Mesh", "Moisture-evaporating dry weave", "Flatlock friction-free seams"] },
+          { name: "Sport Raglan Tee", desc: "Contrasting diagonal sleeve layout providing retro athletic styling and flexible shoulder mobility.", image: "asset/step-fitting.png", tag: "Athletic", specs: ["180 GSM Interlock Cotton", "Diagonal sleeve contrasts", "Soft feel rib collar"] }
+        ]
+      },
+      "hoodies": {
+        title: "Hoodies",
+        desc: "Structured, fleece pullovers and technical zip-ups, customized with premium details.",
+        items: [
+          { name: "Classic Pullover Hoodie", desc: "French terry pullover detailed with double-layered hood lining, metal drawcord aglets, and front pouch.", image: "asset/preview-hoodie-classic.png", tag: "Cozy Fleece", specs: ["320 GSM Cotton Terry", "Metal eyelets and aglets", "Kangaroo pocket reinforcement"] },
+          { name: "Heavyweight Streetwear Hoodie", desc: "Super-dense, heavyweight hoodie that keeps a structured silhouette, lined with velvet brushed fleece.", image: "asset/preview-hoodie-heavy.png", tag: "Premium Heavy", specs: ["400 GSM Combed Cotton", "Relaxed oversized cut", "Drop-shoulder aesthetic"] },
+          { name: "Tech Zip-Up Hoodie", desc: "An active layering hoodie with YKK reverse-coil zips and laser-cut bonded zipper pocket pockets.", image: "asset/prod-synthetic.png", tag: "Tech Fit", specs: ["290 GSM Interlock Scuba Knit", "Heat-bonded zipper pockets", "Athletic contour lines"] },
+          { name: "Fashion Crop Hoodie", desc: "Contemporary cropped silhouette with raw-edge hems, tailored for high-end boutique apparel lines.", image: "asset/prod-knitwear.png", tag: "Boutique Fit", specs: ["280 GSM French Terry", "Rolled bottom raw margin", "Female relaxed fit charts"] }
+        ]
+      },
+      "sweatshirts": {
+        title: "Sweatshirts",
+        desc: "Comfortable fleece-back pullovers and crewnecks matching retail brand aesthetics.",
+        items: [
+          { name: "Classic Fleece Crewneck", desc: "Lifestyle pullover sweatshirt featuring comfortable ribbed knit neck insert and brushed fleece backing.", image: "asset/prod-knitwear.png", tag: "Classic Cozy", specs: ["300 GSM Brushed Fleece", "V-stiffener neckline detail", "Elastic ribbed hem band"] },
+          { name: "Streetwear Boxy Sweatshirt", desc: "An oversized relaxed fit crewneck with dropped armhole margins and thick ribbing.", image: "asset/step-production.png", tag: "Heavyweight", specs: ["360 GSM Heavy Terry", "Dropped shoulders boxy cut", "Extra-dense ribbing hems"] },
+          { name: "Quarter-Zip Mock Neck", desc: "Casual structured sweatshirt featuring high neck zipper stand and clean seam finishes.", image: "asset/prod-cotton.png", specs: ["280 GSM Brushed Cotton", "Premium metal YKK zipper line", "Mock neck standup collar"], tag: "Bespoke Cut" },
+          { name: "Acid-Wash Vintage Pullover", desc: "Retro-feel sweat top treated with heavy stonewash parameters for a vintage aesthetic.", image: "asset/step-fitting.png", specs: ["320 GSM French Terry", "Garment stonewashed finish", "Contrasting seam washouts"], tag: "Vintage Wash" }
+        ]
+      },
+      "joggers": {
+        title: "Joggers & Sweatpants",
+        desc: "Tailored joggers, cargo sweats, and performance track pants constructed with heavy seams.",
+        items: [
+          { name: "Classic Tapered Jogger", desc: "Slim-fit athletic sweatpants with wide rib cuffs and zippered secure pocket linings.", image: "asset/why-choose-us.png", tag: "Slim Jogger", specs: ["300 GSM Brushed Fleece", "Metal zip side pockets", "Tapered ankle rib panels"] },
+          { name: "Streetwear Cargo Pants", desc: "Utility-inspired cargo fleece joggers with snapped button cargo pockets and loop detailings.", image: "asset/step-production.png", tag: "Cargo Utility", specs: ["320 GSM Heavyweight Terry", "Dual side snap cargo flaps", "Bar-tacked pocket lines"] },
+          { name: "Technical Scuba Jogger", desc: "Smooth athletic joggers featuring heat-sealed seams, structured waistband, and zippered venting.", image: "asset/prod-synthetic.png", tag: "Active Tech", specs: ["290 GSM Interlock Scuba", "Heat-sealed pocket panels", "Comfort ergonomic knee cut"] },
+          { name: "Relaxed Open-Hem Track Pants", desc: "Sweatpants without elastic ankle cuffs, displaying a straight modern leg drape.", image: "asset/step-fitting.png", tag: "Lifestyle Fit", specs: ["340 GSM Heavy Cotton Fleece", "Adjustable inner drawcord", "Seamless side pockets"] }
+        ]
+      },
+      "100% cotton": {
+        title: "100% Cotton",
+        desc: "All-natural cotton varieties, certified sustainable and finished for retail brands.",
+        items: [
+          { name: "Organic Cotton Tee", desc: "Certified organic combed cotton, processed with eco-friendly plant dyes.", image: "asset/preview-tshirt-crew.png", tag: "100% Organic", specs: ["180 GSM GOTS Cotton", "Plant-based organic dyes", "Velvet bio-polished finish"] },
+          { name: "Honeycomb Pique Polo", desc: "Fine polo collar shirt with three buttons and custom honeycomb pique knit.", image: "asset/step-production.png", tag: "Pique Polo", specs: ["220 GSM Combed Pique", "Reinforced placket margins", "Ribbed knit collar margins"] },
+          { name: "Premium Fine Pima Tee", desc: "Extremely soft casual tee crafted from luxurious long-staple Pima cotton fibers.", image: "asset/prod-knitwear.png", tag: "Pima Cotton", specs: ["150 GSM Fine Pima Cotton", "Silky lightweight handfeel", "Flatlock neck taping"] },
+          { name: "Double-Brushed Lounge Flannel", desc: "Fine flannel cotton shirts brushed on both sides to give maximum winter comfort.", image: "asset/prod-cutting.png", tag: "Brushed Cotton", specs: ["200 GSM Woven Flannel", "Dual-sided soft brushing", "Button-flap utility pockets"] }
+        ]
+      },
+      "various gsm options": {
+        title: "GSM Range Options",
+        desc: "Visual previews of different weight fabrics manufactured for seasonal lines.",
+        items: [
+          { name: "Ultra-Lightweight Summer Tee", desc: "A thin, airy knit tee ideal for hot climates or lightweight active layering.", image: "asset/preview-tshirt-crew.png", tag: "130 GSM Light", specs: ["130 GSM Jersey Cotton", "Highly breathable mesh face", "Drapes softly over shoulders"] },
+          { name: "Midweight Everyday Tee", desc: "The standard choice for mainstream fashion brands, ensuring durability and style.", image: "asset/step-production.png", tag: "180 GSM Mid", specs: ["180 GSM Combed Cotton", "Retail standard knit", "Twin-needle durable hems"] },
+          { name: "Heavyweight Boxy Tee", desc: "Durable structured tee that retains a clean shape and gives a streetwear vibe.", image: "asset/preview-tshirt-oversized.png", tag: "240 GSM Heavy", specs: ["240 GSM Heavy Cotton", "Dense compact yarn structure", "Stiff mock neck collar line"] },
+          { name: "Luxury Double-Fleece Hoodie", desc: "Heavyweight double-brushed hoodie, displaying a thick premium drape.", image: "asset/preview-hoodie-heavy.png", tag: "450 GSM Luxury", specs: ["450 GSM Heavy Fleece", "Double-layered thick hood", "Ultra-dense structured fit"] }
+        ]
+      },
+      "soft finish": {
+        title: "Soft Finish Fabrics",
+        desc: "Garments treated with specialized washes to achieve a luxurious, smooth handfeel.",
+        items: [
+          { name: "Peach-Skin Sueded Tee", desc: "Enzyme bio-polished tee brushed with carbon heads for a soft peach-fuzz texture.", image: "asset/prod-cotton.png", tag: "Peach Finish", specs: ["170 GSM Carbon Sueded", "Soft peach-fuzz tactile face", "Anti-pill surface profile"] },
+          { name: "Silky-Silicon washed Hoodie", desc: "Soft pullover hoodie treated in silicone chemical baths for a silk-like touch.", image: "asset/preview-hoodie-classic.png", tag: "Silky Finish", specs: ["320 GSM French Terry", "Silicone softened wash", "Smooth fluid fabric drape"] },
+          { name: "Velour Lounge Sweatshirt", desc: "Plush velvet velour sweatshirt that shines softly under light and feels premium.", image: "asset/prod-knitwear.png", tag: "Velour Knit", specs: ["260 GSM Knitted Velour", "Shiny plush velvet nap", "Highly stretchable seams"] },
+          { name: "Stonewashed Cozy Sweatpants", desc: "Garment dyed joggers processed with pumice stones for a pre-worn relaxed softness.", image: "asset/why-choose-us.png", tag: "Stonewashed", specs: ["300 GSM Combed Cotton", "Pumice stonewash finish", "100% pre-shrunk comfort"] }
+        ]
+      },
+      "export quality": {
+        title: "Export Quality Finishes",
+        desc: "Garments packaged and detailed according to premium international retail specs.",
+        items: [
+          { name: "Retail Ready Packaged Tee", desc: "Shipped in brand-compliant polybags with custom swing tags and barcodes.", image: "asset/step-delivery.png", tag: "Retail Packaged", specs: ["Eco-friendly branded polybag", "Cardstock logo swingtag", "Printed SKU barcode label"] },
+          { name: "Flatlock Friction-Free Hoodie", desc: "Stitched with smooth flatlock seams to ensure no stitch friction against skin.", image: "asset/preview-hoodie-classic.png", tag: "Flatlock Seams", specs: ["Flatlock seamless finish", "Soft bound collar taping", "Dual reinforcement points"] },
+          { name: "Embroidered Premium Polo", desc: "Embellished with high-density club embroidery patch, side vents, and custom buttons.", image: "asset/step-production.png", tag: "High-end Detail", specs: ["12,000 stitch chest emblem", "Laser-engraved brand buttons", "Reinforced split side vents"] },
+          { name: "Bespoke Metal Aglet Joggers", desc: "Equipped with engraved brass aglets, rust-proof eyelets, and secure zipper tracks.", image: "asset/why-choose-us.png", tag: "Hardware Detail", specs: ["Rust-proof brass eyelets", "Logo-engraved aglets", "Concealed security pockets"] }
+        ]
+      },
+      "polyester blends": {
+        title: "Polyester Blends",
+        desc: "Performance synthetic blend items tailored for durability and flexibility.",
+        items: [
+          { name: "Dri-Fit Active Tee", desc: "Micro-perforated sports jersey top built to quickly wick sweat away from the body.", image: "asset/prod-synthetic.png", tag: "Dri-Fit", specs: ["140 GSM 100% Polyester", "Wick-away micro-mesh back", "Reflective shoulder tape"] },
+          { name: "Athletic Polo Shirt", desc: "Flexible pique polo made with elastane blends, giving players full range of motion.", image: "asset/step-production.png", tag: "Swing Stretch", specs: ["190 GSM Poly-Spandex", "4-way flexible active fit", "Anti-wrinkle quick dry fabric"] },
+          { name: "Cotton-Poly Fleece Hoodie", desc: "Blended fleece hoodie that is highly resistant to color fading and shrinkage.", image: "asset/preview-hoodie-classic.png", tag: "Poly-Cotton Blend", specs: ["320 GSM 65/35 Cotton-Poly", "High colorfastness rating", "Low shrinkage fleece lining"] },
+          { name: "Running Windbreaker Hoodie", desc: "Ultralight ripstop shell coat equipped with storm hoods and elastic cuffs.", image: "asset/hoodie-sketch.png", tag: "Weather Coat", specs: ["90 GSM Polyester Ripstop", "Water-resistant surface coat", "Packable chest pocket"] }
+        ]
+      },
+      "stretchable materials": {
+        title: "Stretchable Activewear",
+        desc: "Second-skin activewear garments designed to support high-range physical movement.",
+        items: [
+          { name: "Muscle Compression Top", desc: "Form-locking athletic undershirt designed to stabilize torso muscle groups.", image: "asset/prod-synthetic.png", tag: "Compression", specs: ["200 GSM Polyester-Elastane", "Tight skin-lock fit", "Reinforced flatlock stitches"] },
+          { name: "High-Rise Yoga Leggings", desc: "Fitted stretch leggings featuring a supportive double-layer high-rise waist belt.", image: "asset/why-choose-us.png", tag: "Yoga Fit", specs: ["260 GSM Nylon-Spandex", "Squat-proof thick knit", "Seamless drop pockets"] },
+          { name: "Racerback Workout Tank", desc: "Soft elastic workout vest with athletic racerback straps for back shoulder mobility.", image: "asset/step-fitting.png", tag: "Active Tank", specs: ["150 GSM modal stretch", "Fluid draping curves", "Underarm ventilation shape"] },
+          { name: "Double-Layer Sports Bra", desc: "Supportive sports bra featuring removable cup pads and breathable elastic underband.", image: "asset/prod-knitwear.png", tag: "Sports Support", specs: ["280 GSM Poly-Spandex", "Underband elastic brace", "Removable foam padding cups"] }
+        ]
+      },
+      "moisture resistance": {
+        title: "Moisture Resistant Shells",
+        desc: "Water-repellent technical outerwear built to protect against wind and light rain.",
+        items: [
+          { name: "DWR Running Jacket", desc: "Superlight running top treated with Durable Water Repellent finishing parameters.", image: "asset/prod-synthetic.png", tag: "DWR Windbreaker", specs: ["80 GSM Nylon Ripstop", "DWR water-repellent coat", "Mesh ventilation slots"] },
+          { name: "Fully Waterproof Parka", desc: "Heavy storm coat with 100% heat-taped seams and waterproof zipper tracks.", image: "asset/preview-hoodie-classic.png", tag: "Waterproof Shell", specs: ["120 GSM 3-Layer Laminate", "100% heat-sealed seams", "Adjustable hood cord locks"] },
+          { name: "Trail Utility Vest", desc: "Multi-pocket layering vest insulated with synthetic down, wrapped in ripstop shell.", image: "asset/why-choose-us.png", tag: "Insulated Shell", specs: ["110 GSM Ripstop face", "Thermal synthetic filling", "Splashproof zip sliders"] },
+          { name: "Waterproof Track Pants", desc: "Rain-resistant pants with ankle zips to allow easy expansion over sport shoes.", image: "asset/step-production.png", tag: "All-Weather Pants", specs: ["160 GSM Stretch Poly", "Ankle zipper guards", "DWR water repellent coat"] }
+        ]
+      },
+      "long-lasting quality": {
+        title: "Long-Lasting Workwear",
+        desc: "Abrasion-resistant, heavy-duty clothing designed for extreme wear environments.",
+        items: [
+          { name: "Duck Canvas Utility Shirt", desc: "Rugged workwear shirt featuring triple-stitch side seams and elbow padding.", image: "asset/prod-cotton.png", tag: "Duck Canvas", specs: ["280 GSM Heavy Canvas", "Triple-needle stitch seams", "Double-layered elbow zones"] },
+          { name: "Cordura Paneled Jacket", desc: "Outdoor utility jacket with Cordura abrasion panels stitched over the shoulder cuffs.", image: "asset/step-production.png", tag: "Utility Jacket", specs: ["350 GSM Heavy Cotton Canvas", "Cordura friction panels", "Branded brass pullers"] },
+          { name: "Heavy Cargo Sweatpants", desc: "Spacious multi-pocket joggers with double-layer knees and metal loop keys.", image: "asset/why-choose-us.png", tag: "Reinforced Jogger", specs: ["320 GSM French Terry", "Reinforced knee panels", "Side-cargo snap pockets"] },
+          { name: "Tear-Resistant Grid Vest", desc: "Tough utility vest featuring thick grid nylon weaves and reinforced seams.", image: "asset/prod-cutting.png", tag: "Ripstop Grid", specs: ["220 GSM Ripstop Nylon", "Grid pattern reinforcement", "Bar-tack stitching slots"] }
+        ]
+      }
+    };
+
+    // DYNAMIC CONTENT POPULATION
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawCategory = urlParams.get('category') || 'Knitwear Products';
+    const rawProduct = urlParams.get('product') || 'T-Shirts';
+
+    // Normalize keys for dataset lookup
+    const lookupKey = rawProduct.toLowerCase().trim();
+    const activeData = catalogDataset[lookupKey] || catalogDataset["t-shirts"]; // Default to t-shirts if not found
+
+    // Populate Dynamic Text elements
+    document.getElementById('breadcrumb-active').textContent = activeData.title;
+    document.getElementById('hero-title').innerHTML = `Product Previews: <em>${activeData.title}</em>`;
+
+    // Generate Gallery Grid items
+    const catalogGrid = document.getElementById('catalog-grid');
+    catalogGrid.innerHTML = ''; // Clear fallback
+
+    activeData.items.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'catalog-card';
+      card.setAttribute('onclick', `openLightbox(${index})`);
+
+      card.innerHTML = `
+        <div class="catalog-tag">${item.tag || 'New Collection'}</div>
+        <div class="catalog-img-container">
+          <img src="${item.image}" alt="${item.name}" />
+        </div>
+        <div class="catalog-card-body">
+          <h3>${item.name}</h3>
+          <p>${item.desc}</p>
+          <div class="catalog-card-features">
+            ${item.specs.map(spec => `<span class="feature-tag">${spec}</span>`).join('')}
+          </div>
+        </div>
+      `;
+      catalogGrid.appendChild(card);
+    });
+
+    // Lightbox modal slideshow scripts
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxStyleTag = document.getElementById('lightbox-style-tag');
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDesc = document.getElementById('lightbox-desc');
+    const lightboxSpecs = document.getElementById('lightbox-specs');
+
+    let currentSlideIndex = 0;
+
+    function openLightbox(index) {
+      currentSlideIndex = index;
+      updateSlideshowContent();
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateSlideshowContent() {
+      const item = activeData.items[currentSlideIndex];
+
+      lightboxImg.src = item.image;
+      lightboxStyleTag.textContent = item.tag || `Style 0${currentSlideIndex + 1}`;
+      lightboxTitle.textContent = item.name;
+      lightboxDesc.textContent = item.desc;
+      
+      lightboxSpecs.innerHTML = '';
+      item.specs.forEach(spec => {
+        const li = document.createElement('li');
+        li.textContent = spec;
+        lightboxSpecs.appendChild(li);
+      });
+    }
+
+    function navigateSlideshow(direction) {
+      currentSlideIndex += direction;
+      
+      // Infinite loop navigation
+      if (currentSlideIndex >= activeData.items.length) {
+        currentSlideIndex = 0;
+      } else if (currentSlideIndex < 0) {
+        currentSlideIndex = activeData.items.length - 1;
+      }
+      
+      updateSlideshowContent();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          navigateSlideshow(1);
+        } else if (e.key === 'ArrowLeft') {
+          navigateSlideshow(-1);
+        }
+      }
+    });
+
+    // Close on clicking backdrop wrapper (excluding container content)
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Populate Other Products Carousel (Radiant View Small Card Style)
+    const otherProducts = [
+      { name: "T-Shirts", category: "Knitwear Products", param: "t-shirts", image: "asset/preview-tshirt-crew.png" },
+      { name: "Hoodies", category: "Knitwear Products", param: "hoodies", image: "asset/preview-hoodie-classic.png" },
+      { name: "Sweatshirts", category: "Knitwear Products", param: "sweatshirts", image: "asset/prod-knitwear.png" },
+      { name: "Joggers", category: "Knitwear Products", param: "joggers", image: "asset/why-choose-us.png" },
+      { name: "100% Cotton", category: "Cotton Fabrics", param: "100% cotton", image: "asset/prod-cotton.png" },
+      { name: "GSM Options", category: "Cotton Fabrics", param: "various gsm options", image: "asset/preview-tshirt-oversized.png" },
+      { name: "Soft Finishes", category: "Cotton Fabrics", param: "soft finish", image: "asset/prod-cotton.png" },
+      { name: "Export Finishes", category: "Cotton Fabrics", param: "export quality", image: "asset/step-delivery.png" },
+      { name: "Polyester Blends", category: "Synthetic Fibers", param: "polyester blends", image: "asset/prod-synthetic.png" },
+      { name: "Stretch Materials", category: "Synthetic Fibers", param: "stretchable materials", image: "asset/prod-synthetic.png" },
+      { name: "Moisture Resistance", category: "Synthetic Fibers", param: "moisture resistance", image: "asset/prod-synthetic.png" },
+      { name: "Long-lasting Quality", category: "Synthetic Fibers", param: "long-lasting quality", image: "asset/why-choose-us.png" }
+    ];
+
+    const otherTrack = document.getElementById('other-products-track');
+    if (otherTrack) {
+      otherTrack.innerHTML = '';
+      otherProducts.forEach(item => {
+        if (item.param === lookupKey) return; // skip active product
+        
+        const card = document.createElement('a');
+        card.className = 'radiant-card';
+        card.href = `product-preview.html?category=${encodeURIComponent(item.category)}&product=${encodeURIComponent(item.param)}`;
+        
+        card.innerHTML = `
+          <div class="radiant-card-img">
+            <img src="${item.image}" alt="${item.name}" />
+          </div>
+          <div class="radiant-card-body">
+            <h4>${item.name}</h4>
+            <span class="radiant-card-cat">${item.category}</span>
+          </div>
+        `;
+        otherTrack.appendChild(card);
+      });
+
+      const otherPrevBtn = document.getElementById('other-prev-btn');
+      const otherNextBtn = document.getElementById('other-next-btn');
+      if (otherPrevBtn && otherNextBtn) {
+        otherNextBtn.addEventListener('click', () => {
+          otherTrack.scrollBy({ left: 240, behavior: 'smooth' });
+          resetAutoScrollTimer();
+        });
+        otherPrevBtn.addEventListener('click', () => {
+          otherTrack.scrollBy({ left: -240, behavior: 'smooth' });
+          resetAutoScrollTimer();
+        });
+      }
+
+      // Auto scroll animation variables
+      let autoScrollSpeed = 1; // px per tick
+      let autoScrollTimer = null;
+      let isHovered = false;
+
+      function runAutoScroll() {
+        if (isHovered) return;
+        otherTrack.scrollLeft += autoScrollSpeed;
+        
+        // Wrap around smoothly to the start if we reach the end
+        if (otherTrack.scrollLeft + otherTrack.clientWidth >= otherTrack.scrollWidth - 1) {
+          otherTrack.scrollLeft = 0;
+        }
+      }
+
+      function startAutoScroll() {
+        if (!autoScrollTimer) {
+          autoScrollTimer = setInterval(runAutoScroll, 30); // ~33 FPS smooth panning
+        }
+      }
+
+      function stopAutoScroll() {
+        if (autoScrollTimer) {
+          clearInterval(autoScrollTimer);
+          autoScrollTimer = null;
+        }
+      }
+
+      function resetAutoScrollTimer() {
+        stopAutoScroll();
+        // Delay restarting auto scroll after manual interaction
+        setTimeout(startAutoScroll, 2000);
+      }
+
+      // Hover controls to pause auto scroll
+      otherTrack.addEventListener('mouseenter', () => { isHovered = true; });
+      otherTrack.addEventListener('mouseleave', () => { isHovered = false; });
+      otherTrack.addEventListener('touchstart', () => { isHovered = true; });
+      otherTrack.addEventListener('touchend', () => { isHovered = false; resetAutoScrollTimer(); });
+
+      // Start auto scroll on load
+      startAutoScroll();
+    }
+  </script>
+
+</body>
+</html>
