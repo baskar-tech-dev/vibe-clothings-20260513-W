@@ -3659,3 +3659,345 @@
  .radiant-card:hover .radiant-card-img img {
    transform: scale(1.06);
  }
+
+ /* ═══════════════════════════════════════════════════════════
+    FABRICS COLLECTION — CAROUSEL SECTION
+ ═══════════════════════════════════════════════════════════ */
+
+ /* Carousel outer wrapper */
+ .fabrics-carousel-wrapper {
+   position: relative;
+   display: flex;
+   align-items: center;
+   gap: 0;
+   margin-top: 2.5rem;
+ }
+
+ /* Scrollable track container */
+ .fabrics-track-container {
+   overflow: hidden;
+   flex: 1;
+ }
+
+ /* Inner sliding track */
+ .fabrics-track {
+   display: flex;
+   gap: 1.5rem;
+   padding: 1rem 1.5rem 2rem;
+   transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+   will-change: transform;
+ }
+
+ /* ── Fabric Card ── */
+ .fabric-card {
+   flex: 0 0 320px;
+   background: linear-gradient(180deg, rgba(10,14,11,0.72), rgba(7,11,8,0.92));
+   border: 1px solid rgba(124,179,66,0.10);
+   border-radius: 20px;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   box-shadow: 0 16px 48px rgba(0,0,0,0.55);
+   transition: transform 0.38s cubic-bezier(0.25, 0.8, 0.25, 1),
+               border-color 0.38s ease,
+               box-shadow 0.38s ease;
+   cursor: default;
+ }
+
+ .fabric-card:hover {
+   transform: translateY(-10px);
+   border-color: rgba(124,179,66,0.30);
+   box-shadow: 0 30px 70px rgba(0,0,0,0.65), 0 0 0 1px rgba(124,179,66,0.12);
+ }
+
+ /* Card image area */
+ .fabric-card-img-wrap {
+   position: relative;
+   height: 240px;
+   overflow: hidden;
+   background: #0b130d;
+ }
+
+ .fabric-card-img-wrap img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   display: block;
+   transition: transform 0.55s cubic-bezier(0.25, 0.8, 0.25, 1),
+               filter 0.4s ease;
+   filter: saturate(0.88) brightness(0.92);
+ }
+
+ .fabric-card:hover .fabric-card-img-wrap img {
+   transform: scale(1.06);
+   filter: saturate(1.05) brightness(1);
+ }
+
+ /* Subtle gradient overlay on image */
+ .fabric-card-img-wrap::after {
+   content: '';
+   position: absolute;
+   inset: 0;
+   background: linear-gradient(to bottom, transparent 50%, rgba(7,11,8,0.70) 100%);
+   pointer-events: none;
+ }
+
+ /* "In Production" badge */
+ .fabric-badge {
+   position: absolute;
+   top: 0.85rem;
+   left: 0.85rem;
+   z-index: 5;
+   display: inline-flex;
+   align-items: center;
+   gap: 0.35rem;
+   background: rgba(7,11,8,0.68);
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+   border: 1px solid rgba(124,179,66,0.22);
+   border-radius: 50px;
+   padding: 0.3rem 0.75rem;
+   font-family: 'Poppins', sans-serif;
+   font-size: 0.68rem;
+   font-weight: 600;
+   color: var(--text-primary);
+   letter-spacing: 0.04em;
+   text-transform: uppercase;
+ }
+
+ .fabric-badge-dot {
+   display: inline-block;
+   width: 7px;
+   height: 7px;
+   border-radius: 50%;
+   background: var(--primary);
+   box-shadow: 0 0 6px var(--primary);
+   animation: fabric-pulse 1.8s ease-in-out infinite;
+   flex-shrink: 0;
+ }
+
+ @keyframes fabric-pulse {
+   0%, 100% { opacity: 1; transform: scale(1); }
+   50% { opacity: 0.55; transform: scale(0.82); }
+ }
+
+ /* Card body */
+ .fabric-card-body {
+   padding: 1.4rem 1.5rem 1.6rem;
+   display: flex;
+   flex-direction: column;
+   gap: 0.75rem;
+   flex: 1;
+ }
+
+ /* Fabric type tag (e.g. "Knit · Textured") */
+ .fabric-tag {
+   font-family: 'Poppins', sans-serif;
+   font-size: 0.68rem;
+   font-weight: 700;
+   letter-spacing: 0.14em;
+   text-transform: uppercase;
+   color: var(--primary);
+   opacity: 0.88;
+ }
+
+ /* Card heading */
+ .fabric-card-body h3 {
+   font-family: 'Poppins', sans-serif;
+   font-size: 1.15rem;
+   font-weight: 800;
+   color: var(--text-primary);
+   margin: 0;
+   line-height: 1.25;
+ }
+
+ /* Description */
+ .fabric-desc {
+   font-size: 0.875rem;
+   color: var(--text-secondary);
+   line-height: 1.65;
+   margin: 0;
+ }
+
+ /* Specs list */
+ .fabric-specs {
+   list-style: none;
+   padding: 0;
+   margin: 0.25rem 0;
+   display: flex;
+   flex-direction: column;
+   gap: 0.45rem;
+   border-top: 1px solid rgba(124,179,66,0.08);
+   padding-top: 0.75rem;
+ }
+
+ .fabric-specs li {
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+   gap: 0.5rem;
+   font-size: 0.8rem;
+ }
+
+ .spec-label {
+   font-family: 'Poppins', sans-serif;
+   font-weight: 600;
+   color: var(--text-muted);
+   text-transform: uppercase;
+   letter-spacing: 0.06em;
+   font-size: 0.7rem;
+   flex-shrink: 0;
+ }
+
+ .spec-value {
+   color: var(--text-primary);
+   font-weight: 500;
+   text-align: right;
+   font-size: 0.8rem;
+ }
+
+ /* Sample CTA link */
+ .fabric-cta {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.25rem;
+   font-family: 'Poppins', sans-serif;
+   font-size: 0.8rem;
+   font-weight: 700;
+   color: var(--primary);
+   text-decoration: none;
+   letter-spacing: 0.04em;
+   margin-top: auto;
+   padding-top: 0.5rem;
+   transition: color 0.25s ease, gap 0.25s ease;
+ }
+
+ .fabric-cta:hover {
+   color: #a0d260;
+   gap: 0.5rem;
+ }
+
+ /* ── Carousel Arrow Buttons ── */
+ .fabric-arrow {
+   flex-shrink: 0;
+   width: 46px;
+   height: 46px;
+   border-radius: 50%;
+   background: rgba(124,179,66,0.12);
+   border: 1px solid rgba(124,179,66,0.25);
+   color: var(--primary);
+   font-size: 1.35rem;
+   font-weight: 700;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: background 0.28s ease,
+               border-color 0.28s ease,
+               transform 0.28s ease,
+               box-shadow 0.28s ease;
+   z-index: 10;
+   margin: 0 0.5rem;
+ }
+
+ .fabric-arrow:hover {
+   background: rgba(124,179,66,0.24);
+   border-color: rgba(124,179,66,0.55);
+   transform: scale(1.1);
+   box-shadow: 0 0 20px rgba(124,179,66,0.18);
+ }
+
+ .fabric-arrow:disabled {
+   opacity: 0.3;
+   cursor: not-allowed;
+   transform: none;
+   box-shadow: none;
+ }
+
+ /* ── Fabric CTA Banner ── */
+ .fabrics-cta-banner {
+   margin: 2rem 1.5rem 0;
+   max-width: 1180px;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 1.5rem;
+   padding-right: 1.5rem;
+ }
+
+ .fabrics-cta-inner {
+   background: linear-gradient(135deg, rgba(124,179,66,0.08) 0%, rgba(90,138,42,0.06) 100%);
+   border: 1px solid rgba(124,179,66,0.18);
+   border-radius: 24px;
+   padding: 2.25rem 2.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 2rem;
+   backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+ }
+
+ .fabrics-cta-text h3 {
+   font-family: 'Cormorant Garamond', serif;
+   font-size: clamp(1.5rem, 3vw, 2rem);
+   color: var(--text-primary);
+   margin-bottom: 0.5rem;
+   font-weight: 700;
+ }
+
+ .fabrics-cta-text p {
+   color: var(--text-secondary);
+   font-size: 0.95rem;
+   line-height: 1.7;
+   max-width: 520px;
+ }
+
+ .fabrics-cta-actions {
+   display: flex;
+   gap: 1rem;
+   flex-shrink: 0;
+   flex-wrap: wrap;
+ }
+
+ /* ── Responsive ── */
+ @media (max-width: 900px) {
+   .fabric-card {
+     flex: 0 0 270px;
+   }
+   .fabric-card-img-wrap {
+     height: 200px;
+   }
+   .fabrics-cta-inner {
+     flex-direction: column;
+     text-align: center;
+     align-items: flex-start;
+   }
+   .fabrics-cta-actions {
+     justify-content: flex-start;
+   }
+ }
+
+ @media (max-width: 600px) {
+   .fabric-card {
+     flex: 0 0 240px;
+   }
+   .fabric-arrow {
+     width: 36px;
+     height: 36px;
+     font-size: 1rem;
+     margin: 0 0.2rem;
+   }
+   .fabrics-cta-inner {
+     padding: 1.5rem 1.25rem;
+   }
+   .fabrics-cta-actions {
+     flex-direction: column;
+     width: 100%;
+   }
+   .fabrics-cta-actions .btn-primary,
+   .fabrics-cta-actions .btn-outline {
+     width: 100%;
+     text-align: center;
+     justify-content: center;
+   }
+ }

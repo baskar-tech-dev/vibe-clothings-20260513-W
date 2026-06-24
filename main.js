@@ -242,6 +242,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   window.addEventListener('scroll', handleParallax, { passive: true });
+  window.addEventListener('resize', checkCounters, { passive: true });
+  checkCounters();
 
 
   /* ══════════════════════════════════
