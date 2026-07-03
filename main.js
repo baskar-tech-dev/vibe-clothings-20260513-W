@@ -432,4 +432,73 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  /* ══════════════════════════════════
+     11. FABRIC CAROUSEL (Products Page)
+  ══════════════════════════════════ */
+  const fabricTrack = document.getElementById('fabricsTrack');
+  const fabricPrev = document.getElementById('fabricPrev');
+  const fabricNext = document.getElementById('fabricNext');
+
+  if (fabricTrack && fabricPrev && fabricNext) {
+    let fabricOffset = 0;
+    const cardWidth = 320 + 24; // card flex-basis + gap
+
+    function getMaxOffset() {
+      const container = document.getElementById('fabricsTrackContainer');
+      if (!container) return 0;
+      const visibleWidth = container.clientWidth;
+      const totalWidth = fabricTrack.scrollWidth;
+      return Math.max(0, totalWidth - visibleWidth);
+    }
+
+    function updateFabricArrows() {
+      fabricPrev.disabled = fabricOffset <= 0;
+      fabricNext.disabled = fabricOffset >= getMaxOffset();
+    }
+
+    fabricNext.addEventListener('click', () => {
+      const max = getMaxOffset();
+      fabricOffset = Math.min(fabricOffset + cardWidth, max);
+      fabricTrack.style.transform = `translateX(-${fabricOffset}px)`;
+      updateFabricArrows();
+    });
+
+    fabricPrev.addEventListener('click', () => {
+      fabricOffset = Math.max(fabricOffset - cardWidth, 0);
+      fabricTrack.style.transform = `translateX(-${fabricOffset}px)`;
+      updateFabricArrows();
+    });
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchStartOffset = 0;
+
+    fabricTrack.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartOffset = fabricOffset;
+      fabricTrack.style.transition = 'none';
+    }, { passive: true });
+
+    fabricTrack.addEventListener('touchmove', (e) => {
+      const diff = touchStartX - e.touches[0].clientX;
+      const newOffset = Math.max(0, Math.min(touchStartOffset + diff, getMaxOffset()));
+      fabricTrack.style.transform = `translateX(-${newOffset}px)`;
+    }, { passive: true });
+
+    fabricTrack.addEventListener('touchend', (e) => {
+      fabricTrack.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)';
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        fabricOffset = diff > 0
+          ? Math.min(fabricOffset + cardWidth, getMaxOffset())
+          : Math.max(fabricOffset - cardWidth, 0);
+      }
+      fabricTrack.style.transform = `translateX(-${fabricOffset}px)`;
+      updateFabricArrows();
+    }, { passive: true });
+
+    updateFabricArrows();
+    window.addEventListener('resize', updateFabricArrows, { passive: true });
+  }
+
 });

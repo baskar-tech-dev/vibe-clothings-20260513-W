@@ -2683,6 +2683,7 @@
  /* Standardized H1 Headers */
  .premium-hero h1,
  .about-hero h1,
+ .catalog-hero h1,
  .services-hero h1,
  .clients-hero h1,
  .shop-hero h1,
@@ -2702,6 +2703,7 @@
 
  .premium-hero h1 em,
  .about-hero h1 em,
+ .catalog-hero h1 em,
  .services-hero h1 em,
  .clients-hero h1 em,
  .shop-hero h1 em,
@@ -2715,6 +2717,7 @@
  .premium-hero p,
  .about-hero p,
  .services-hero p,
+ .catalog-hero p,
  .clients-hero p,
  .shop-hero p,
  .faq-hero p,
@@ -2729,6 +2732,7 @@
  .hero-actions {
    display: flex;
    justify-content: center;
+   gap:12px;
  }
 
  .category-card {
@@ -4001,3 +4005,540 @@
      justify-content: center;
    }
  }
+
+/* ═══════════════════════════════════════════════
+   VIBE CLOTHING COMPANY — product-catalog.css
+   Custom styles for the Product Catalog Page
+   ═══════════════════════════════════════════════ */
+
+/* --- Page Hero & Header Spacing --- */
+.catalog-hero {
+  padding-top: 180px;
+  padding-bottom: 60px;
+  background: linear-gradient(180deg, rgba(7,11,8,0.2) 0%, rgba(13,21,17,0.6) 100%);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+ 
+/* --- Bubble Catalog Filters --- */
+.catalog-filters-container {
+  padding: 2.5rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.catalog-filters-carousel {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  position: relative;
+  padding: 1.5rem 0;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.catalog-filters-carousel::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+.catalog-filters {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  flex-wrap: nowrap;
+}
+
+.filter-bubble {
+  flex-shrink: 0;
+  background: rgba(13, 21, 17, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  padding: 0.7rem 1.4rem;
+  border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.filter-bubble:hover {
+  background: var(--primary-soft);
+  border-color: var(--primary);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.filter-bubble.active {
+  background: var(--primary);
+  color: #070B08;
+  border-color: var(--primary);
+  font-weight: 600;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 179, 66, 0.4);
+}
+
+/* --- Catalog Grid of 4 --- */
+.catalog-section {
+  padding-bottom: 100px;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  transition: all 0.4s ease;
+}
+
+/* Responsive Grid columns mapping */
+@media (max-width: 1100px) {
+  .catalog-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Product Cards --- */
+.product-card {
+  background: var(--bg-overlay);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  position: relative;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animation state for filtering */
+.product-card.hidden {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(124, 179, 66, 0.15);
+}
+
+.product-media {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.product-card:hover .product-media img {
+  transform: scale(1.06);
+}
+
+.product-info {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.product-category-tag {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.product-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.product-view-btn {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(124,179,66,0.1);
+  padding-top: 0.75rem;
+  transition: color 0.3s;
+}
+
+.product-card:hover .product-view-btn {
+  color: var(--primary);
+}
+
+/* --- Premium Interactive Modal Overlay --- */
+.product-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2500;
+  background: rgba(7, 11, 8, 0.94);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 1.5rem;
+}
+
+.product-modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-container {
+  background: var(--bg-overlay);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1050px;
+  max-height: 90vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+  animation: modalPop 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 850px) {
+  .modal-container {
+    flex-direction: column;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+}
+
+/* Modal Close Button */
+.modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: rgba(13, 21, 17, 0.6);
+  border: 1px solid var(--border);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 20;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  background: var(--primary);
+  color: #070B08;
+  border-color: var(--primary);
+  transform: rotate(90deg);
+}
+
+/* Modal Left: Main Viewer */
+.modal-viewer {
+  flex: 1.3;
+  background: #040604;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1.2;
+}
+
+@media (max-width: 850px) {
+  .modal-viewer {
+    flex: none;
+    width: 100%;
+    aspect-ratio: 1.2;
+  }
+}
+
+.modal-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1.5rem;
+  transition: opacity 0.3s ease;
+}
+
+/* Navigation Arrows */
+.modal-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(13, 21, 17, 0.7);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  user-select: none;
+  z-index: 10;
+}
+
+.modal-nav-arrow:hover {
+  background: var(--primary);
+  color: #070B08;
+  border-color: var(--primary);
+  box-shadow: 0 0 15px rgba(124,179,66,0.3);
+}
+
+.modal-nav-prev {
+  left: 1rem;
+}
+
+.modal-nav-next {
+  right: 1rem;
+}
+
+/* Modal Right: Details & Gallery */
+.modal-details {
+  flex: 1;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(13,21,17,0.3) 0%, rgba(7,11,8,0.3) 100%);
+}
+
+@media (max-width: 850px) {
+  .modal-details {
+    padding: 2rem;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+}
+
+.modal-details-top {
+  margin-bottom: 2rem;
+}
+
+.modal-category {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 350;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.modal-desc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Previews gallery */
+.modal-gallery-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-gallery-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.modal-previews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.modal-preview-thumb {
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background: #000;
+  transition: all 0.3s;
+}
+
+.modal-preview-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s;
+}
+
+.modal-preview-thumb:hover {
+  border-color: var(--text-secondary);
+}
+
+.modal-preview-thumb.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px rgba(124,179,66,0.3);
+}
+
+/* Quote/CTA Button in Modal */
+.modal-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: #070B08;
+  border: 1px solid var(--primary);
+  padding: 0.9rem 1.8rem;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  margin-top: auto;
+  cursor: pointer;
+}
+
+.modal-cta-btn span {
+  margin-left: 8px;
+  transition: transform 0.3s;
+}
+
+.modal-cta-btn:hover {
+  background: transparent;
+  color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.modal-cta-btn:hover span {
+  transform: translateX(4px);
+}
+
+/* --- Dynamic Card Entrance Animations --- */
+@keyframes cardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardScalePop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cardFlipIn {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateX(12deg) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px) rotateX(0) translateY(0);
+  }
+}
+
+@keyframes cardSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

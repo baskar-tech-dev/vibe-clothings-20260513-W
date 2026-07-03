@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Catalog - Vibe Clothing Company</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/asset/logo-black.png" type="image/x-icon" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <!-- Dynamic Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+  <!-- CATALOG HERO SECTION -->
+  <section class="catalog-hero">
+    <div class="container">
+      <span class="section-tag" style="
+            color: var(--primary);
+            letter-spacing: 0.15em;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: &quot;Poppins&quot;, sans-serif;
+            text-transform: uppercase;
+          ">PRODUCT EXHIBIT</span>
+      <h1 class="scroll-reveal">Our Apparel <em>Collections</em></h1>
+      <p class="scroll-reveal delay-1">
+        Explore our range of premium global fabrics, bespoke activewear, and
+        custom garments tailored for world-class brands.
+      </p>
+    </div>
+  </section>
+
+  <main class="page-content">
+    <div class="catalog-filters-container container scroll-reveal delay-2">
+      <div class="catalog-filters-carousel">
+        <div class="catalog-filters" id="catalogFilters">
+          <!-- First track set -->
+          <button class="filter-bubble active" data-category="all">
+            all collections
+          </button>
+          <button class="filter-bubble" data-category="cotton fabric">
+            cotton fabric
+          </button>
+          <button class="filter-bubble" data-category="Synthetic fabric">
+            Synthetic fabric
+          </button>
+          <button class="filter-bubble" data-category="t-shirt">
+            t-shirt
+          </button>
+          <button class="filter-bubble" data-category="polo-t-shirt">
+            polo-t-shirt
+          </button>
+          <button class="filter-bubble" data-category="hoodie">hoodie</button>
+          <button class="filter-bubble" data-category="sweatshirt">
+            sweatshirt
+          </button>
+          <button class="filter-bubble" data-category="track-pant">
+            track-pant
+          </button>
+          <button class="filter-bubble" data-category="jogger">jogger</button>
+          <!-- Second track set (for seamless looping animation) -->
+          <button class="filter-bubble" data-category="all">
+            all collections
+          </button>
+          <button class="filter-bubble" data-category="cotton fabric">
+            cotton fabric
+          </button>
+          <button class="filter-bubble" data-category="Synthetic fabric">
+            Synthetic fabric
+          </button>
+          <button class="filter-bubble" data-category="t-shirt">
+            t-shirt
+          </button>
+          <button class="filter-bubble" data-category="polo-t-shirt">
+            polo-t-shirt
+          </button>
+          <button class="filter-bubble" data-category="hoodie">hoodie</button>
+          <button class="filter-bubble" data-category="sweatshirt">
+            sweatshirt
+          </button>
+          <button class="filter-bubble" data-category="track-pant">
+            track-pant
+          </button>
+          <button class="filter-bubble" data-category="jogger">jogger</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS GRID SECTION -->
+    <section class="catalog-section container">
+      <div class="catalog-grid" id="catalogGrid">
+        <!-- Rendered Dynamically via JS -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive Product Preview Modal Overlay -->
+  <div class="product-modal" id="productModal">
+    <button class="modal-close" id="modalClose" aria-label="Close modal">
+      &times;
+    </button>
+
+    <div class="modal-container" id="modalContainer">
+      <!-- Navigation arrows inside the viewer -->
+      <div class="modal-viewer">
+        <button class="modal-nav-arrow modal-nav-prev" id="modalPrev" aria-label="Previous image">
+          &#10094;
+        </button>
+        <img src="" alt="Product view" class="modal-main-img" id="modalMainImg" />
+        <button class="modal-nav-arrow modal-nav-next" id="modalNext" aria-label="Next image">
+          &#10095;
+        </button>
+      </div>
+
+      <!-- Right details & gallery previews -->
+      <div class="modal-details">
+        <div class="modal-details-top">
+          <span class="modal-category" id="modalCategoryTag">Category</span>
+          <h2 class="modal-title" id="modalTitle">Product Title</h2>
+          <p class="modal-desc" id="modalDesc">
+            Detailed specification, weave quality, custom printing capability,
+            and sizing guides are available upon enquiry request.
+          </p>
+        </div>
+
+        <div class="modal-gallery-section">
+          <h4 class="modal-gallery-title">Collection Gallery</h4>
+          <div class="modal-previews-grid" id="modalPreviewsGrid">
+            <!-- 4 small preview thumbnails rendered dynamically -->
+          </div>
+        </div>
+
+        <a href="enquiry.html" class="modal-cta-btn" id="modalCta">
+          REQUEST BULK QUOTE <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="footer-top-line"></div>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo footer-logo">
+          <div class="logo-icon" style="width: 100px; height: 100px">
+            <img src="/asset/logo.png" alt="Vibe Clothing Logo"
+              style="width: 100%; height: 100%; object-fit: contain" />
+          </div>
+        </a>
+        <p class="footer-brand-desc">
+          Vibe Clothing Company isn't just a choice — it's a statement of
+          quality, adaptability, and responsibility. Here, your textile
+          aspirations become our mission for excellence.
+        </p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"
+              fill="currentColor">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
+            </svg></a>
+          <a href="#" class="social-btn" aria-label="X"><svg viewBox="0 0 24 24" width="18" height="18"
+              fill="currentColor">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg></a>
+          <a href="#" class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"
+              fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="4" />
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"
+              fill="currentColor">
+              <path
+                d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z" />
+            </svg></a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">QUICK LINKS</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4 class="footer-col-title">OTHER LINKS</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-links">
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="enquiry.html">Enquiry</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact-col">
+        <h4 class="footer-col-title">GET IN TOUCH</h4>
+        <div class="footer-col-line"></div>
+        <ul class="footer-contact-list">
+          <li>
+            <div class="fci-icon">
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                <rect x="2" y="4" width="20" height="16" rx="2" stroke="#7CB342" stroke-width="1.5" />
+                <path d="M2 8 L12 14 L22 8" stroke="#7CB342" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <a href="mailto:enquiry@vibeclothingcompany.net" class="fci-link">enquiry@vibeclothingcompany.net</a>
+          </li>
+          <li>
+            <div class="fci-icon">
+              <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
+                <path
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  stroke="#7CB342" stroke-width="1.5" />
+              </svg>
+            </div>
+            <div class="fci-phones">
+              <span>IN: +91 97919 99998</span><span>UK: +44 7404447806</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="fb-content">
+        <p class="fb-copyright">
+          © 2026 <span class="footer-brand-name">Vibe Clothing Company</span>.
+          All Rights Reserved.
+        </p>
+        <div class="fb-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <span class="fb-dot">•</span>
+          <a href="terms-of-service.html">Terms of Service</a>
+          <span class="fb-dot">•</span>
+          <span class="fb-credit">Designed by
+            <a href="https://futuremindstudio.in" target="_blank">Future Mind Studio</a></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+
+  <!-- Product Catalog Dynamic Rendering and Control Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // ═══════════════════════════════════════════════
+      // 1. DATA DEFINITIONS (Mapping to existing assets)
+      // ═══════════════════════════════════════════════
+
+      const products = [
+        // --- COTTON FABRICS ---
+        {
+          id: "cot-1",
+          name: "Premium Single Jersey Fabric",
+          category: "cotton fabric",
+          image: "asset/fabrics/cotton-single-jercy-multicolor.png",
+          desc: "High-grade 100% organic cotton single jersey with superior combed yarns. Features optimal breathability and print-receptivity, ideal for premium brand tees.",
+        },
+        {
+          id: "cot-2",
+          name: "Classic Pique Knit Fabric",
+          category: "cotton fabric",
+          image: "asset/fabrics/cotton-Pique-abric-multicolor.png",
+          desc: "Traditional textured cotton pique fabric. Exceptional drape, mesh structured ventilation, and color fastness, engineered for export-quality polo shirts.",
+        },
+        {
+          id: "cot-3",
+          name: "Heavyweight French Terry Fabric",
+          category: "cotton fabric",
+          image: "asset/fabrics/cotton-french-terry-multicolor.png",
+          desc: "Thick, looping back french terry material. Extremely cozy feeling, high weight retention, perfect for streetwear hoodies and relaxed sweatshirts.",
+        },
+        {
+          id: "cot-4",
+          name: "Elasticated Cotton Rib Knit",
+          category: "cotton fabric",
+          image: "asset/fabrics/cotton-rib-fabric-multicolor.png",
+          desc: "Resilient 1x1 / 2x2 rib fabric containing combed cotton. Provides excellent stretch recovery, ideal for collars, cuffs, and snug fit sportswear.",
+        },
+        {
+          id: "cot-5",
+          name: "Slub Textured Knit Fabric",
+          category: "cotton fabric",
+          image: "asset/fabrics/cotton-slub-jersey-multicolor.png",
+          desc: "Organic cotton knit fabric featuring organic slub yarn variations. Gives a tactile rustic texture and lightweight organic aesthetic.",
+        },
+        {
+          id: "cot-6",
+          name: "Thermal Waffle Knit Fabric",
+          category: "cotton fabric",
+          image: "asset/fabrics/cotton-waffle-fabric-multicolor.png",
+          desc: "Deep square grid waffle knit. Offers thermal retention while keeping skin ventilated, popular for seasonal layering lines.",
+        },
+        {
+          id: "cot-7",
+          name: "Double-Knit Interlock Cotton",
+          category: "cotton fabric",
+          image: "asset/fabrics/cotton-interlock.png",
+          desc: "Smooth, double-constructed interlock fabric. Gives identical surface qualities on both sides, ensuring extreme softness and thick durability.",
+        },
+
+        // --- SYNTHETIC FABRICS ---
+        {
+          id: "syn-1",
+          name: "Technical Spandex Performance Fabric",
+          category: "Synthetic fabric",
+          image: "asset/synthetic-fabric-1.png",
+          desc: "Engineered synthetic fabric blend featuring high elastic memory. Ideal for activewear, sports leggings, and shapewear compression lines.",
+        },
+        {
+          id: "syn-2",
+          name: "High-Tensile Athletic Nylon",
+          category: "Synthetic fabric",
+          image: "asset/synthetic-fabric-2.png",
+          desc: "Resistant synthetic nylon fiber weave. Highly durable outer layer feel, moisture-wicking technology, made for extreme sports gear.",
+        },
+        {
+          id: "syn-3",
+          name: "Breathing Polyester Sport Mesh",
+          category: "Synthetic fabric",
+          image: "asset/synthetic-fabric-3.png",
+          desc: "Lightweight poly mesh constructed with micro ventilation holes. Keeps the athlete cool during sweat-heavy runs or outdoor training.",
+        },
+
+        // --- T-SHIRTS ---
+        {
+          id: "t-1",
+          name: "Premium Crew Neck T-Shirt",
+          category: "t-shirt",
+          image: "asset/styles/basc-tshirt.png",
+          desc: "Signature crew neck tee constructed with double-stitched hems, relaxed luxury tailoring, and pre-shrunk organic cotton jersey.",
+        },
+        {
+          id: "t-2",
+          name: "Allover Printed Signature Tee",
+          category: "t-shirt",
+          image: "asset/styles/basic-tshirt-allover-printed.png",
+          desc: "Full-bleed sublimation or screen printed tee. Breathable eco-ink application ensures premium color density without altering fabric drape.",
+        },
+        {
+          id: "t-3",
+          name: "Cut & Sew Panel Tee",
+          category: "t-shirt",
+          image: "asset/styles/basic-tshirt-cutandsew.png",
+          desc: "Fashion-forward contrast panels joined with flatlock stitching. Features geometric style blocking for high-end active streetwear.",
+        },
+        {
+          id: "t-4",
+          name: "Branded Minimalist Chest Tee",
+          category: "t-shirt",
+          image: "asset/styles/basic-tshirt-printed-on-chest.png",
+          desc: "Retail-ready blank tee with high-definition chest print branding. Perfect weight, premium combed cotton finish.",
+        },
+        {
+          id: "t-5",
+          name: "Yarn Dyed Striped Tee",
+          category: "t-shirt",
+          image: "asset/styles/basic-tshirt-yarn-dyed-strips.png",
+          desc: "Traditional horizontal stripes woven directly from dyed cotton yarns, ensuring lines remain vibrant and sharp through infinite wash cycles.",
+        },
+
+        // --- POLO T-SHIRTS ---
+        {
+          id: "p-1",
+          name: "Classic Pique Cotton Polo",
+          category: "polo-t-shirt",
+          image: "asset/styles/polo-Tshirt.png",
+          desc: "Refined executive polo shirt with structured knit collars, button plackets, and side vents. Made of signature heavy pique.",
+        },
+        {
+          id: "p-2",
+          name: "Allover Patterned Polo",
+          category: "polo-t-shirt",
+          image: "asset/styles/polo-tshirt-allover-printed.png",
+          desc: "Modern polo detailing custom prints over a premium combed cotton base, offering a classy yet casual look.",
+        },
+        {
+          id: "p-3",
+          name: "Panelled Cut & Sew Polo",
+          category: "polo-t-shirt",
+          image: "asset/styles/polo-tshirt-cutandsew.png",
+          desc: "Athletic color block segments combined with flexible stitching to construct a sporty, breathable polo profile.",
+        },
+        {
+          id: "p-4",
+          name: "Embroidered Branded Polo",
+          category: "polo-t-shirt",
+          image: "asset/styles/polo-tshirt-printed-on-chest.png",
+          desc: "Clean corporate polo featuring flat high-density chest embroidery. Perfect uniforming fabric for corporate client catalogs.",
+        },
+        {
+          id: "p-5",
+          name: "Yarn Dyed Striped Polo",
+          category: "polo-t-shirt",
+          image: "asset/styles/polo-tshirt-yarn-dyed-strips.png",
+          desc: "Classic boating stripe aesthetic, knitted collars, rib cuffs. Outstanding longevity and collar stiffness.",
+        },
+
+        // --- HOODIES ---
+        {
+          id: "h-1",
+          name: "Classic Streetwear Hoodie",
+          category: "hoodie",
+          image: "asset/styles/hoodie-style.png",
+          desc: "Premium organic cotton hoodie with a double-layered hood and relaxed streetwear cut, engineered for ultimate comfort.",
+        },
+        {
+          id: "h-2",
+          name: "Casual Fleece Hoodie",
+          category: "hoodie",
+          image: "asset/styles/casual-hoodie.png",
+          desc: "Super soft combed fleece lining pullover hoodie, perfect for relaxed weekends and everyday premium comfort.",
+        },
+        {
+          id: "h-3",
+          name: "Relaxed Drop-Shoulder Hoodie",
+          category: "hoodie",
+          image: "asset/styles/relaxed-hoodie.png",
+          desc: "Contemporary silhouette featuring low shoulders, heavy-duty loopback cotton, and clean minimal pockets.",
+        },
+        {
+          id: "h-4",
+          name: "Minimalist Studio Hoodie",
+          category: "hoodie",
+          image: "asset/styles/minimal-style.png",
+          desc: "Ultra-sleek aesthetic with hidden drawstring adjusters, modern tailored seams, and high-density branding zone.",
+        },
+
+        // --- SWEATSHIRTS ---
+        {
+          id: "s-1",
+          name: "Classic Combed Crewneck Sweatshirt",
+          category: "sweatshirt",
+          image: "asset/styles/classic-crewneck-sweatshirt.png",
+          desc: "Traditional heavyweight athletic crewneck sweater with cross-grain knit construction and premium ribbed panels.",
+        },
+        {
+          id: "s-2",
+          name: "Oversized Streetwear Sweatshirt",
+          category: "sweatshirt",
+          image: "asset/styles/oversized-sweatshirt.png",
+          desc: "Contemporary boxy-fit drop-shoulder sweatshirt, heavy cotton French Terry build for perfect structural drape.",
+        },
+        {
+          id: "s-3",
+          name: "Premium Quarter-Zip Sweatshirt",
+          category: "sweatshirt",
+          image: "asset/styles/quarter-zip-sweatshirt.png",
+          desc: "Sporty pullover featuring a high-quality metal quarter-zip collar, ribbed hem cuffs, and breathable fleece back.",
+        },
+        {
+          id: "s-4",
+          name: "Half-Zip Mockneck Sweatshirt",
+          category: "sweatshirt",
+          image: "asset/styles/half-zip-mockneck-weatshirt.png",
+          desc: "Premium mock neck profile with a metallic half-zip front, detailed panel stitching, and warm thermal backing.",
+        },
+
+        // --- TRACK PANTS ---
+        {
+          id: "tp-1",
+          name: "Classic Tapered Track Pant",
+          category: "track-pant",
+          image: "asset/styles/track-phant-classic-jogger.png",
+          desc: "Athletic tapered track pants styled with zipper side pockets, tailored drawcords, and dynamic moisture-wicking technology.",
+        },
+        {
+          id: "tp-2",
+          name: "Retro Side-Striped Track Pant",
+          category: "track-pant",
+          image: "asset/styles/track-phant-side-striped.png",
+          desc: "Classy panel side stripes woven directly on a midweight poly-cotton athletic weave, offering sporty retro vibes.",
+        },
+        {
+          id: "tp-3",
+          name: "Slim-Fit Performance Warm-up Pants",
+          category: "track-pant",
+          image: "asset/styles/track-phant-slim-fit.png",
+          desc: "Wind-resistant athletic performance warm-up training pants with soft knit jersey lining, custom fit for action.",
+        },
+        {
+          id: "tp-4",
+          name: "Pro-Vent Ankle Zip Track Pants",
+          category: "track-pant",
+          image: "asset/styles/track-phant-zip-ankle.png",
+          desc: "Breathable stretch athletic training pants equipped with zippered ankle expansions for rapid gear adjustments.",
+        },
+
+        // --- JOGGERS ---
+        {
+          id: "j-1",
+          name: "Premium Fleece Jogger",
+          category: "jogger",
+          image: "asset/styles/jogger-1.png",
+          desc: "Soft heavyweight joggers with thick cuffed ankles, premium flat drawstring accents, and deep media pockets.",
+        },
+        {
+          id: "j-2",
+          name: "Relaxed Athleisure Joggers",
+          category: "jogger",
+          image: "asset/styles/jogger-2.png",
+          desc: "Flexible hybrid loungewear joggers, offering top-tier comfort drape for off-duty athletes.",
+        },
+        {
+          id: "j-3",
+          name: "Active Cotton Joggers",
+          category: "jogger",
+          image: "asset/styles/jogger-3.png",
+          desc: "Snug-fit sports jogger pants made of loopback combed cotton with flexible rib inserts.",
+        },
+        {
+          id: "j-4",
+          name: "Urban Cargo Jogger",
+          category: "jogger",
+          image: "asset/styles/jogger-4.png",
+          desc: "Slim-fit active cargo jogger featuring multi-pockets and premium flat drawstring closures.",
+        },
+      ];
+
+      // ═══════════════════════════════════════════════
+      // 2. DOM ELEMENTS & STATE
+      // ═══════════════════════════════════════════════
+
+      const grid = document.getElementById("catalogGrid");
+      const filters = document.querySelectorAll(".filter-bubble");
+
+      const modal = document.getElementById("productModal");
+      const modalMainImg = document.getElementById("modalMainImg");
+      const modalCategoryTag = document.getElementById("modalCategoryTag");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDesc");
+      const modalPreviewsGrid = document.getElementById("modalPreviewsGrid");
+
+      const modalClose = document.getElementById("modalClose");
+      const modalPrev = document.getElementById("modalPrev");
+      const modalNext = document.getElementById("modalNext");
+
+      let activeFilter = "all";
+      let activeProductIndex = -1;
+      let activeProductList = []; // Track currently visible products in grid for modal cycling
+
+      // ═══════════════════════════════════════════════
+      // 3. RENDER FUNCTION
+      // ═══════════════════════════════════════════════
+
+      function renderCatalog(category) {
+        grid.innerHTML = "";
+
+        const lowerCat = category.toLowerCase();
+
+        if (lowerCat === "all") {
+          activeProductList = [...products];
+        } else {
+          activeProductList = products.filter(
+            (p) => p.category.toLowerCase() === lowerCat,
+          );
+        }
+
+        if (activeProductList.length === 0) {
+          grid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-secondary);">No products found in this category.</div>`;
+          return;
+        }
+
+        // Render card nodes
+        activeProductList.forEach((product, idx) => {
+          const card = document.createElement("article");
+          card.className = "product-card scroll-reveal";
+          card.style.opacity = "0"; // start hidden before animation triggers
+
+          // Select animation style depending on selected category bubble
+          let animName = "modalPop";
+          let animDuration = "0.5s";
+          let animTiming = "cubic-bezier(0.25, 0.8, 0.25, 1)";
+
+          const activeLower = activeFilter.toLowerCase();
+          if (
+            activeLower === "cotton fabric" ||
+            activeLower === "synthetic fabric"
+          ) {
+            animName = "cardFadeUp";
+            animDuration = "0.6s";
+          } else if (
+            activeLower === "t-shirt" ||
+            activeLower === "polo-t-shirt"
+          ) {
+            animName = "cardScalePop";
+            animDuration = "0.5s";
+            animTiming = "cubic-bezier(0.34, 1.56, 0.64, 1)"; // slight bounce
+          } else if (
+            activeLower === "hoodie" ||
+            activeLower === "sweatshirt"
+          ) {
+            animName = "cardFlipIn";
+            animDuration = "0.75s";
+          } else if (
+            activeLower === "track-pant" ||
+            activeLower === "jogger"
+          ) {
+            animName = "cardSlideInLeft";
+            animDuration = "0.55s";
+          }
+
+          card.style.animation = `${animName} ${animDuration} ${animTiming} forwards`;
+          card.style.animationDelay = `${idx * 0.05}s`;
+
+          card.innerHTML = `
+            <div class="product-media">
+              <img src="${product.image}" alt="${product.name}" loading="lazy">
+            </div>
+            <div class="product-info">
+              <span class="product-category-tag">${product.category}</span>
+              <h3 class="product-title">${product.name}</h3>
+              <div class="product-view-btn">
+                <span>View Gallery Details</span>
+                <span>&rarr;</span>
+              </div>
+            </div>
+          `;
+
+          // Click opens modal
+          card.addEventListener("click", () => {
+            openProductModal(product);
+          });
+
+          grid.appendChild(card);
+        });
+      }
+
+      // ═══════════════════════════════════════════════
+      // 4. FILTER INTERACTION & CLICK-AND-DRAG MARQUEE
+      // ═══════════════════════════════════════════════
+
+      const carousel = document.querySelector(".catalog-filters-carousel");
+
+      let isDown = false;
+      let startX;
+      let scrollLeftVal;
+      let isDragging = false;
+
+      carousel.addEventListener("mousedown", (e) => {
+        isDown = true;
+        carousel.style.cursor = "grabbing";
+        startX = e.pageX - carousel.offsetLeft;
+        scrollLeftVal = carousel.scrollLeft;
+        isDragging = false;
+      });
+
+      carousel.addEventListener("mouseleave", () => {
+        isDown = false;
+        carousel.style.cursor = "grab";
+      });
+
+      carousel.addEventListener("mouseup", () => {
+        isDown = false;
+        carousel.style.cursor = "grab";
+      });
+
+      carousel.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - carousel.offsetLeft;
+        const walk = (x - startX) * 1.5; // Drag sensitivity multiplier
+        carousel.scrollLeft = scrollLeftVal - walk;
+        isDragging = true;
+      });
+
+      // Touch events support for mobile devices
+      carousel.addEventListener(
+        "touchstart",
+        (e) => {
+          isDown = true;
+          startX = e.touches[0].pageX - carousel.offsetLeft;
+          scrollLeftVal = carousel.scrollLeft;
+          isDragging = false;
+        },
+        { passive: true },
+      );
+
+      carousel.addEventListener(
+        "touchend",
+        () => {
+          isDown = false;
+        },
+        { passive: true },
+      );
+
+      carousel.addEventListener(
+        "touchmove",
+        (e) => {
+          if (!isDown) return;
+          const x = e.touches[0].pageX - carousel.offsetLeft;
+          const walk = (x - startX) * 1.5;
+          carousel.scrollLeft = scrollLeftVal - walk;
+          isDragging = true;
+        },
+        { passive: true },
+      );
+
+      filters.forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          if (isDragging) {
+            e.preventDefault();
+            return;
+          }
+          const category = btn.getAttribute("data-category");
+          filters.forEach((f) => {
+            if (f.getAttribute("data-category") === category) {
+              f.classList.add("active");
+            } else {
+              f.classList.remove("active");
+            }
+          });
+
+          activeFilter = category;
+          renderCatalog(activeFilter);
+        });
+      });
+
+      // JS-Based Infinite Auto-scroll (paired with mouse dragging)
+      let autoScrollSpeed = 0.5; // Pixels per frame
+      let autoScrollActive = true;
+
+      function runAutoScroll() {
+        if (autoScrollActive && !isDown) {
+          carousel.scrollLeft += autoScrollSpeed;
+
+          // Reset scroll when reaching the halfway point (looping)
+          const halfWidth = carousel.scrollWidth / 2;
+          if (carousel.scrollLeft >= halfWidth) {
+            carousel.scrollLeft -= halfWidth;
+          }
+        }
+        requestAnimationFrame(runAutoScroll);
+      }
+
+      // Start scroller loops
+      requestAnimationFrame(runAutoScroll);
+
+      // Auto-scroll mouse hover pauses
+      carousel.addEventListener("mouseenter", () => {
+        autoScrollActive = false;
+      });
+      carousel.addEventListener("mouseleave", () => {
+        if (!isDown) autoScrollActive = true;
+      });
+
+      // ═══════════════════════════════════════════════
+      // 5. MODAL INTERACTION
+      // ═══════════════════════════════════════════════
+
+      function openProductModal(product) {
+        activeProductIndex = activeProductList.findIndex(
+          (p) => p.id === product.id,
+        );
+        updateModalContent(product);
+
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden"; // prevent scrolling behind modal
+      }
+
+      function updateModalContent(product) {
+        modalMainImg.style.opacity = 0;
+
+        setTimeout(() => {
+          modalMainImg.src = product.image;
+          modalMainImg.alt = product.name;
+          modalMainImg.style.opacity = 1;
+        }, 150);
+
+        modalCategoryTag.textContent = product.category;
+        modalTitle.textContent = product.name;
+        modalDesc.textContent = product.desc;
+
+        // Dynamically get 4 unique preview images from the same category
+        // The first one is the product's own main image
+        const categoryProducts = products.filter(
+          (p) => p.category === product.category,
+        );
+        const previewPaths = [product.image];
+
+        categoryProducts.forEach((item) => {
+          if (
+            previewPaths.length < 4 &&
+            item.image !== product.image &&
+            !previewPaths.includes(item.image)
+          ) {
+            previewPaths.push(item.image);
+          }
+        });
+
+        // Fallback to fill up exactly 4 previews if the category has less than 4 unique images
+        let fallbackIndex = 0;
+        while (previewPaths.length < 4) {
+          const generalProduct = products[fallbackIndex % products.length];
+          if (!previewPaths.includes(generalProduct.image)) {
+            previewPaths.push(generalProduct.image);
+          }
+          fallbackIndex++;
+        }
+
+        // Render preview thumbnails
+        modalPreviewsGrid.innerHTML = "";
+        previewPaths.forEach((path, i) => {
+          const thumb = document.createElement("button");
+          thumb.className = `modal-preview-thumb ${i === 0 ? "active" : ""}`;
+          thumb.setAttribute("aria-label", `View thumbnail ${i + 1}`);
+          thumb.innerHTML = `<img src="${path}" alt="View option ${i + 1}">`;
+
+          thumb.addEventListener("click", () => {
+            document
+              .querySelectorAll(".modal-preview-thumb")
+              .forEach((t) => t.classList.remove("active"));
+            thumb.classList.add("active");
+
+            // Swap main view image with fade
+            modalMainImg.style.opacity = 0;
+            setTimeout(() => {
+              modalMainImg.src = path;
+              modalMainImg.style.opacity = 1;
+            }, 150);
+          });
+
+          modalPreviewsGrid.appendChild(thumb);
+        });
+      }
+
+      function closeProductModal() {
+        modal.classList.remove("show");
+        document.body.style.overflow = "";
+      }
+
+      function navigateModal(direction) {
+        if (activeProductList.length <= 1) return;
+
+        if (direction === "next") {
+          activeProductIndex =
+            (activeProductIndex + 1) % activeProductList.length;
+        } else {
+          activeProductIndex =
+            (activeProductIndex - 1 + activeProductList.length) %
+            activeProductList.length;
+        }
+
+        updateModalContent(activeProductList[activeProductIndex]);
+      }
+
+      // Close events
+      modalClose.addEventListener("click", closeProductModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeProductModal();
+      });
+
+      // Nav events
+      modalPrev.addEventListener("click", () => navigateModal("prev"));
+      modalNext.addEventListener("click", () => navigateModal("next"));
+
+      // Keyboard listeners
+      document.addEventListener("keydown", (e) => {
+        if (!modal.classList.contains("show")) return;
+
+        if (e.key === "Escape") closeProductModal();
+        if (e.key === "ArrowRight") navigateModal("next");
+        if (e.key === "ArrowLeft") navigateModal("prev");
+      });
+
+      // ═══════════════════════════════════════════════
+      // 6. URL ROUTING & DEFAULTS
+      // ═══════════════════════════════════════════════
+
+      // Parse parameters e.g., ?category=fabric or ?category=cotton-fabric
+      const urlParams = new URLSearchParams(window.location.search);
+      const catParam = urlParams.get("category");
+
+      let preselectCategory = "all";
+
+      if (catParam) {
+        const query = catParam.toLowerCase();
+        if (query === "fabric" || query === "fabrics") {
+          preselectCategory = "cotton fabric"; // default fabric category
+        } else if (
+          query === "knits" ||
+          query === "knitting" ||
+          query === "garments"
+        ) {
+          preselectCategory = "t-shirt"; // default knitted category
+        } else {
+          // Check if matches any filter exactly
+          filters.forEach((btn) => {
+            const dataCat = btn.getAttribute("data-category").toLowerCase();
+            if (dataCat === query || dataCat.replace("-", " ") === query) {
+              preselectCategory = btn.getAttribute("data-category");
+            }
+          });
+        }
+      }
+
+      // Trigger preselected category
+      const targetBubbles = document.querySelectorAll(
+        `.filter-bubble[data-category="${preselectCategory}"]`,
+      );
+      if (targetBubbles.length > 0) {
+        filters.forEach((f) => f.classList.remove("active"));
+        targetBubbles.forEach((tb) => tb.classList.add("active"));
+        activeFilter = preselectCategory;
+      }
+
+      // Initial render
+      renderCatalog(activeFilter);
+    });
+  </script>
+</body>
+
+</html>
